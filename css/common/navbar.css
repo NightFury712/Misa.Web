@@ -11,10 +11,6 @@
     height: 60px;
 }
 
-.navbar .navbar-content {
-    width: 100%;
-}
-
 .navbar .logo-site .logo-box {
     display: flex;
     padding: 24px 0 0 24px;
@@ -35,4 +31,31 @@
     height: 30px;
     background-size: contain;
     background-repeat: no-repeat;
+}
+
+.navbar .navbar-content {
+    width: 100%;
+}
+
+.navbar .navbar-content .nav-item {
+    display: flex;
+    padding-left: 24px;
+    height: 44px;
+    line-height: 44px;
+}
+.navbar .navbar-content .nav-item:hover {
+    background-color: #e5e5e5;
+    color: #000000;
+    cursor: pointer;
+}
+
+.navbar .navbar-content .nav-item .nav-item-icon {
+    width: 20px;
+    height: 20px;
+    align-self: center;
+    margin-right: 10px;
+}
+
+.navbar .navbar-content .nav-item .nav-item-text {
+
 }

@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'ProductSans-Regular';
+    font-size: 13px;
+}
+
+@font-face {
+    font-family: 'ProductSans-Regular';
+    src: url(/content/font/ProductSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'ProductSans-Bold';
+    src: url(/content/font/ProductSans-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'ProductSans-Italic';
+    src: url(/content/font/ProductSans-Italic.ttf);
+}
+
+@font-face {
+    font-family: 'ProductSans-Light';
+    src: url(/content/font/ProductSans-Light.ttf);
+}
+
+@font-face {
+    font-family: 'ProductSans-Black';
+    src: url(/content/font/ProductSans-Black.ttf);
+}
+
+@font-face {
+    font-family: 'ProductSans-Thin';
+    src: url(/content/font/ProductSans-Thin.ttf);
+}

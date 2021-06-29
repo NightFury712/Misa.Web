@@ -1,0 +1,23 @@
+.m-btn {
+    display: flex;
+    align-items: center;
+    background-color: #019160;
+    border-radius: 4px;
+    height: 40px;
+    font-size: 13px;
+    color: #fff;
+    font-family: 'GoogleSans-Regular';
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.m-btn:hover {
+    background-color: #2fbe8e;
+}
+
+.m-btn .btn-text {
+    margin-left: 8px;
+}

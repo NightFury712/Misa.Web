@@ -2,5 +2,32 @@
     float: left;
     width: calc(100% - 221px);
     height: calc(100vh - 61px);
-    background-color: #e9ebee;
+    background-color: #fff;
+}
+
+.content .header-content {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    
+}
+
+.content .header-content .title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.content .header-content .content-feature {
+    position: absolute;
+    right: 16px;
+}
+
+
+
+.content .grid {
+
+}
+
+.content .paging-bar {
+
 }

@@ -56,6 +56,12 @@
     margin-right: 10px;
 }
 
-.navbar .navbar-content .nav-item .nav-item-text {
+.navbar .navbar-content .nav-item .nav-item-icon i {
+    position: absolute;
+    font-size: 16px;
+    margin-top: 2px;
+}
 
+.navbar .navbar-content .nav-item .nav-item-text {
+    font-size: 15px;
 }

@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="/css/common/navbar.css">
     <link rel="stylesheet" href="/css/page/employee.css">
     <link rel="stylesheet" href="/css/common/content.css">
+    <link rel="stylesheet" href="/css/common/button.css">
+    <link rel="stylesheet" href="/css/common/toolbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
 <body>
@@ -23,25 +26,74 @@
         </div>
         <div class="navbar-content">
             <div class="nav-item">
-                <div class="nav-item-icon"></div>
+                <div class="nav-item-icon">
+                    <i class="fas fa-chart-pie"></i>
+                </div>
                 <div class="nav-item-text">Lập hồ sơ điện tử</div>
             </div>
             <div class="nav-item">
-                <div class="nav-item-icon"></div>
+                <div class="nav-item-icon">
+                    <i class="far fa-chart-bar"></i>
+                </div>
                 <div class="nav-item-text">Lập hồ sơ giấy</div>
             </div>
             <div class="nav-item">
-                <div class="nav-item-icon"></div>
+                <div class="nav-item-icon">
+                    <i class="far fa-chart-bar"></i>
+                </div>
                 <div class="nav-item-text">Theo dõi chi</div>
             </div>
             <div class="nav-item">
-                <div class="nav-item-icon"></div>
+                <div class="nav-item-icon">
+                    <i class="fas fa-users"></i>
+                </div>
                 <div class="nav-item-text">Hồ sơ lao động</div>
             </div>
         </div>
     </div>
-    <div class="header">header</div>
-    <div class="content">content</div>
+    <div class="header">
+        <div class="select-restaurant">
+            <select name="restaurant" id="restaurant" class="select-option">
+                <option value="MS">Nhà hàng Cầu Giấy</option>
+                <option value="MS">Nhà hàng Hải Dương</option>
+                <option value="MS">Nhà hàng Hải Phòng</option>
+            </select>
+        </div>
+        <div class="account-info">
+            <div class="account-avatar"></div>
+            <div class="account-name">Hoàng Hải Đăng</div>
+            <div class="account-option">
+                <i class="fas fa-ellipsis-h"></i>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="header-content">
+            <div class="title">Danh sách nhân viên</div>
+            <div class="content-feature">
+                <button class="m-btn m-btn-default">
+                    <div class="icon-add">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <div class="btn-text">Thêm nhân viên</div>
+                </button>
+            </div>
+        </div>
+        <div class="filter-bar">
+            <div class="filter-left">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Tìm kiếm theo Mã, Tên nhân viên">
+                <select>
+                    <option value="ds">Phòng đào tạo</option>
+                    <option value="ds">Phòng đào tạo</option>
+                    <option value="ds">Phòng đào tạo</option>
+                </select>
+            </div>
+            <div class="filter-right"></div>
+        </div>
+        <div class="grid"></div>
+        <div class="paging-bar"></div>
+    </div>
 </body>
 
 </html>

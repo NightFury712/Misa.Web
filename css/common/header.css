@@ -1,6 +1,43 @@
 .header {
     float: left;
+    display: flex;
+    align-items: center;
     width: calc(100% - 221px);
     height: 60px;
     border-bottom: 1px solid #e5e5e5;
+}
+
+.header .select-restaurant {
+    margin-left: 16px;
+}
+
+.header .account-info {
+    position: absolute;
+    display: flex;
+    right: 24px;
+}
+
+.header .select-option {
+    border: none;
+    outline: none;
+    font-size: 15px;
+}
+
+.header .account-info .account-avatar {
+   background-image: url(/content/icon/avatar2.jpg);
+   width: 30px;
+   height: 30px;
+   background-size: contain;
+   background-repeat: no-repeat;
+}
+
+.header .account-info .account-name {
+    margin-left: 5px;
+    font-size: 15px;
+    align-self: center;
+}
+
+.header .account-info .account-option {
+    margin-left: 5px;
+    align-self: center;
 }

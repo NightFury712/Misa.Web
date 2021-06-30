@@ -12,7 +12,9 @@
     <link rel="stylesheet" href="/css/page/employee.css">
     <link rel="stylesheet" href="/css/common/content.css">
     <link rel="stylesheet" href="/css/common/button.css">
+    <link rel="stylesheet" href="/css/common/input.css">
     <link rel="stylesheet" href="/css/common/toolbar.css">
+    <link rel="stylesheet" href="/css/common/grid.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
@@ -82,18 +84,109 @@
         <div class="filter-bar">
             <div class="filter-left">
                 <i class="fas fa-search"></i>
-                <input type="text" placeholder="Tìm kiếm theo Mã, Tên nhân viên">
-                <select>
-                    <option value="ds">Phòng đào tạo</option>
-                    <option value="ds">Phòng đào tạo</option>
-                    <option value="ds">Phòng đào tạo</option>
-                </select>
+                <input class="input-search" style="width: 200px;" type="text" placeholder="Tìm kiếm theo Mã, Tên nhân viên">
+
             </div>
-            <div class="filter-right"></div>
+            <div class="filter-right">
+                <button class="m-btn-refresh m-second-button">
+                    <i class="fas fa-sync-alt"></i>
+                </button>
+            </div>
         </div>
-        <div class="grid"></div>
-        <div class="paging-bar"></div>
+        <div class="grid grid-employee">
+            <table border="0" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Mã nhân viên</th>
+                        <th>Họ và tên</th>
+                        <th>Giới tính</th>
+                        <th>Ngày sinh</th>
+                        <th>Số điện thoại</th>
+                        <th>Địa chỉ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nv00001</td>
+                        <td>Hoàng Hải Đăng</td>
+                        <td>Nam</td>
+                        <td>7/12/2000</td>
+                        <td>058954656</td>
+                        <td style="max-width: 100px;"><span width="100px">Trung Ngai 5, thi tran yen lap, Yên Lập, Phú Thọ</span></td>
+                    </tr>
+                    <tr>
+                        <td>Nv00001</td>
+                        <td>Hoàng Hải Đăng</td>
+                        <td>Nam</td>
+                        <td>7/12/2000</td>
+                        <td>058954656</td>
+                        <td>Yên Lập, Phú Thọ</td>
+                    </tr>
+                    <tr>
+                        <td>Nv00001</td>
+                        <td>Hoàng Hải Đăng</td>
+                        <td>Nam</td>
+                        <td>7/12/2000</td>
+                        <td>058954656</td>
+                        <td>Yên Lập, Phú Thọ</td>
+                    </tr>
+                    <tr>
+                        <td>Nv00001</td>
+                        <td>Hoàng Hải Đăng</td>
+                        <td>Nam</td>
+                        <td>7/12/2000</td>
+                        <td>058954656</td>
+                        <td>Yên Lập, Phú Thọ</td>
+                    </tr>
+                    <tr>
+                        <td>Nv00001</td>
+                        <td>Hoàng Hải Đăng</td>
+                        <td>Nam</td>
+                        <td>7/12/2000</td>
+                        <td>058954656</td>
+                        <td>Yên Lập, Phú Thọ</td>
+                    </tr>
+                    <tr>
+                        <td>Nv00001</td>
+                        <td>Hoàng Hải Đăng</td>
+                        <td>Nam</td>
+                        <td>7/12/2000</td>
+                        <td>058954656</td>
+                        <td>Yên Lập, Phú Thọ</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="paging-bar">
+            <div class="paging-numtotal">Hiển thị 1/1000 nhân viên</div>
+            <div class="pagination">
+                <div class="first-page">
+                    <i class="double-arrow left"></i>
+                    <i class="double-arrow left"></i>
+                </div>
+                <div class="pre-page">
+                    <i class="arrow left"></i>
+                </div>
+                <div class="page-number">
+                    <div class="page-number-item actived">1</div>
+                    <div class="page-number-item">2</div>
+                    <div class="page-number-item">3</div>
+                    <div class="page-number-item">4</div>
+                </div>
+                <div class="next-page">
+                    <i class="arrow right"></i>
+                </div>
+                <div class="last-page">
+                    <i class="double-arrow right"></i>
+                    <i class="double-arrow right"></i>
+                </div>
+            </div>
+            <div class="paging-current-numtotal">Hiển thị 1/10</div>
+        </div>
     </div>
 </body>
+<script src="/lib/jquery-3.6.0.min.js"></script>
+<script src="/js/common/common.js"></script>
+<script src="/js/page/employee.js"></script>
 
 </html>

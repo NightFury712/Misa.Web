@@ -16,12 +16,12 @@
     padding: 24px 0 0 24px;
 }
 
-.navbar .logo-site .logo-box .toggle-icon { 
-   background-image: url(/content/icon/bird4.png);
-   width: 30px;
-   height: 30px;
-   background-size: contain;
-   background-repeat: no-repeat;
+.navbar .logo-site .logo-box .toggle-icon {
+    background-image: url(/content/icon/bird4.png);
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .navbar .logo-site .logo-box .amis-logo {
@@ -43,6 +43,7 @@
     height: 44px;
     line-height: 44px;
 }
+
 .navbar .navbar-content .nav-item:hover {
     background-color: #e5e5e5;
     color: #000000;
@@ -60,6 +61,7 @@
     position: absolute;
     font-size: 16px;
     margin-top: 2px;
+    color: grey;
 }
 
 .navbar .navbar-content .nav-item .nav-item-text {

@@ -21,3 +21,25 @@
 .m-btn .btn-text {
     margin-left: 8px;
 }
+
+.m-second-button {
+    border: 1px solid #bbb;
+    background-color: #fff;
+    border-radius: 4px;
+    height: 40px;
+    color: #000;
+    padding-left: 24px;
+    padding-right: 24px;
+    text-align: center;
+}
+
+.m-second-button:hover {
+    background-color: #e9ebee;
+
+}
+
+.m-btn-refresh {
+    outline: none;
+    cursor: pointer;
+
+}

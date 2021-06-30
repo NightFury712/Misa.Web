@@ -3,37 +3,26 @@
     display: flex;
     align-items: center;
     height: 40px;
-    background-color: #ccc;
-}
-
-.filter-bar .filter-left {
-    margin-left: 16px;
-
 }
 
 .filter-bar .filter-left i {
     position: absolute;
     color: #bbb;
     font-size: 16px;
-    margin-top: 14px;
+    margin-top: 10px;
     padding-left: 16px;
 }
 
-.filter-bar .filter-left input {
-    border: 1px solid #bbb;
-    outline: none;
-    width: 280px;
-    height: 40px;
-    border-radius: 4px;
-    padding-left: 40px;
-    font-size: 14px;
+.filter-bar .filter-left input:focus {
+    border: 1px solid #019160;
 }
 
-.filter-bar .filter-left input:focus {
+.filter-bar .filter-left input:hover {
     border: 1px solid #019160;
     transition: 0.22s;
 }
 
 .filter-bar .filter-right {
-
+    position: absolute;
+    right: 16px;
 }

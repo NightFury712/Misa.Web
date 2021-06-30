@@ -1,5 +1,17 @@
 $(document).ready(function() {
-
+    $('.btn-toggle-navbar').click(() => {
+        if ($('.navbar').width() == 220) {
+            $('.navbar').width(54);
+            $('.nav-item-text').hide();
+            $('.navbar .navbar-content .toggle-navbar .btn-toggle-navbar .arrow-white')
+        } else {
+            $('.navbar').width(220)
+            setTimeout(function() {
+                $('.nav-item-text').show();
+            }, 400);
+        }
+        // $('.navbar').style.width
+    })
 });
 
 

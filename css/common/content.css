@@ -49,11 +49,35 @@
 }
 
 .content .paging-bar .pagination .first-page {
-    margin-right: 4px;
+    width: 25px;
+    height: 25px;
+    background-image: url(/content/icon/btn-firstpage.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.content .paging-bar .pagination .pre-page {
+    width: 25px;
+    height: 25px;
+    background-image: url(/content/icon/btn-prev-page.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.content .paging-bar .pagination .next-page {
+    width: 25px;
+    height: 25px;
+    background-image: url(/content/icon/btn-next-page.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .content .paging-bar .pagination .last-page {
-    margin-left: 4px;
+    width: 25px;
+    height: 25px;
+    background-image: url(/content/icon/btn-lastpage.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .content .paging-bar .pagination .page-number {

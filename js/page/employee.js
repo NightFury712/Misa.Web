@@ -1,4 +1,32 @@
 $(document).ready(function() {
+    toggleSitebar();
+    $('.btn-add-emp').click(() => {
+        showDialog();
+    })
+    $('.btn-close-dialog .btn-close').click(() => {
+        closeDialog();
+    })
+    $('.dialog-footer .btn-cancel').click(() => {
+        closeDialog();
+    })
+});
+
+function closeDialog() {
+    $('.dialog').removeClass('show');
+    $('.dialog-background').removeClass('show')
+    $('.dialog-background').addClass('hidden');;
+    $('.dialog').addClass('hidden');
+}
+
+function showDialog() {
+    $('.dialog-background').removeClass('hidden');
+    $('.dialog-background').addClass('show');
+    $('.dialog').removeClass('hidden');
+    $('.dialog').addClass('show');
+}
+
+// Toggle sitebar in out
+function toggleSitebar() {
     $('.btn-toggle-navbar').click(() => {
         var classList = $('.toggle-navbar .btn-toggle-navbar .arrow-white').attr('class').split(/\s+/);
         if ($('.navbar').width() == 220) {
@@ -28,10 +56,8 @@ $(document).ready(function() {
                 $('.logo-box .amis-logo').show();
             }, 400);
         }
-        // $('.navbar').style.width
     })
-});
-
+}
 
 // Format dữ liệu ngày tháng sang ngày/tháng/năm
 function formatDate(date) {

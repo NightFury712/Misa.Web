@@ -50,12 +50,13 @@
     padding-left: 24px;
     height: 44px;
     line-height: 44px;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .navbar .navbar-content .nav-item:hover {
     background-color: #e5e5e5;
-    color: #000000;
-    cursor: pointer;
+    color: #000;
 }
 
 .navbar .navbar-content .nav-item .nav-item-icon {
@@ -69,9 +70,13 @@
     position: absolute;
     font-size: 16px;
     margin-top: 2px;
-    color: grey;
 }
 
 .navbar .navbar-content .nav-item .nav-item-text {
     font-size: 15px;
+}
+
+.actived {
+    color: #fff;
+    background-color: #019160;
 }

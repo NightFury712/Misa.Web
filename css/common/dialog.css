@@ -135,6 +135,7 @@
     box-sizing: border-box;
     margin-bottom: 16px;
     width: 100%;
+    height: 40px;
 }
 
 .emp-info-content .emp-info-general .emp-info-general-right {
@@ -177,6 +178,7 @@
 .hidden {
     visibility: hidden;
     opacity: 0;
+    transition: 0.22s;
 }
 
 .show {

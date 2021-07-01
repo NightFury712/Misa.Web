@@ -14,11 +14,128 @@
     <link rel="stylesheet" href="/css/common/button.css">
     <link rel="stylesheet" href="/css/common/input.css">
     <link rel="stylesheet" href="/css/common/toolbar.css">
+    <link rel="stylesheet" href="/css/common/dialog.css">
     <link rel="stylesheet" href="/css/common/grid.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
 <body>
+    <div class="dialog-background hidden"></div>
+    <div class="dialog hidden">
+        <div class="dialog-header">
+            <div class="dialog-header-title">
+                <span>Thông tin nhân viên</span>
+            </div>
+            <div class="btn-close-dialog">
+                <button class="btn-close"></button>
+            </div>
+        </div>
+        <div class="dialog-content">
+            <div class="emp-avatar">
+                <div class="emp-avatar-img"></div>
+                <div class="emp-avatar-info">
+                    <span>(Vui lòng chọn ảnh đại diện có định dạnh .jpg, .jpge, .png, .gif)</span>
+                </div>
+            </div>
+            <div class="emp-info">
+                <div class="emp-info-content">
+                    <div class="emp-info-general-title">
+                        <span>A. Thông tin chung:</span>
+                        <div class="title-line"></div>
+                    </div>
+                    <div class="emp-info-general">
+                        <div class="emp-info-general-left">
+                            <div class="emp-info-general-item">
+                                <p>Mã nhân viên (<span>*</span>)</p>
+                                <input type="text">
+                            </div>
+                            <div class="emp-info-general-item">
+                                <p>Ngày sinh</p>
+                                <input type="date">
+                            </div>
+                            <div class="emp-info-general-item">
+                                <p>Số CMTND/ Căn cước (<span>*</span>)</p>
+                                <input type="number">
+                            </div>
+                            <div class="emp-info-general-item">
+                                <p>Nơi cấp</p>
+                                <input type="text">
+                            </div>
+                            <div class="emp-info-general-item">
+                                <p>Email (<span>*</span>)</p>
+                                <input class="email" type="text">
+                            </div>
+                        </div>
+                        <div class="emp-info-general-right">
+                            <div class="emp-info-general-item">
+                                <p>Họ và tên (<span>*</span>)</p>
+                                <input type="text">
+                            </div>
+                            <div class="emp-info-general-item">
+                                <p>Giới tính </p>
+                                <input type="text">
+                            </div>
+                            <div class="emp-info-general-item">
+                                <p>Ngày cấp </p>
+                                <input type="date">
+                            </div>
+                            <div class="emp-info-general-item">
+                                <p style="visibility: hidden;">Số điện thoại (<span>*</span>)</p>
+                                <input type="text" style="visibility: hidden;">
+                            </div>
+                            <div class="emp-info-general-item">
+                                <p>Số điện thoại (<span>*</span>)</p>
+                                <input type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="emp-info-general-title">
+                        <span>B. Thông tin công việc:</span>
+                        <div class="title-line"></div>
+                    </div>
+                    <div class="emp-info-job">
+                        <div class="emp-info-general">
+                            <div class="emp-info-general-left">
+                                <div class="emp-info-general-item">
+                                    <p>Vị trí</p>
+                                    <input type="text">
+                                </div>
+                                <div class="emp-info-general-item">
+                                    <p>Mã số thuế cá nhân</p>
+                                    <input type="number">
+                                </div>
+                                <div class="emp-info-general-item">
+                                    <p>Ngày gia nhập công ty</p>
+                                    <input type="date">
+                                </div>
+                            </div>
+                            <div class="emp-info-general-right">
+                                <div class="emp-info-general-item">
+                                    <p>Phòng ban</p>
+                                    <input type="text">
+                                </div>
+                                <div class="emp-info-general-item">
+                                    <p>Mức lương cơ bản</p>
+                                    <input type="number">
+                                </div>
+                                <div class="emp-info-general-item">
+                                    <p>Tình trạng công việc</p>
+                                    <input type="text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dialog-footer">
+            <button class="m-btn btn-cancel">Hủy</button>
+            <button class="m-btn btn-save">
+                <i class="far fa-save"></i>
+                <span>Lưu</span>
+            </button>
+        </div>
+    </div>
     <div class="navbar">
         <div class="logo-site">
             <div class="logo-box">
@@ -32,42 +149,42 @@
                     <i class="arrow-white left"></i>
                 </button>
             </div>
-            <div class="nav-item">
+            <a class="nav-item" href="#">
                 <div class="nav-item-icon">
                     <i class="fas fa-chart-pie"></i>
                 </div>
                 <div class="nav-item-text">Tổng quan</div>
-            </div>
-            <div class="nav-item">
+            </a>
+            <a class="nav-item" href="#">
                 <div class="nav-item-icon">
                     <i class="far fa-chart-bar"></i>
                 </div>
                 <div class="nav-item-text">Báo cáo</div>
-            </div>
-            <div class="nav-item">
+            </a>
+            <a class="nav-item" href="#">
                 <div class="nav-item-icon">
                     <i class="fas fa-chart-pie"></i>
                 </div>
                 <div class="nav-item-text">Mua hàng</div>
-            </div>
-            <div class="nav-item">
+            </a>
+            <a class="nav-item" href="#">
                 <div class="nav-item-icon">
                     <i class="fas fa-users"></i>
                 </div>
                 <div class="nav-item-text">Danh mục khách hàng</div>
-            </div>
-            <div class="nav-item">
+            </a>
+            <a class="nav-item actived" href="#">
                 <div class="nav-item-icon">
                     <i class="fas fa-users"></i>
                 </div>
                 <div class="nav-item-text">Danh mục nhân viên</div>
-            </div>
-            <div class="nav-item">
+            </a>
+            <a class="nav-item" href="#">
                 <div class="nav-item-icon">
                     <i class="fas fa-cog"></i>
                 </div>
                 <div class="nav-item-text">Thiết lập hệ thống</div>
-            </div>
+            </a>
         </div>
     </div>
     <div class="header">
@@ -90,7 +207,7 @@
         <div class="header-content">
             <div class="title">Danh sách nhân viên</div>
             <div class="content-feature">
-                <button class="m-btn m-btn-default">
+                <button class="m-btn m-btn-default btn-add-emp">
                     <div class="icon-add">
                         <i class="fas fa-user-plus"></i>
                     </div>
@@ -194,32 +311,153 @@
                         <td style="max-width: 100px;"><span width="100px">Trung Ngai 5, thi tran yen lap, Yên Lập, Phú Thọ</span></td>
                         <td>Đang thử việc</td>
                     </tr>
+                    <tr>
+                        <td>NV-289995</td>
+                        <td>Hoàng Hải Đăng</td>
+                        <td>Nam</td>
+                        <td>7/12/2000</td>
+                        <td>058954656</td>
+                        <td>haidangk63@gmail.com</td>
+                        <td>Nhân viên</td>
+                        <td>Phòng công nghệ</td>
+                        <td>1885424</td>
+                        <td style="max-width: 100px;"><span width="100px">Trung Ngai 5, thi tran yen lap, Yên Lập, Phú Thọ</span></td>
+                        <td>Đang thử việc</td>
+                    </tr>
+                    <tr>
+                        <td>NV-289995</td>
+                        <td>Hoàng Hải Đăng</td>
+                        <td>Nam</td>
+                        <td>7/12/2000</td>
+                        <td>058954656</td>
+                        <td>haidangk63@gmail.com</td>
+                        <td>Nhân viên</td>
+                        <td>Phòng công nghệ</td>
+                        <td>1885424</td>
+                        <td style="max-width: 100px;"><span width="100px">Trung Ngai 5, thi tran yen lap, Yên Lập, Phú Thọ</span></td>
+                        <td>Đang thử việc</td>
+                    </tr>
+                    <tr>
+                        <td>NV-289995</td>
+                        <td>Hoàng Hải Đăng</td>
+                        <td>Nam</td>
+                        <td>7/12/2000</td>
+                        <td>058954656</td>
+                        <td>haidangk63@gmail.com</td>
+                        <td>Nhân viên</td>
+                        <td>Phòng công nghệ</td>
+                        <td>1885424</td>
+                        <td style="max-width: 100px;"><span width="100px">Trung Ngai 5, thi tran yen lap, Yên Lập, Phú Thọ</span></td>
+                        <td>Đang thử việc</td>
+                    </tr>
+                    <tr>
+                        <td>NV-289995</td>
+                        <td>Hoàng Hải Đăng</td>
+                        <td>Nam</td>
+                        <td>7/12/2000</td>
+                        <td>058954656</td>
+                        <td>haidangk63@gmail.com</td>
+                        <td>Nhân viên</td>
+                        <td>Phòng công nghệ</td>
+                        <td>1885424</td>
+                        <td style="max-width: 100px;"><span width="100px">Trung Ngai 5, thi tran yen lap, Yên Lập, Phú Thọ</span></td>
+                        <td>Đang thử việc</td>
+                    </tr>
+                    <tr>
+                        <td>NV-289995</td>
+                        <td>Hoàng Hải Đăng</td>
+                        <td>Nam</td>
+                        <td>7/12/2000</td>
+                        <td>058954656</td>
+                        <td>haidangk63@gmail.com</td>
+                        <td>Nhân viên</td>
+                        <td>Phòng công nghệ</td>
+                        <td>1885424</td>
+                        <td style="max-width: 100px;"><span width="100px">Trung Ngai 5, thi tran yen lap, Yên Lập, Phú Thọ</span></td>
+                        <td>Đang thử việc</td>
+                    </tr>
+                    <tr>
+                        <td>NV-289995</td>
+                        <td>Hoàng Hải Đăng</td>
+                        <td>Nam</td>
+                        <td>7/12/2000</td>
+                        <td>058954656</td>
+                        <td>haidangk63@gmail.com</td>
+                        <td>Nhân viên</td>
+                        <td>Phòng công nghệ</td>
+                        <td>1885424</td>
+                        <td style="max-width: 100px;"><span width="100px">Trung Ngai 5, thi tran yen lap, Yên Lập, Phú Thọ</span></td>
+                        <td>Đang thử việc</td>
+                    </tr>
+                    <tr>
+                        <td>NV-289995</td>
+                        <td>Hoàng Hải Đăng</td>
+                        <td>Nam</td>
+                        <td>7/12/2000</td>
+                        <td>058954656</td>
+                        <td>haidangk63@gmail.com</td>
+                        <td>Nhân viên</td>
+                        <td>Phòng công nghệ</td>
+                        <td>1885424</td>
+                        <td style="max-width: 100px;"><span width="100px">Trung Ngai 5, thi tran yen lap, Yên Lập, Phú Thọ</span></td>
+                        <td>Đang thử việc</td>
+                    </tr>
+                    <tr>
+                        <td>NV-289995</td>
+                        <td>Hoàng Hải Đăng</td>
+                        <td>Nam</td>
+                        <td>7/12/2000</td>
+                        <td>058954656</td>
+                        <td>haidangk63@gmail.com</td>
+                        <td>Nhân viên</td>
+                        <td>Phòng công nghệ</td>
+                        <td>1885424</td>
+                        <td style="max-width: 100px;"><span width="100px">Trung Ngai 5, thi tran yen lap, Yên Lập, Phú Thọ</span></td>
+                        <td>Đang thử việc</td>
+                    </tr>
+                    <tr>
+                        <td>NV-289995</td>
+                        <td>Hoàng Hải Đăng</td>
+                        <td>Nam</td>
+                        <td>7/12/2000</td>
+                        <td>058954656</td>
+                        <td>haidangk63@gmail.com</td>
+                        <td>Nhân viên</td>
+                        <td>Phòng công nghệ</td>
+                        <td>1885424</td>
+                        <td style="max-width: 100px;"><span width="100px">Trung Ngai 5, thi tran yen lap, Yên Lập, Phú Thọ</span></td>
+                        <td>Đang thử việc</td>
+                    </tr>
+                    <tr>
+                        <td>NV-289995</td>
+                        <td>Hoàng Hải Đăng</td>
+                        <td>Nam</td>
+                        <td>7/12/2000</td>
+                        <td>058954656</td>
+                        <td>haidangk63@gmail.com</td>
+                        <td>Nhân viên</td>
+                        <td>Phòng công nghệ</td>
+                        <td>1885424</td>
+                        <td style="max-width: 100px;"><span width="100px">Trung Ngai 5, thi tran yen lap, Yên Lập, Phú Thọ</span></td>
+                        <td>Đang thử việc</td>
+                    </tr>
+
                 </tbody>
             </table>
         </div>
         <div class="paging-bar">
             <div class="paging-numtotal">Hiển thị 1/1000 nhân viên</div>
             <div class="pagination">
-                <div class="first-page">
-                    <i class="double-arrow left"></i>
-                    <i class="double-arrow left"></i>
-                </div>
-                <div class="pre-page">
-                    <i class="arrow left"></i>
-                </div>
+                <div class="first-page"></div>
+                <div class="pre-page"></div>
                 <div class="page-number">
                     <div class="page-number-item actived">1</div>
                     <div class="page-number-item">2</div>
                     <div class="page-number-item">3</div>
                     <div class="page-number-item">4</div>
                 </div>
-                <div class="next-page">
-                    <i class="arrow right"></i>
-                </div>
-                <div class="last-page">
-                    <i class="double-arrow right"></i>
-                    <i class="double-arrow right"></i>
-                </div>
+                <div class="next-page"></div>
+                <div class="last-page"> </div>
             </div>
             <div class="paging-current-numtotal">Hiển thị 1/10</div>
         </div>

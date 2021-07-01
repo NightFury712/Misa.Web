@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/common/main.css">
+    <link rel="stylesheet" href="/css/common/dialog.css">
+    <link rel="stylesheet" href="/css/common/input.css">
+    <link rel="stylesheet" href="/css/common/button.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Dialog</title>
+</head>
+
+<body>
+    <button class="show">click</button>
+    <div class="dialog-background hidden"></div>
+    <div class="dialog hidden">
+        <div class="dialog-header">
+            <div class="dialog-header-title">
+                <span>Thông tin nhân viên</span>
+            </div>
+            <div class="btn-close-dialog">
+                <button class="btn-close"></button>
+            </div>
+        </div>
+        <div class="dialog-content">
+            <div class="emp-avatar">
+                <div class="emp-avatar-img"></div>
+                <div class="emp-avatar-info">
+                    <span>(Vui lòng chọn ảnh đại diện có định dạnh .jpg, .jpge, .png, .gif)</span>
+                </div>
+            </div>
+            <div class="emp-info">
+                <div class="emp-info-content">
+                    <div class="emp-info-general-title">
+                        <span>A. Thông tin chung:</span>
+                        <div class="title-line"></div>
+                    </div>
+                    <div class="emp-info-general">
+                        <div class="emp-info-general-left">
+                            <div class="emp-info-general-item">
+                                <p>Mã nhân viên (<span>*</span>)</p>
+                                <input type="text">
+                            </div>
+                            <div class="emp-info-general-item">
+                                <p>Ngày sinh</p>
+                                <input type="date">
+                            </div>
+                            <div class="emp-info-general-item">
+                                <p>Số CMTND/ Căn cước (<span>*</span>)</p>
+                                <input type="number">
+                            </div>
+                            <div class="emp-info-general-item">
+                                <p>Nơi cấp</p>
+                                <input type="text">
+                            </div>
+                            <div class="emp-info-general-item">
+                                <p>Email (<span>*</span>)</p>
+                                <input class="email" type="text">
+                            </div>
+                        </div>
+                        <div class="emp-info-general-right">
+                            <div class="emp-info-general-item">
+                                <p>Họ và tên (<span>*</span>)</p>
+                                <input type="text">
+                            </div>
+                            <div class="emp-info-general-item">
+                                <p>Giới tính </p>
+                                <input type="text">
+                            </div>
+                            <div class="emp-info-general-item">
+                                <p>Ngày cấp </p>
+                                <input type="date">
+                            </div>
+                            <div class="emp-info-general-item">
+                                <p style="visibility: hidden;">Số điện thoại (<span>*</span>)</p>
+                                <input type="text" style="visibility: hidden;">
+                            </div>
+                            <div class="emp-info-general-item">
+                                <p>Số điện thoại (<span>*</span>)</p>
+                                <input type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="emp-info-general-title">
+                        <span>B. Thông tin công việc:</span>
+                        <div class="title-line"></div>
+                    </div>
+                    <div class="emp-info-job">
+                        <div class="emp-info-general">
+                            <div class="emp-info-general-left">
+                                <div class="emp-info-general-item">
+                                    <p>Vị trí</p>
+                                    <input type="text">
+                                </div>
+                                <div class="emp-info-general-item">
+                                    <p>Mã số thuế cá nhân</p>
+                                    <input type="number">
+                                </div>
+                                <div class="emp-info-general-item">
+                                    <p>Ngày gia nhập công ty</p>
+                                    <input type="number">
+                                </div>
+                            </div>
+                            <div class="emp-info-general-right">
+                                <div class="emp-info-general-item">
+                                    <p>Phòng ban</p>
+                                    <input type="text">
+                                </div>
+                                <div class="emp-info-general-item">
+                                    <p>Mức lương cơ bản</p>
+                                    <input type="number">
+                                </div>
+                                <div class="emp-info-general-item">
+                                    <p>Tình trạng công việc</p>
+                                    <input type="text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dialog-footer">
+            <button class="m-btn btn-cancel">Hủy</button>
+            <button class="m-btn btn-save">
+                <i class="far fa-save"></i>
+                <span>Lưu</span>
+            </button>
+        </div>
+    </div>
+</body>
+<script src="/lib/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready((e) => {
+        $('.show').click(() => {
+            $('.dialog-background').removeClass('hidden');
+            $('.dialog-background').addClass('show');
+            $('.dialog').removeClass('hidden');
+            $('.dialog').addClass('show');
+        })
+
+    })
+</script>
+
+</html>

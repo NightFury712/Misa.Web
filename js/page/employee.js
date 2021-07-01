@@ -1,13 +1,31 @@
 $(document).ready(function() {
     $('.btn-toggle-navbar').click(() => {
+        var classList = $('.toggle-navbar .btn-toggle-navbar .arrow-white').attr('class').split(/\s+/);
         if ($('.navbar').width() == 220) {
             $('.navbar').width(54);
+            $('.header').width('calc(100% - 55px)')
+            $('.content').width('calc(100% - 87px)')
             $('.nav-item-text').hide();
-            $('.navbar .navbar-content .toggle-navbar .btn-toggle-navbar .arrow-white')
+            $('.logo-box .amis-logo').hide();
+            $.each(classList, function(index, item) {
+                if (item == 'left') {
+                    $('.toggle-navbar .btn-toggle-navbar .arrow-white').removeClass(item)
+                    $('.toggle-navbar .btn-toggle-navbar .arrow-white').addClass('right')
+                }
+            })
         } else {
             $('.navbar').width(220)
+            $('.header').width('calc(100% - 221px)')
+            $('.content').width('calc(100% - 253px)')
+            $.each(classList, function(index, item) {
+                if (item == 'right') {
+                    $('.toggle-navbar .btn-toggle-navbar .arrow-white').removeClass(item)
+                    $('.toggle-navbar .btn-toggle-navbar .arrow-white').addClass('left')
+                }
+            })
             setTimeout(function() {
                 $('.nav-item-text').show();
+                $('.logo-box .amis-logo').show();
             }, 400);
         }
         // $('.navbar').style.width

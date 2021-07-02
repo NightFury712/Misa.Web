@@ -35,9 +35,7 @@ function toggleSitebar() {
         } else {
             $('.navbar').width(220)
             $('.content').css('left', '221px')
-            setTimeout(function() {
-                $('.nav-item-text').show();
-            }, 350);
+            $('.nav-item-text').fadeIn('slow');
         }
     })
 }

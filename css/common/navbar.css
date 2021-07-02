@@ -19,8 +19,8 @@
 
 .navbar .logo-site .logo-box .toggle-icon {
     background-image: url(/content/img/toggle.png);
-    width: 30px;
-    height: 30px;
+    width: 24px;
+    height: 24px;
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -29,7 +29,7 @@
     background-image: url(/content/img/cukcuk-logo.png);
     margin-left: 3px;
     width: 100%;
-    height: 30px;
+    height: 24px;
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -43,6 +43,17 @@
     width: 100%;
     height: 40px;
     justify-content: flex-end;
+}
+
+.btn-toggle-navbar {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: #fff;
+}
+
+.btn-toggle-navbar:hover {
+    background-color: #e5e5e5;
 }
 
 .navbar .navbar-content .nav-item {

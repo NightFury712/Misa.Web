@@ -20,8 +20,8 @@
 </head>
 
 <body>
-    <div class="dialog-background hidden"></div>
-    <div class="dialog hidden">
+    <div class="dark-background dialog-background hidden"></div>
+    <div class="dialog middle hidden">
         <div class="dialog-header">
             <div class="dialog-header-title">
                 <span>Thông tin nhân viên</span>
@@ -47,37 +47,37 @@
                         <div class="emp-info-general-left">
                             <div class="emp-info-general-item">
                                 <p>Mã nhân viên (<span>*</span>)</p>
-                                <input type="text">
+                                <input type="text" tabindex="1">
                             </div>
                             <div class="emp-info-general-item">
                                 <p>Ngày sinh</p>
-                                <input type="date">
+                                <input type="date" tabindex="3">
                             </div>
                             <div class="emp-info-general-item">
                                 <p>Số CMTND/ Căn cước (<span>*</span>)</p>
-                                <input type="number">
+                                <input type="number" tabindex="5">
                             </div>
                             <div class="emp-info-general-item">
                                 <p>Nơi cấp</p>
-                                <input type="text">
+                                <input type="text" tabindex="7">
                             </div>
                             <div class="emp-info-general-item">
                                 <p>Email (<span>*</span>)</p>
-                                <input class="email" type="text">
+                                <input class="email" type="text" tabindex="8">
                             </div>
                         </div>
                         <div class="emp-info-general-right">
                             <div class="emp-info-general-item">
                                 <p>Họ và tên (<span>*</span>)</p>
-                                <input type="text">
+                                <input type="text" tabindex="2">
                             </div>
                             <div class="emp-info-general-item">
                                 <p>Giới tính </p>
-                                <input type="text">
+                                <input type="text" tabindex="4">
                             </div>
                             <div class="emp-info-general-item">
                                 <p>Ngày cấp </p>
-                                <input type="date">
+                                <input type="date" tabindex="6">
                             </div>
                             <div class="emp-info-general-item">
                                 <p style="visibility: hidden;">Số điện thoại (<span>*</span>)</p>
@@ -85,7 +85,7 @@
                             </div>
                             <div class="emp-info-general-item">
                                 <p>Số điện thoại (<span>*</span>)</p>
-                                <input type="text">
+                                <input type="text" tabindex="9">
                             </div>
                         </div>
                     </div>
@@ -98,29 +98,29 @@
                             <div class="emp-info-general-left">
                                 <div class="emp-info-general-item">
                                     <p>Vị trí</p>
-                                    <input type="text">
+                                    <input type="text" tabindex="10">
                                 </div>
                                 <div class="emp-info-general-item">
                                     <p>Mã số thuế cá nhân</p>
-                                    <input type="number">
+                                    <input type="number" tabindex="12">
                                 </div>
                                 <div class="emp-info-general-item">
                                     <p>Ngày gia nhập công ty</p>
-                                    <input type="date">
+                                    <input type="date" tabindex="14">
                                 </div>
                             </div>
                             <div class="emp-info-general-right">
                                 <div class="emp-info-general-item">
                                     <p>Phòng ban</p>
-                                    <input type="text">
+                                    <input type="text" tabindex="11">
                                 </div>
                                 <div class="emp-info-general-item">
                                     <p>Mức lương cơ bản</p>
-                                    <input type="number">
+                                    <input type="number" tabindex="13">
                                 </div>
                                 <div class="emp-info-general-item">
                                     <p>Tình trạng công việc</p>
-                                    <input type="text">
+                                    <input type="text" tabindex="15">
                                 </div>
                             </div>
                         </div>
@@ -139,16 +139,11 @@
     <div class="navbar">
         <div class="logo-site">
             <div class="logo-box">
-                <div class="toggle-icon"></div>
+                <button class="toggle-icon btn-toggle-navbar"></button>
                 <div class="amis-logo"></div>
             </div>
         </div>
         <div class="navbar-content">
-            <div class="toggle-navbar">
-                <button class="m-btn btn-toggle-navbar">
-                    <i class="arrow-white left"></i>
-                </button>
-            </div>
             <a class="nav-item" href="#">
                 <div class="nav-item-icon">
                     <i class="fas fa-chart-pie"></i>

@@ -41,3 +41,20 @@
     outline: none;
     cursor: pointer;
 }
+
+.btn-close {
+    background-image: url(/content/icon/x.svg);
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+.btn-close:hover {
+    background-color: #E9EBEE;
+}

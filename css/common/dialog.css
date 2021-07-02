@@ -128,22 +128,6 @@
     align-items: center;
 }
 
-.dialog .dialog-footer .btn-save {
-    padding: 0 24px;
-    margin-right: 24px;
-}
-
-.dialog .dialog-footer .btn-cancel {
-    color: #000;
-    background-color: #E9EBEE;
-    margin-right: 24px;
-    padding: 0 24px;
-}
-
-.dialog .dialog-footer .btn-cancel:hover {
-    background-color: #DADCE0;
-}
-
 .dialog .dialog-footer .btn-save i {
     margin-right: 5px;
 }

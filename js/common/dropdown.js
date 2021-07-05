@@ -10,6 +10,7 @@ $(document).ready(function () {
   // End bind event click select box
 })
 
+// Ẩn và hiện dropdown
 function clickSelectBox(selectBoxName) {
   $(`.${selectBoxName}`).click(() => {
     const name = selectBoxName.split('-')[2]
@@ -24,10 +25,11 @@ function clickSelectBox(selectBoxName) {
 
 function getSelectedItem(dropdownName) {
   let itemName = dropdownName.split('-')[2];
-  let el = $(`.dropdown-box-${itemName} .dropdown-item .dropdown-item__icon`);
+  // Thêm icon check cho từng item dropdown
+  let el = $(`.${dropdownName} .dropdown-item .dropdown-item__icon`);
   el.empty();
   el.append('<i class="fas fa-check"></i>')
-
+  // Lấy giá trị item được chọn
   $(`.dropdown-item input[name=radio-${itemName}]`).change(function () {
     $(`.btn-dropdown-${itemName} .select-box-text`).text($(this).val());
     // console.log(this);
@@ -35,13 +37,22 @@ function getSelectedItem(dropdownName) {
   })
 }
 
+// Ẩn dropdown
 function hideDropdown(dropdownName) {
+  const name = dropdownName.split('-')[2]
   $(`.${dropdownName}`).addClass('hidden');
   $(`.${dropdownName}`).removeClass('show');
+  $(`.btn-dropdown-${name} .select-box-icon i`).removeClass('fa-chevron-up')
+  $(`.btn-dropdown-${name} .select-box-icon i`).addClass('fa-chevron-down')
+  
 }
 
+// Hiện dropdown
 function showDropdown(dropdownName) {
+  const name = dropdownName.split('-')[2];
   getSelectedItem(dropdownName)
   $(`.${dropdownName}`).removeClass('hidden');
   $(`.${dropdownName}`).addClass('show');
+  $(`.btn-dropdown-${name} .select-box-icon i`).removeClass('fa-chevron-down')
+  $(`.btn-dropdown-${name} .select-box-icon i`).addClass('fa-chevron-up')
 }

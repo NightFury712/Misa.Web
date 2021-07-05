@@ -12,7 +12,7 @@ $(document).ready(function () {
 
     clickOutsideDialog(document.querySelector('.dialog-background'), closeDialog);
     // loadData();
-    new EmployeeJS();
+    // new EmployeeJS();
 });
 
 /**

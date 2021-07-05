@@ -24,8 +24,6 @@ class BaseJS {
             let trSiblings = $(this).siblings();
             trSiblings.removeClass('row-selected');
             $(this).addClass('row-selected');
-            // $('tr').css('background-color', 'none')
-            // $(this).css('background-color', '#e5e5e5')
         })
     }
 

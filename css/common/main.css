@@ -40,6 +40,13 @@ body {
     background-color: #a9cefd !important;
 }
 
+
+.actived {
+    color: #fff;
+    background-color: #019160;
+}
+
+
 @font-face {
     font-family: 'GoogleSans-Regular';
     src: url(../../content/font/GoogleSans-Regular.otf);

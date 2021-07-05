@@ -12,11 +12,6 @@ td {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    transition: 0.22s;
-}
-
-table tbody tr:hover {
-    background-color: #00FFFF;
 }
 
 table tbody tr:hover {

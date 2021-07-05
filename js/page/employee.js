@@ -9,7 +9,79 @@ $(document).ready(function() {
     $('.dialog-footer .btn-cancel').click(() => {
         closeDialog();
     })
+
+    clickOutsideDialog(document.querySelector('.dialog-background'), closeDialog);
+    // loadData();
+    new EmployeeJS();
 });
+
+/**
+ * Class quản lý các api cho trang Employee
+ * CreatedBy: HHDang (5/7/2021)
+ */
+class EmployeeJS extends BaseJS {
+    constructor() {
+        super();
+    }
+
+    /**
+     * Load dữ liệu
+     * CreatedBy: HHDang (5/7/2021)
+     */
+    loadData() {
+        // Lấy thông tin các cột dữ liệu
+        var ths = $('table thead th');
+        // console.log(ths);
+        var fieldNames = [];
+        $.each(ths, function(index, item) {
+            fieldNames.push($(item).attr('fieldName'))
+                // console.log($(item).attr('fieldName'))
+        })
+        console.log(fieldNames);
+
+        // Lấy dữ liệu 
+        $.ajax({
+            url: "http://cukcuk.manhnv.net/v1/Employees",
+            method: "GET"
+        }).done(function(res) {
+            $.each(res, function(index, item) {
+                var tr = `<tr></tr>`
+                $.each(ths, function(index, item) {
+                    var td = `<td><div><span>test</span></div></td>`
+                    tr = $(tr).append(td);
+                })
+                $('table tbody').append(tr);
+            })
+        }).fail(function(err) {
+            console.log(err);
+        })
+    }
+
+    /**
+     * Thêm mới dữ liệu
+     * CreatedBy: HHDang (5/7/2021)
+     */
+    add() {
+
+    }
+
+    /**
+     * Cập nhật dữ liệu
+     * CreatedBy: HHDang (5/7/2021)
+     */
+    edit() {
+
+    }
+
+    /**
+     * Xóa dữ liệu
+     * CreatedBy: HHDang (5/7/2021)
+     */
+    delete() {
+
+    }
+}
+
 
 function closeDialog() {
     $('.dialog').removeClass('show');
@@ -40,17 +112,11 @@ function toggleSitebar() {
     })
 }
 
-// Format dữ liệu ngày tháng sang ngày/tháng/năm
-function formatDate(date) {
-    var date = new Date(date);
-    if (Number.isNaN(date.getTime())) {
-        return "";
-    } else {
-        let day = date.getDate()
-        let month = date.getMonth() + 1;
-        let year = date.getFullYear();
-        day = day < 10 ? '0' + day : day;
-        month = month < 10 ? '0' + month : month;
-        return `${day}/${month}/${year}`;
-    }
+//close dialog when click outside 
+function clickOutsideDialog(el, handler) {
+    window.addEventListener('click', function(e) {
+        if (e.target == el) {
+            handler();
+        }
+    })
 }

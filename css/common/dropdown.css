@@ -1,11 +1,15 @@
 .select-box {
     margin-left: 15px;
     width: 180px;
+    box-sizing: border-box;
+    position: relative;
 }
 
 .formadd-select-box {
     width: 100%;
     margin-bottom: 16px;
+    box-sizing: border-box;
+    position: relative;
 }
 
 .btn-select-box {
@@ -19,7 +23,6 @@
     border: 1px solid #bbb;
     cursor: pointer;
     font-size: 13px;
-    box-sizing: border-box;
 }
 
 .btn-select-box:hover {
@@ -59,8 +62,9 @@
     border-radius: 4px;
     box-sizing: border-box;
     background-color: #fff;
+    width: 100%;
 }
-
+/* 
 .dropdown-box-size--180 {
     width: 180px;
 }
@@ -71,7 +75,7 @@
 
 .dropdown-box-size--266 {
     width: 266px;
-}
+} */
 
 .dropdown-box .dropdown-item {
     height: 40px;
@@ -89,7 +93,7 @@
 .dropdown-item .dropdown-item__icon {
     position: absolute;
     display: flex;
-    width: 20px;
+    width: 16px;
     height: 40px;
     color: white;
     font-size: 13px;

@@ -38,6 +38,7 @@
     cursor: pointer;
     text-decoration: none;
     transition: 0.22s;
+    color: #000;
 }
 
 .navbar .navbar-content .nav-item:hover {
@@ -63,6 +64,6 @@
 }
 
 .actived {
-    color: #fff;
+    color: #fff !important;
     background-color: #019160;
 }

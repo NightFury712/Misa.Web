@@ -24,10 +24,13 @@ function clickSelectBox(selectBoxName) {
 
 function getSelectedItem(dropdownName) {
   let itemName = dropdownName.split('-')[2];
-  // let icon = `<i class="fas fa-check"></i>`;
+  let el = $(`.dropdown-box-${itemName} .dropdown-item .dropdown-item__icon`);
+  el.empty();
+  el.append('<i class="fas fa-check"></i>')
+
   $(`.dropdown-item input[name=radio-${itemName}]`).change(function () {
     $(`.btn-dropdown-${itemName} .select-box-text`).text($(this).val());
-    console.log(this);
+    // console.log(this);
     hideDropdown(dropdownName);
   })
 }

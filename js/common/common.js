@@ -12,3 +12,10 @@ function formatDate(date) {
         return `${day}/${month}/${year}`;
     }
 }
+
+function formatMoney(money) {
+    if(money !== null) {
+        money = money.toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "1.")
+    }
+    return money;
+}

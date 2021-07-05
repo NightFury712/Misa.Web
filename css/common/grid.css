@@ -12,10 +12,18 @@ td {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    max-width: 120px;
+}
+
+table thead {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
 }
 
 table tbody tr:hover {
-    background-color: #00ffff;
+    background-color: #e5e5e5;
+    cursor: pointer;
 }
 
 tr:nth-child(even) {

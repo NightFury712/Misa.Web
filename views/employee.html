@@ -48,53 +48,56 @@
                         <div class="emp-info-general-left">
                             <div class="emp-info-general-item">
                                 <p>Mã nhân viên (<span>*</span>)</p>
-                                <input type="text" tabindex="1">
+                                <input type="text" tabindex="1" id="txtEmployeeCode" required>
                             </div>
                             <div class="emp-info-general-item">
                                 <p>Ngày sinh</p>
-                                <input type="date" tabindex="3">
+                                <input type="date" tabindex="3" id="dtDateOfBirth">
                             </div>
                             <div class="emp-info-general-item">
                                 <p>Số CMTND/ Căn cước (<span>*</span>)</p>
-                                <input type="number" tabindex="5">
+                                <input type="number" tabindex="5" id="nbIdentity" required>
                             </div>
                             <div class="emp-info-general-item">
                                 <p>Nơi cấp</p>
-                                <input type="text" tabindex="7">
+                                <input type="text" tabindex="7" id="txtIdentityAddr">
                             </div>
                             <div class="emp-info-general-item">
                                 <p>Email (<span>*</span>)</p>
-                                <input class="email" type="text" tabindex="8">
+                                <input class="email" type="text" tabindex="8" id="txtEmail" required>
                             </div>
                         </div>
                         <div class="emp-info-general-right">
                             <div class="emp-info-general-item">
                                 <p>Họ và tên (<span>*</span>)</p>
-                                <input type="text" tabindex="2">
+                                <input type="text" tabindex="2" id="txtFullName">
                             </div>
                             <div class="emp-info-general-item">
                                 <p>Giới tính </p>
                                 <div class="formadd-select-box">
                                     <button class="btn-select-box btn-dropdown-gender" tabindex="4">
-                                        <div class="select-box-text">Nam</div>
+                                        <div class="select-box-text" id="rdGender">Nam</div>
                                         <div class="select-box-icon">
                                             <i class="arrow bottom"></i>
                                         </div>
                                     </button>
-                                    <div class="dropdown-box dropdown-box-size--266 dropdown-box-gender hidden">
+                                    <div class="dropdown-box dropdown-box-gender hidden">
                                         <div class="dropdown-item dropdown-item-first">
                                             <div class="dropdown-item__icon"></div>
-                                            <input type="radio" id="radio-gender-1" name="radio-gender" value="Nam" checked></input>
+                                            <input type="radio" id="radio-gender-1" name="radio-gender" value="Nam"
+                                                checked></input>
                                             <label for="radio-gender-1">Nam</label>
                                         </div>
                                         <div class="dropdown-item">
                                             <div class="dropdown-item__icon"></div>
-                                            <input type="radio" id="radio-gender-2" name="radio-gender" value="Nữ"></input>
+                                            <input type="radio" id="radio-gender-2" name="radio-gender"
+                                                value="Nữ"></input>
                                             <label for="radio-gender-2">Nữ</label>
                                         </div>
                                         <div class="dropdown-item dropdown-item-last">
                                             <div class="dropdown-item__icon"></div>
-                                            <input type="radio" id="radio-gender-3" name="radio-gender" value="Bede"></input>
+                                            <input type="radio" id="radio-gender-3" name="radio-gender"
+                                                value="Bede"></input>
                                             <label for="radio-gender-3">Bede</label>
                                         </div>
                                     </div>
@@ -102,15 +105,15 @@
                             </div>
                             <div class="emp-info-general-item">
                                 <p>Ngày cấp </p>
-                                <input type="date" tabindex="6">
+                                <input type="date" tabindex="6" id="txtIdentityDT">
                             </div>
                             <div class="emp-info-general-item">
                                 <p style="visibility: hidden;">Số điện thoại (<span>*</span>)</p>
-                                <input type="text" style="visibility: hidden;">
+                                <input type="number" style="visibility: hidden;">
                             </div>
                             <div class="emp-info-general-item">
                                 <p>Số điện thoại (<span>*</span>)</p>
-                                <input type="text" tabindex="9">
+                                <input type="text" tabindex="9"  id="nbTelephone" required>
                             </div>
                         </div>
                     </div>
@@ -125,30 +128,35 @@
                                     <p>Vị trí</p>
                                     <div class="formadd-select-box">
                                         <button class="btn-select-box btn-dropdown-addposition" tabindex="10">
-                                            <div class="select-box-text">Giám đốc</div>
+                                            <div class="select-box-text" id="txtPosition">Giám đốc</div>
                                             <div class="select-box-icon">
                                                 <i class="arrow bottom"></i>
                                             </div>
                                         </button>
-                                        <div class="dropdown-box dropdown-box-size--250 dropdown-box-addposition hidden">
+                                        <div
+                                            class="dropdown-box dropdown-box-addposition hidden">
                                             <div class="dropdown-item dropdown-item-first">
                                                 <div class="dropdown-item__icon"></div>
-                                                <input type="radio" id="radio-addposition-1" name="radio-addposition" value="Giám đốc" checked></input>
+                                                <input type="radio" id="radio-addposition-1" name="radio-addposition"
+                                                    value="Giám đốc" checked></input>
                                                 <label for="radio-addposition-1">Giám đốc</label>
                                             </div>
                                             <div class="dropdown-item">
                                                 <div class="dropdown-item__icon"></div>
-                                                <input type="radio" id="radio-addposition-2" name="radio-addposition" value="Phó giám đốc"></input>
+                                                <input type="radio" id="radio-addposition-2" name="radio-addposition"
+                                                    value="Phó giám đốc"></input>
                                                 <label for="radio-addposition-2">Phó giám đốc</label>
                                             </div>
                                             <div class="dropdown-item">
                                                 <div class="dropdown-item__icon"></div>
-                                                <input type="radio" id="radio-addposition-3" name="radio-addposition" value="Trưởng phòng"></input>
+                                                <input type="radio" id="radio-addposition-3" name="radio-addposition"
+                                                    value="Trưởng phòng"></input>
                                                 <label for="radio-addposition-3">Trưởng phòng</label>
                                             </div>
                                             <div class="dropdown-item dropdown-item-last">
                                                 <div class="dropdown-item__icon"></div>
-                                                <input type="radio" id="radio-addposition-4" name="radio-addposition" value="Nhân viên"></input>
+                                                <input type="radio" id="radio-addposition-4" name="radio-addposition"
+                                                    value="Nhân viên"></input>
                                                 <label for="radio-addposition-4">Nhân viên</label>
                                             </div>
                                         </div>
@@ -156,11 +164,11 @@
                                 </div>
                                 <div class="emp-info-general-item">
                                     <p>Mã số thuế cá nhân</p>
-                                    <input type="number" tabindex="12">
+                                    <input type="number" tabindex="12" id="nbTaxNumber">
                                 </div>
                                 <div class="emp-info-general-item">
                                     <p>Ngày gia nhập công ty</p>
-                                    <input type="date" tabindex="14">
+                                    <input type="date" tabindex="14" id="dtTimeJoin">
                                 </div>
                             </div>
                             <div class="emp-info-general-right">
@@ -168,30 +176,35 @@
                                     <p>Phòng ban</p>
                                     <div class="formadd-select-box">
                                         <button class="btn-select-box btn-dropdown-adddepartment" tabindex="11">
-                                            <div class="select-box-text">Phòng hành chính</div>
+                                            <div class="select-box-text" id="txtDepartment">Phòng hành chính</div>
                                             <div class="select-box-icon">
                                                 <i class="arrow bottom"></i>
                                             </div>
                                         </button>
-                                        <div class="dropdown-box dropdown-box-size--266 dropdown-box-adddepartment hidden">
+                                        <div
+                                            class="dropdown-box dropdown-box-adddepartment hidden">
                                             <div class="dropdown-item">
                                                 <div class="dropdown-item__icon"></div>
-                                                <input type="radio" id="radio-adddepartment-1" name="radio-adddepartment" value="Phòng hành chính"></input>
+                                                <input type="radio" id="radio-adddepartment-1"
+                                                    name="radio-adddepartment" value="Phòng hành chính" checked></input>
                                                 <label for="radio-adddepartment-1">Phòng hành chính</label>
                                             </div>
                                             <div class="dropdown-item">
                                                 <div class="dropdown-item__icon"></div>
-                                                <input type="radio" id="radio-adddepartment-2" name="radio-adddepartment" value="Phòng nhân sự"></input>
+                                                <input type="radio" id="radio-adddepartment-2"
+                                                    name="radio-adddepartment" value="Phòng nhân sự"></input>
                                                 <label for="radio-adddepartment-2">Phòng nhân sự</label>
                                             </div>
                                             <div class="dropdown-item">
                                                 <div class="dropdown-item__icon"></div>
-                                                <input type="radio" id="radio-adddepartment-3" name="radio-adddepartment" value="Ban quản lý"></input>
+                                                <input type="radio" id="radio-adddepartment-3"
+                                                    name="radio-adddepartment" value="Ban quản lý"></input>
                                                 <label for="radio-adddepartment-3">Ban quản lý</label>
                                             </div>
                                             <div class="dropdown-item dropdown-item-last">
                                                 <div class="dropdown-item__icon"></div>
-                                                <input type="radio" id="radio-adddepartment-4" name="radio-adddepartment" value="Phòng điều hành"></input>
+                                                <input type="radio" id="radio-adddepartment-4"
+                                                    name="radio-adddepartment" value="Phòng điều hành"></input>
                                                 <label for="radio-adddepartment-4">Phòng điều hành</label>
                                             </div>
                                         </div>
@@ -199,31 +212,34 @@
                                 </div>
                                 <div class="emp-info-general-item">
                                     <p>Mức lương cơ bản</p>
-                                    <input type="number" tabindex="13">
+                                    <input type="number" tabindex="13" maxlength="10" id="nbSalary">
                                 </div>
                                 <div class="emp-info-general-item">
                                     <p>Tình trạng công việc</p>
                                     <div class="formadd-select-box">
                                         <button class="btn-select-box btn-dropdown-jobstate" tabindex="15">
-                                            <div class="select-box-text">Đang làm việc</div>
+                                            <div class="select-box-text" id="txtJobStatus">Đang làm việc</div>
                                             <div class="select-box-icon">
                                                 <i class="arrow bottom"></i>
                                             </div>
                                         </button>
-                                        <div class="dropdown-box dropdown-box-size--266 dropdown-box-jobstate hidden">
+                                        <div class="dropdown-box dropdown-box-jobstate hidden">
                                             <div class="dropdown-item dropdown-item-first">
                                                 <div class="dropdown-item__icon"></div>
-                                                <input type="radio" id="radio-jobstate-1" name="radio-jobstate" value="Đang làm việc" checked></input>
+                                                <input type="radio" id="radio-jobstate-1" name="radio-jobstate"
+                                                    value="Đang làm việc" checked></input>
                                                 <label for="radio-jobstate-1">Đang làm việc</label>
                                             </div>
                                             <div class="dropdown-item">
                                                 <div class="dropdown-item__icon"></div>
-                                                <input type="radio" id="radio-jobstate-2" name="radio-jobstate" value="Thực tập sinh"></input>
+                                                <input type="radio" id="radio-jobstate-2" name="radio-jobstate"
+                                                    value="Thực tập sinh"></input>
                                                 <label for="radio-jobstate-2">Thực tập sinh</label>
                                             </div>
                                             <div class="dropdown-item dropdown-item-last">
                                                 <div class="dropdown-item__icon"></div>
-                                                <input type="radio" id="radio-jobstate-3" name="radio-jobstate" value="Đã nghỉ việc"></input>
+                                                <input type="radio" id="radio-jobstate-3" name="radio-jobstate"
+                                                    value="Đã nghỉ việc"></input>
                                                 <label for="radio-jobstate-3">Đã nghỉ việc</label>
                                             </div>
                                         </div>
@@ -237,7 +253,7 @@
         </div>
         <div class="dialog-footer">
             <button class="m-btn btn-cancel">Hủy</button>
-            <button class="m-btn btn-save">
+            <button class="m-btn btn-save" id="btnSave">
                 <i class="far fa-save"></i>
                 <span>Lưu</span>
             </button>
@@ -297,20 +313,23 @@
                     <i class="arrow bottom"></i>
                 </div>
             </button>
-            <div class="dropdown-box dropdown-box-size--180 dropdown-box-restaurant hidden">
+            <div class="dropdown-box dropdown-box-restaurant hidden">
                 <div class="dropdown-item dropdown-item-first">
                     <div class="dropdown-item__icon"></div>
-                    <input type="radio" id="radio-restaurant-1" name="radio-restaurant" value="Nhà hàng Hải Dương" checked></input>
+                    <input type="radio" id="radio-restaurant-1" name="radio-restaurant" value="Nhà hàng Hải Dương"
+                        checked></input>
                     <label for="radio-restaurant-1">Nhà hàng Hải Dương</label>
                 </div>
                 <div class="dropdown-item">
                     <div class="dropdown-item__icon"></div>
-                    <input type="radio" id="radio-restaurant-2" name="radio-restaurant" value="Nhà hàng Hải Phòng"></input>
+                    <input type="radio" id="radio-restaurant-2" name="radio-restaurant"
+                        value="Nhà hàng Hải Phòng"></input>
                     <label for="radio-restaurant-2">Nhà hàng Hải Phòng</label>
                 </div>
                 <div class="dropdown-item dropdown-item-last">
                     <div class="dropdown-item__icon"></div>
-                    <input type="radio" id="radio-restaurant-3" name="radio-restaurant" value="Nhà hàng Quảng Ninh"></input>
+                    <input type="radio" id="radio-restaurant-3" name="radio-restaurant"
+                        value="Nhà hàng Quảng Ninh"></input>
                     <label for="radio-restaurant-3">Nhà hàng Quảng Ninh</label>
                 </div>
             </div>
@@ -322,349 +341,152 @@
             <div class="account-option">
                 <i class="fas fa-ellipsis-h"></i>
             </div>
-            <div class="account-info">
-                <div class="account-avatar"></div>
-                <div class="account-name">Hoàng Hải Đăng</div>
-                <div class="account-option">
-                    <i class="fas fa-ellipsis-h"></i>
-                </div>
-            </div>
-        
-    </div>
-    <div class="content">
-        <div class="header-content">
-            <div class="title">Danh sách nhân viên</div>
-            <div class="content-feature">
-                <button class="m-btn m-btn-default btn-add-emp">
-                    <div class="icon-add">
-                        <i class="fas fa-user-plus"></i>
-                    </div>
-                    <div class="btn-text">Thêm nhân viên</div>
-                </button>
-            </div>
         </div>
-        <div class="filter-bar">
-            <div class="filter-left">
-                <i class="fas fa-search"></i>
-                <input class="input-search" style="width: 200px;" type="text" placeholder="Tìm kiếm theo Mã, Tên nhân viên">
-            </div>
-            <div class="select-box">
-                <button class="btn-select-box btn-dropdown-department">
-                    <div class="select-box-text">Tất cả nhân viên</div>
-                    <div class="select-box-icon">
-                        <i class="arrow bottom"></i>
-                    </div>
-                </button>
-                <div class="dropdown-box dropdown-box-size--180 dropdown-box-department hidden">
-                    <div class="dropdown-item dropdown-item-first">
-                        <div class="dropdown-item__icon"></div>
-                        <input type="radio" id="radio-department-1" name="radio-department" value="Tất cả nhân viên" checked></input>
-                        <label for="radio-department-1">Tất cả nhân viên</label>
-                    </div>
-                    <div class="dropdown-item">
-                        <div class="dropdown-item__icon"></div>
-                        <input type="radio" id="radio-department-2" name="radio-department" value="Phòng hành chính"></input>
-                        <label for="radio-department-2">Phòng hành chính</label>
-                    </div>
-                    <div class="dropdown-item">
-                        <div class="dropdown-item__icon"></div>
-                        <input type="radio" id="radio-department-3" name="radio-department" value="Phòng nhân sự"></input>
-                        <label for="radio-department-3">Phòng nhân sự</label>
-                    </div>
-                    <div class="dropdown-item">
-                        <div class="dropdown-item__icon"></div>
-                        <input type="radio" id="radio-department-4" name="radio-department" value="Ban quản lý"></input>
-                        <label for="radio-department-4">Ban quản lý</label>
-                    </div>
-                    <div class="dropdown-item dropdown-item-last">
-                        <div class="dropdown-item__icon"></div>
-                        <input type="radio" id="radio-department-5" name="radio-department" value="Phòng điều hành"></input>
-                        <label for="radio-department-5">Phòng điều hành</label>
-                    </div>
-                </div>
-            </div>
-            <div class="select-box">
-                <button class="btn-select-box btn-dropdown-position">
-                    <div class="select-box-text">Tất cả vị trí</div>
-                    <div class="select-box-icon">
-                        <i class="arrow bottom"></i>
-                    </div>
-                </button>
-                <div class="dropdown-box dropdown-box-size--180 dropdown-box-position hidden">
-                    <div class="dropdown-item dropdown-item-first">
-                        <div class="dropdown-item__icon">
-                            <!-- <i class="fas fa-check"></i> -->
+        <div class="content">
+            <div class="header-content">
+                <div class="title">Danh sách nhân viên</div>
+                <div class="content-feature">
+                    <button class="m-btn m-btn-default btn-add-emp">
+                        <div class="icon-add">
+                            <i class="fas fa-user-plus"></i>
                         </div>
-                        <input type="radio" id="radio-position-1" name="radio-position" value="Tất cả vị trí" checked></input>
-                        <label for="radio-position-1">Tất cả vị trí</label>
-                    </div>
-                    <div class="dropdown-item">
-                        <div class="dropdown-item__icon"></div>
-                        <input type="radio" id="radio-position-2" name="radio-position" value="Giám đốc"></input>
-                        <label for="radio-position-2">Giám đốc</label>
-                    </div>
-                    <div class="dropdown-item">
-                        <div class="dropdown-item__icon"></div>
-                        <input type="radio" id="radio-position-3" name="radio-position" value="Phó giám đốc"></input>
-                        <label for="radio-position-3">Phó giám đốc</label>
-                    </div>
-                    <div class="dropdown-item">
-                        <div class="dropdown-item__icon"></div>
-                        <input type="radio" id="radio-position-4" name="radio-position" value="Trưởng phòng"></input>
-                        <label for="radio-position-4">Trưởng phòng</label>
-                    </div>
-                    <div class="dropdown-item dropdown-item-last">
-                        <div class="dropdown-item__icon"></div>
-                        <input type="radio" id="radio-position-5" name="radio-position" value="Nhân viên"></input>
-                        <label for="radio-position-5">Nhân viên</label>
-                    </div>
+                        <div class="btn-text">Thêm nhân viên</div>
+                    </button>
                 </div>
             </div>
-            <div clasv class="filter-right">
-                <button class="m-btn-refresh m-second-button">
-                    <i class="fas fa-sync-alt"></i>
-                </button>
-            </div>
-        </div>
-        <div class="grid grid-employee">
-            <table border="0" width="100%" cellspacing="0">
-                <thead>
-                    <tr>
-                        <th fieldName="EmployeeCode">Mã nhân viên</th>
-                        <th fieldName="FullName">Họ và tên</th>
-                        <th fieldName="Gender">Giới tính</th>
-                        <th fieldName="DateOfBirth">Ngày sinh</th>
-                        <th fieldName="PhoneNumber">Số điện thoại</th>
-                        <th fieldName="Email">Email</th>
-                        <th fieldName="PositionName">Chức vụ</th>
-                        <th fieldName="DepartmentName">Phòng ban</th>
-                        <th fieldName="Salary">Mức lương hiện tại</th>
-                        <th fieldName="Address">Địa chỉ</th>
-                        <th fieldName="WorkStatus">Tình trạng công việc</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- <tr>
-                        <td>NV-289995</td>
-                        <td>Hoàng Hải Đăng</td>
-                        <td>Nam</td>
-                        <td>7/12/2000</td>
-                        <td>058954656</td>
-                        <td>haidangk63@gmail.com</td>
-                        <td>Nhân viên</td>
-                        <td>Phòng công nghệ</td>
-                        <td>1885424</td>
-                        <td style="max-width: 100px;"><span width="100px">Trung Ngai 5, thi tran yen lap, Yên Lập, Phú Thọ</span></td>
-                        <td>Đang thử việc</td>
-                    </tr>
-                    <tr>
-                        <td>NV-289995</td>
-                        <td>Hoàng Hải Đăng</td>
-                        <td>Nam</td>
-                        <td>7/12/2000</td>
-                        <td>058954656</td>
-                        <td>haidangk63@gmail.com</td>
-                        <td>Nhân viên</td>
-                        <td>Phòng công nghệ</td>
-                        <td>1885424</td>
-                        <td style="max-width: 100px;"><span width="100px">Trung Ngai 5, thi tran yen lap, Yên Lập, Phú Thọ</span></td>
-                        <td>Đang thử việc</td>
-                    </tr>
-                    <tr>
-                        <td>NV-289995</td>
-                        <td>Hoàng Hải Đăng</td>
-                        <td>Nam</td>
-                        <td>7/12/2000</td>
-                        <td>058954656</td>
-                        <td>haidangk63@gmail.com</td>
-                        <td>Nhân viên</td>
-                        <td>Phòng công nghệ</td>
-                        <td>1885424</td>
-                        <td style="max-width: 100px;"><span width="100px">Trung Ngai 5, thi tran yen lap, Yên Lập, Phú Thọ</span></td>
-                        <td>Đang thử việc</td>
-                    </tr>
-                    <tr>
-                        <td>NV-289995</td>
-                        <td>Hoàng Hải Đăng</td>
-                        <td>Nam</td>
-                        <td>7/12/2000</td>
-                        <td>058954656</td>
-                        <td>haidangk63@gmail.com</td>
-                        <td>Nhân viên</td>
-                        <td>Phòng công nghệ</td>
-                        <td>1885424</td>
-                        <td style="max-width: 100px;"><span width="100px">Trung Ngai 5, thi tran yen lap, Yên Lập, Phú Thọ</span></td>
-                        <td>Đang thử việc</td>
-                    </tr>
-                    <tr>
-                        <td>NV-289995</td>
-                        <td>Hoàng Hải Đăng</td>
-                        <td>Nam</td>
-                        <td>7/12/2000</td>
-                        <td>058954656</td>
-                        <td>haidangk63@gmail.com</td>
-                        <td>Nhân viên</td>
-                        <td>Phòng công nghệ</td>
-                        <td>1885424</td>
-                        <td style="max-width: 100px;"><span width="100px">Trung Ngai 5, thi tran yen lap, Yên Lập, Phú Thọ</span></td>
-                        <td>Đang thử việc</td>
-                    </tr>
-                    <tr>
-                        <td>NV-289995</td>
-                        <td>Hoàng Hải Đăng</td>
-                        <td>Nam</td>
-                        <td>7/12/2000</td>
-                        <td>058954656</td>
-                        <td>haidangk63@gmail.com</td>
-                        <td>Nhân viên</td>
-                        <td>Phòng công nghệ</td>
-                        <td>1885424</td>
-                        <td style="max-width: 100px;"><span width="100px">Trung Ngai 5, thi tran yen lap, Yên Lập, Phú Thọ</span></td>
-                        <td>Đang thử việc</td>
-                    </tr>
-                    <tr>
-                        <td>NV-289995</td>
-                        <td>Hoàng Hải Đăng</td>
-                        <td>Nam</td>
-                        <td>7/12/2000</td>
-                        <td>058954656</td>
-                        <td>haidangk63@gmail.com</td>
-                        <td>Nhân viên</td>
-                        <td>Phòng công nghệ</td>
-                        <td>1885424</td>
-                        <td style="max-width: 100px;"><span width="100px">Trung Ngai 5, thi tran yen lap, Yên Lập, Phú Thọ</span></td>
-                        <td>Đang thử việc</td>
-                    </tr>
-                    <tr>
-                        <td>NV-289995</td>
-                        <td>Hoàng Hải Đăng</td>
-                        <td>Nam</td>
-                        <td>7/12/2000</td>
-                        <td>058954656</td>
-                        <td>haidangk63@gmail.com</td>
-                        <td>Nhân viên</td>
-                        <td>Phòng công nghệ</td>
-                        <td>1885424</td>
-                        <td style="max-width: 100px;"><span width="100px">Trung Ngai 5, thi tran yen lap, Yên Lập, Phú Thọ</span></td>
-                        <td>Đang thử việc</td>
-                    </tr>
-                    <tr>
-                        <td>NV-289995</td>
-                        <td>Hoàng Hải Đăng</td>
-                        <td>Nam</td>
-                        <td>7/12/2000</td>
-                        <td>058954656</td>
-                        <td>haidangk63@gmail.com</td>
-                        <td>Nhân viên</td>
-                        <td>Phòng công nghệ</td>
-                        <td>1885424</td>
-                        <td style="max-width: 100px;"><span width="100px">Trung Ngai 5, thi tran yen lap, Yên Lập, Phú Thọ</span></td>
-                        <td>Đang thử việc</td>
-                    </tr>
-                    <tr>
-                        <td>NV-289995</td>
-                        <td>Hoàng Hải Đăng</td>
-                        <td>Nam</td>
-                        <td>7/12/2000</td>
-                        <td>058954656</td>
-                        <td>haidangk63@gmail.com</td>
-                        <td>Nhân viên</td>
-                        <td>Phòng công nghệ</td>
-                        <td>1885424</td>
-                        <td style="max-width: 100px;"><span width="100px">Trung Ngai 5, thi tran yen lap, Yên Lập, Phú Thọ</span></td>
-                        <td>Đang thử việc</td>
-                    </tr>
-                    <tr>
-                        <td>NV-289995</td>
-                        <td>Hoàng Hải Đăng</td>
-                        <td>Nam</td>
-                        <td>7/12/2000</td>
-                        <td>058954656</td>
-                        <td>haidangk63@gmail.com</td>
-                        <td>Nhân viên</td>
-                        <td>Phòng công nghệ</td>
-                        <td>1885424</td>
-                        <td style="max-width: 100px;"><span width="100px">Trung Ngai 5, thi tran yen lap, Yên Lập, Phú Thọ</span></td>
-                        <td>Đang thử việc</td>
-                    </tr>
-                    <tr>
-                        <td>NV-289995</td>
-                        <td>Hoàng Hải Đăng</td>
-                        <td>Nam</td>
-                        <td>7/12/2000</td>
-                        <td>058954656</td>
-                        <td>haidangk63@gmail.com</td>
-                        <td>Nhân viên</td>
-                        <td>Phòng công nghệ</td>
-                        <td>1885424</td>
-                        <td style="max-width: 100px;"><span width="100px">Trung Ngai 5, thi tran yen lap, Yên Lập, Phú Thọ</span></td>
-                        <td>Đang thử việc</td>
-                    </tr>
-                    <tr>
-                        <td>NV-289995</td>
-                        <td>Hoàng Hải Đăng</td>
-                        <td>Nam</td>
-                        <td>7/12/2000</td>
-                        <td>058954656</td>
-                        <td>haidangk63@gmail.com</td>
-                        <td>Nhân viên</td>
-                        <td>Phòng công nghệ</td>
-                        <td>1885424</td>
-                        <td style="max-width: 100px;"><span width="100px">Trung Ngai 5, thi tran yen lap, Yên Lập, Phú Thọ</span></td>
-                        <td>Đang thử việc</td>
-                    </tr>
-                    <tr>
-                        <td>NV-289995</td>
-                        <td>Hoàng Hải Đăng</td>
-                        <td>Nam</td>
-                        <td>7/12/2000</td>
-                        <td>058954656</td>
-                        <td>haidangk63@gmail.com</td>
-                        <td>Nhân viên</td>
-                        <td>Phòng công nghệ</td>
-                        <td>1885424</td>
-                        <td style="max-width: 100px;"><span width="100px">Trung Ngai 5, thi tran yen lap, Yên Lập, Phú Thọ</span></td>
-                        <td>Đang thử việc</td>
-                    </tr>
-                    <tr>
-                        <td>NV-289995</td>
-                        <td>Hoàng Hải Đăng</td>
-                        <td>Nam</td>
-                        <td>7/12/2000</td>
-                        <td>058954656</td>
-                        <td>haidangk63@gmail.com</td>
-                        <td>Nhân viên</td>
-                        <td>Phòng công nghệ</td>
-                        <td>1885424</td>
-                        <td style="max-width: 100px;"><span width="100px">Trung Ngai 5, thi tran yen lap, Yên Lập, Phú Thọ</span></td>
-                        <td>Đang thử việc</td>
-                    </tr> -->
-
-                </tbody>
-            </table>
-        </div>
-        <div class="paging-bar">
-            <div class="paging-numtotal">Hiển thị 1/1000 nhân viên</div>
-            <div class="pagination">
-                <div class="first-page"></div>
-                <div class="pre-page"></div>
-                <div class="page-number">
-                    <div class="page-number-item actived">1</div>
-                    <div class="page-number-item">2</div>
-                    <div class="page-number-item">3</div>
-                    <div class="page-number-item">4</div>
+            <div class="filter-bar">
+                <div class="filter-left">
+                    <i class="fas fa-search"></i>
+                    <input class="input-search" style="width: 200px;" type="text"
+                        placeholder="Tìm kiếm theo Mã, Tên nhân viên">
                 </div>
-                <div class="next-page"></div>
-                <div class="last-page"> </div>
+                <div class="select-box">
+                    <button class="btn-select-box btn-dropdown-department">
+                        <div class="select-box-text">Tất cả nhân viên</div>
+                        <div class="select-box-icon">
+                            <i class="arrow bottom"></i>
+                        </div>
+                    </button>
+                    <div class="dropdown-box dropdown-box-department hidden">
+                        <div class="dropdown-item dropdown-item-first">
+                            <div class="dropdown-item__icon"></div>
+                            <input type="radio" id="radio-department-1" name="radio-department" value="Tất cả nhân viên"
+                                checked></input>
+                            <label for="radio-department-1">Tất cả nhân viên</label>
+                        </div>
+                        <div class="dropdown-item">
+                            <div class="dropdown-item__icon"></div>
+                            <input type="radio" id="radio-department-2" name="radio-department"
+                                value="Phòng hành chính"></input>
+                            <label for="radio-department-2">Phòng hành chính</label>
+                        </div>
+                        <div class="dropdown-item">
+                            <div class="dropdown-item__icon"></div>
+                            <input type="radio" id="radio-department-3" name="radio-department"
+                                value="Phòng nhân sự"></input>
+                            <label for="radio-department-3">Phòng nhân sự</label>
+                        </div>
+                        <div class="dropdown-item">
+                            <div class="dropdown-item__icon"></div>
+                            <input type="radio" id="radio-department-4" name="radio-department"
+                                value="Ban quản lý"></input>
+                            <label for="radio-department-4">Ban quản lý</label>
+                        </div>
+                        <div class="dropdown-item dropdown-item-last">
+                            <div class="dropdown-item__icon"></div>
+                            <input type="radio" id="radio-department-5" name="radio-department"
+                                value="Phòng điều hành"></input>
+                            <label for="radio-department-5">Phòng điều hành</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="select-box">
+                    <button class="btn-select-box btn-dropdown-position">
+                        <div class="select-box-text">Tất cả vị trí</div>
+                        <div class="select-box-icon">
+                            <i class="arrow bottom"></i>
+                        </div>
+                    </button>
+                    <div class="dropdown-box dropdown-box-position hidden">
+                        <div class="dropdown-item dropdown-item-first">
+                            <div class="dropdown-item__icon"></div>
+                            <input type="radio" id="radio-position-1" name="radio-position" value="Tất cả vị trí"
+                                checked></input>
+                            <label for="radio-position-1">Tất cả vị trí</label>
+                        </div>
+                        <div class="dropdown-item">
+                            <div class="dropdown-item__icon"></div>
+                            <input type="radio" id="radio-position-2" name="radio-position" value="Giám đốc"></input>
+                            <label for="radio-position-2">Giám đốc</label>
+                        </div>
+                        <div class="dropdown-item">
+                            <div class="dropdown-item__icon"></div>
+                            <input type="radio" id="radio-position-3" name="radio-position"
+                                value="Phó giám đốc"></input>
+                            <label for="radio-position-3">Phó giám đốc</label>
+                        </div>
+                        <div class="dropdown-item">
+                            <div class="dropdown-item__icon"></div>
+                            <input type="radio" id="radio-position-4" name="radio-position"
+                                value="Trưởng phòng"></input>
+                            <label for="radio-position-4">Trưởng phòng</label>
+                        </div>
+                        <div class="dropdown-item dropdown-item-last">
+                            <div class="dropdown-item__icon"></div>
+                            <input type="radio" id="radio-position-5" name="radio-position" value="Nhân viên"></input>
+                            <label for="radio-position-5">Nhân viên</label>
+                        </div>
+                    </div>
+                </div>
+                <div clasv class="filter-right">
+                    <button class="m-btn-refresh m-second-button" id="btnRefresh">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
+                </div>
             </div>
-            <div class="paging-current-numtotal">Hiển thị 1/10</div>
+            <div class="grid grid-employee">
+                <table border="0" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th fieldName="EmployeeCode">Mã nhân viên</th>
+                            <th fieldName="FullName">Họ và tên</th>
+                            <th fieldName="GenderName">Giới tính</th>
+                            <th fieldName="DateOfBirth" formatType="ddmmyyyy">Ngày sinh</th>
+                            <th fieldName="PhoneNumber">Số điện thoại</th>
+                            <th fieldName="Email">Email</th>
+                            <th fieldName="PositionName">Chức vụ</th>
+                            <th fieldName="DepartmentName">Phòng ban</th>
+                            <th fieldName="Salary" formatType="MoneyVND">Mức lương hiện tại</th>
+                            <th fieldName="Address">Địa chỉ</th>
+                            <th fieldName="WorkStatus">Tình trạng công việc</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="paging-bar">
+                <div class="paging-numtotal">Hiển thị 1/1000 nhân viên</div>
+                <div class="pagination">
+                    <div class="first-page"></div>
+                    <div class="pre-page"></div>
+                    <div class="page-number">
+                        <div class="page-number-item actived">1</div>
+                        <div class="page-number-item">2</div>
+                        <div class="page-number-item">3</div>
+                        <div class="page-number-item">4</div>
+                    </div>
+                    <div class="next-page"></div>
+                    <div class="last-page"> </div>
+                </div>
+                <div class="paging-current-numtotal">Hiển thị 1/10</div>
+            </div>
         </div>
-    </div>
 </body>
 <script src="../lib/jquery-3.6.0.min.js"></script>
 <script src="../js/common/common.js"></script>
-<script src="../js/common/base.js"></script>
+<script src="../js/base/base.js"></script>
 <script src="../js/common/dropdown.js"></script>
 <script src="../js/page/employee.js"></script>
 

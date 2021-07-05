@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
     toggleSitebar();
     $('.btn-add-emp').click(() => {
         showDialog();
@@ -24,37 +24,56 @@ class EmployeeJS extends BaseJS {
         super();
     }
 
+    setDataUrl() {
+        this.dataUrl = "http://cukcuk.manhnv.net/v1/Employees";
+    }
+
     /**
      * Load dữ liệu
      * CreatedBy: HHDang (5/7/2021)
      */
     loadData() {
-        // Lấy thông tin các cột dữ liệu
-        var ths = $('table thead th');
-        // console.log(ths);
-        var fieldNames = [];
-        $.each(ths, function(index, item) {
-            fieldNames.push($(item).attr('fieldName'))
-                // console.log($(item).attr('fieldName'))
-        })
-        console.log(fieldNames);
+        try {
+            $('table tbody').empty();
+            // Lấy thông tin các cột dữ liệu
+            var ths = $('table thead th');
+            // console.log(ths);
+            // console.log(fieldNames);
 
-        // Lấy dữ liệu 
-        $.ajax({
-            url: "http://cukcuk.manhnv.net/v1/Employees",
-            method: "GET"
-        }).done(function(res) {
-            $.each(res, function(index, item) {
-                var tr = `<tr></tr>`
-                $.each(ths, function(index, item) {
-                    var td = `<td><div><span>test</span></div></td>`
-                    tr = $(tr).append(td);
+            // Lấy dữ liệu 
+            $.ajax({
+                url: this.dataUrl,
+                method: "GET"
+            }).done(function (res) {
+                $.each(res, function (index, obj) {
+                    var tr = `<tr></tr>`
+                    $.each(ths, function (index, th) {
+                        var td = `<td><div><span></span></div></td>`
+                        var fieldName = $(th).attr('fieldName')
+                        var formatType = $(th).attr('formatType')
+                        var value = obj[fieldName];
+                        switch (formatType) {
+                            case "ddmmyyyy":
+                                value = formatDate(value);
+                                break;
+                            case "MoneyVND":
+                                value = formatMoney(value);
+                                break;
+                            default:
+                                break;
+                        }
+                        td = $(td).append(value);
+                        tr = $(tr).append(td);
+                    })
+                    $('table tbody').append(tr);
                 })
-                $('table tbody').append(tr);
+            }).fail(function (err) {
+                console.log(err);
             })
-        }).fail(function(err) {
+        } catch(err) {
             console.log(err);
-        })
+        }
+
     }
 
     /**
@@ -62,7 +81,7 @@ class EmployeeJS extends BaseJS {
      * CreatedBy: HHDang (5/7/2021)
      */
     add() {
-
+        
     }
 
     /**
@@ -114,7 +133,7 @@ function toggleSitebar() {
 
 //close dialog when click outside 
 function clickOutsideDialog(el, handler) {
-    window.addEventListener('click', function(e) {
+    window.addEventListener('click', function (e) {
         if (e.target == el) {
             handler();
         }

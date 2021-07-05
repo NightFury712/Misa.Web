@@ -12,7 +12,7 @@
 }
 
 .popup-warning-content .popup-warning-content__icon {
-    background-image: url(/content/icon/setting.png);
+    background-image: url(../../content/icon/setting.png);
     width: 40px;
     height: 40px;
     background-repeat: no-repeat;

@@ -22,7 +22,7 @@
 }
 
 .header .logo-site .logo-box .toggle-icon {
-    background-image: url(/content/img/toggle.png);
+    background-image: url(../../content/img/toggle.png);
     width: 28px;
     height: 28px;
     background-size: contain;
@@ -30,7 +30,7 @@
 }
 
 .header .logo-site .logo-box .amis-logo {
-    background-image: url(/content/img/cukcuk-logo.png);
+    background-image: url(../../content/img/cukcuk-logo.png);
     margin-left: 10px;
     width: 100%;
     height: 28px;
@@ -55,7 +55,7 @@
 }
 
 .header .account-info .account-avatar {
-    background-image: url(/content/icon/avatar2.jpg);
+    background-image: url(../../content/icon/avatar2.jpg);
     width: 30px;
     height: 30px;
     background-size: contain;

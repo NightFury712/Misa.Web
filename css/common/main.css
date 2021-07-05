@@ -34,32 +34,32 @@ body {
 
 @font-face {
     font-family: 'GoogleSans-Regular';
-    src: url(/content/font/GoogleSans-Regular.otf);
+    src: url(../../content/font/GoogleSans-Regular.otf);
 }
 
 @font-face {
     font-family: 'GoogleSans-Bold';
-    src: url(/content/font/GoogleSans-Bold.otf);
+    src: url(../../content/font/GoogleSans-Bold.otf);
 }
 
 @font-face {
     font-family: 'GoogleSans-Italic';
-    src: url(/content/font/GoogleSans-Italic.otf);
+    src: url(../../content/font/GoogleSans-Italic.otf);
 }
 
 @font-face {
     font-family: 'GoogleSans-Light';
-    src: url(/content/font/GoogleSans-Light.otf);
+    src: url(../../content/font/GoogleSans-Light.otf);
 }
 
 @font-face {
     font-family: 'GoogleSans-Black';
-    src: url(/content/font/GoogleSans-Black.otf);
+    src: url(../../content/font/GoogleSans-Black.otf);
 }
 
 @font-face {
     font-family: 'GoogleSans-Thin';
-    src: url(/content/font/GoogleSans-Thin.otf);
+    src: url(../../content/font/GoogleSans-Thin.otf);
 }
 
 
@@ -67,6 +67,7 @@ body {
 
 ::-webkit-scrollbar {
     width: 7px;
+    height: 7px;
 }
 
 

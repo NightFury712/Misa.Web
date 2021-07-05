@@ -47,7 +47,7 @@
 }
 
 .dialog .dialog-content .emp-avatar .emp-avatar-img {
-    background-image: url(/content/icon/avatar-default.png);
+    background-image: url(../../content/icon/avatar-default.png);
     width: 150px;
     height: 150px;
     background-repeat: no-repeat;

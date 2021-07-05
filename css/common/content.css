@@ -119,13 +119,6 @@
     padding: 3px;
 }
 
-.double-arrow {
-    border: solid black;
-    border-width: 0 2px 2px 0;
-    display: inline-block;
-    padding: 3px;
-}
-
 .actived {
     color: #fff;
     background-color: #019160;
@@ -133,6 +126,10 @@
 
 .right {
     transform: rotate(-45deg);
+}
+
+.bottom {
+    transform: rotate(45deg);
 }
 
 .left {

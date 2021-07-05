@@ -12,11 +12,10 @@ td {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    transition: 0.22s;
 }
 
 table tbody tr:hover {
-    background-color: #00FFFF;
+    background-color: #00ffff;
 }
 
 tr:nth-child(even) {

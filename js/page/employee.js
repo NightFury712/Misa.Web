@@ -29,19 +29,13 @@ function showDialog() {
 function toggleSitebar() {
     $('.btn-toggle-navbar').click(() => {
         if ($('.navbar').width() == 220) {
-            $('.navbar').width(68);
-            $('.header').width('calc(100% - 69px)')
-            $('.content').width('calc(100% - 101px)')
+            $('.navbar').width(52);
+            $('.content').css('left', '68px')
             $('.nav-item-text').hide();
-            $('.logo-box .amis-logo').hide();
         } else {
             $('.navbar').width(220)
-            $('.header').width('calc(100% - 221px)')
-            $('.content').width('calc(100% - 253px)')
-            setTimeout(function() {
-                $('.nav-item-text').show();
-                $('.logo-box .amis-logo').show();
-            }, 400);
+            $('.content').css('left', '221px')
+            $('.nav-item-text').fadeIn('slow');
         }
     })
 }

@@ -43,7 +43,7 @@
 }
 
 .btn-close {
-    background-image: url(/content/icon/x.svg);
+    background-image: url(../../content/icon/x.svg);
     width: 30px;
     height: 30px;
     background-repeat: no-repeat;
@@ -57,4 +57,20 @@
 
 .btn-close:hover {
     background-color: #E9EBEE;
+}
+
+.btn-cancel {
+    color: #000;
+    background-color: #E9EBEE;
+    margin-right: 16px;
+    padding: 0 24px;
+}
+
+.btn-cancel:hover {
+    background-color: #DADCE0;
+}
+
+.btn-save {
+    padding: 0 24px;
+    margin-right: 24px;
 }

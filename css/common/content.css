@@ -1,10 +1,17 @@
 .content {
-    float: left;
+    position: absolute;
+    top: 51px;
+    left: 221px;
+    right: 0;
+    bottom: 0;
+    transition: 0.5s;
+    padding: 0 16px;
+    /* float: left;
     width: calc(100% - 253px);
     height: calc(100vh - 61px);
     background-color: #fff;
     padding: 0 16px;
-    transition: 0.5s;
+    transition: 0.5s; */
 }
 
 .content .header-content {
@@ -51,7 +58,7 @@
 .content .paging-bar .pagination .first-page {
     width: 25px;
     height: 25px;
-    background-image: url(/content/icon/btn-firstpage.svg);
+    background-image: url(../../content/icon/btn-firstpage.svg);
     background-repeat: no-repeat;
     background-size: contain;
 }
@@ -59,7 +66,7 @@
 .content .paging-bar .pagination .pre-page {
     width: 25px;
     height: 25px;
-    background-image: url(/content/icon/btn-prev-page.svg);
+    background-image: url(../../content/icon/btn-prev-page.svg);
     background-repeat: no-repeat;
     background-size: contain;
 }
@@ -67,7 +74,7 @@
 .content .paging-bar .pagination .next-page {
     width: 25px;
     height: 25px;
-    background-image: url(/content/icon/btn-next-page.svg);
+    background-image: url(../../content/icon/btn-next-page.svg);
     background-repeat: no-repeat;
     background-size: contain;
 }
@@ -75,7 +82,7 @@
 .content .paging-bar .pagination .last-page {
     width: 25px;
     height: 25px;
-    background-image: url(/content/icon/btn-lastpage.svg);
+    background-image: url(../../content/icon/btn-lastpage.svg);
     background-repeat: no-repeat;
     background-size: contain;
 }
@@ -95,6 +102,11 @@
     border-radius: 50%;
     border: 1px solid #bbb;
     margin: 0 5px;
+}
+
+.content .paging-bar .pagination .page-number .page-number-item:hover {
+    color: #fff;
+    background-color: #019160;
     cursor: pointer;
 }
 
@@ -112,13 +124,6 @@
     padding: 3px;
 }
 
-.double-arrow {
-    border: solid black;
-    border-width: 0 2px 2px 0;
-    display: inline-block;
-    padding: 3px;
-}
-
 .actived {
     color: #fff;
     background-color: #019160;
@@ -126,6 +131,10 @@
 
 .right {
     transform: rotate(-45deg);
+}
+
+.bottom {
+    transform: rotate(45deg);
 }
 
 .left {

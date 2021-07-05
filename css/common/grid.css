@@ -1,6 +1,7 @@
 .grid {
     width: 100%;
     overflow: auto;
+    margin-top: 10px;
 }
 
 table th,
@@ -11,6 +12,10 @@ td {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+table tbody tr:hover {
+    background-color: #00ffff;
 }
 
 tr:nth-child(even) {

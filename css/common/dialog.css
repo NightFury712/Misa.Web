@@ -7,7 +7,7 @@
     background-color: #fff;
     border-radius: 4px;
     width: 800px;
-    height: calc(100vh - 48px);
+    height: 850px;
     overflow: auto;
     box-shadow: 0 0 10px gray;
     overflow: auto;
@@ -34,7 +34,7 @@
 .dialog .dialog-content {
     display: flex;
     width: calc(100% - 48px);
-    height: calc(749px - 24px);
+    height: calc(752px - 24px);
     flex: 7;
     padding: 0 24px 24px 24px;
 }

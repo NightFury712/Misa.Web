@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
     toggleSitebar();
     $('.btn-add-emp').click(() => {
         showDialog();
@@ -12,12 +12,12 @@ $(document).ready(function () {
 
     clickOutsideDialog(document.querySelector('.dialog-background'), closeDialog);
     // loadData();
-    // new EmployeeJS();
+    new EmployeeJS();
 });
 
 /**
  * Class quản lý các api cho trang Employee
- * CreatedBy: HHDang (5/7/2021)
+ * Author: HHDang (5/7/2021)
  */
 class EmployeeJS extends BaseJS {
     constructor() {
@@ -30,7 +30,7 @@ class EmployeeJS extends BaseJS {
 
     /**
      * Load dữ liệu
-     * CreatedBy: HHDang (5/7/2021)
+     * Author: HHDang (5/7/2021)
      */
     loadData() {
         try {
@@ -44,10 +44,10 @@ class EmployeeJS extends BaseJS {
             $.ajax({
                 url: this.dataUrl,
                 method: "GET"
-            }).done(function (res) {
-                $.each(res, function (index, obj) {
+            }).done(function(res) {
+                $.each(res, function(index, obj) {
                     var tr = `<tr></tr>`
-                    $.each(ths, function (index, th) {
+                    $.each(ths, function(index, th) {
                         var td = `<td><div><span></span></div></td>`
                         var fieldName = $(th).attr('fieldName')
                         var formatType = $(th).attr('formatType')
@@ -67,10 +67,10 @@ class EmployeeJS extends BaseJS {
                     })
                     $('table tbody').append(tr);
                 })
-            }).fail(function (err) {
+            }).fail(function(err) {
                 console.log(err);
             })
-        } catch(err) {
+        } catch (err) {
             console.log(err);
         }
 
@@ -78,15 +78,15 @@ class EmployeeJS extends BaseJS {
 
     /**
      * Thêm mới dữ liệu
-     * CreatedBy: HHDang (5/7/2021)
+     * Author: HHDang (5/7/2021)
      */
     add() {
-        
+
     }
 
     /**
      * Cập nhật dữ liệu
-     * CreatedBy: HHDang (5/7/2021)
+     * Author: HHDang (5/7/2021)
      */
     edit() {
 
@@ -94,14 +94,17 @@ class EmployeeJS extends BaseJS {
 
     /**
      * Xóa dữ liệu
-     * CreatedBy: HHDang (5/7/2021)
+     * Author: HHDang (5/7/2021)
      */
     delete() {
 
     }
 }
 
-
+/**
+ * Đóng dialog
+ * Author: HHDang (5/7/2021)
+ */
 function closeDialog() {
     $('.dialog').removeClass('show');
     $('.dialog-background').removeClass('show')
@@ -109,6 +112,10 @@ function closeDialog() {
     $('.dialog').addClass('hidden');
 }
 
+/**
+ * Hiện dialog
+ * Author: HHDang (5/7/2021)
+ */
 function showDialog() {
     $('.dialog-background').removeClass('hidden');
     $('.dialog-background').addClass('show');
@@ -116,7 +123,10 @@ function showDialog() {
     $('.dialog').addClass('show');
 }
 
-// Toggle sitebar in out
+/**
+ * Ẩn hiện sidebar
+ * Author: HHDang (5/7/2021)
+ */
 function toggleSitebar() {
     $('.btn-toggle-navbar').click(() => {
         if ($('.navbar').width() == 220) {
@@ -131,9 +141,12 @@ function toggleSitebar() {
     })
 }
 
-//close dialog when click outside 
+/**
+ * Đóng dialog khi click ra bên ngoài dialog
+ * Author: HHDang (5/7/2021)
+ */
 function clickOutsideDialog(el, handler) {
-    window.addEventListener('click', function (e) {
+    window.addEventListener('click', function(e) {
         if (e.target == el) {
             handler();
         }

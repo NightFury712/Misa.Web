@@ -40,12 +40,14 @@ body {
     background-color: #a9cefd !important;
 }
 
-
 .actived {
     color: #fff;
     background-color: #019160;
 }
 
+.border-red {
+    border: 1px solid #f00 !important;
+}
 
 @font-face {
     font-family: 'GoogleSans-Regular';

@@ -13,8 +13,9 @@ function formatDate(date) {
     }
 }
 
+// Format dữ liệu tiền tệ dạng xxx.xxx.xxx
 function formatMoney(money) {
-    if(money !== null) {
+    if (money !== null) {
         money = money.toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "1.")
     }
     return money;

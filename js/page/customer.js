@@ -5,7 +5,7 @@ $(document).ready(function() {
 
 /**
  * Class quản lý các api cho trang Customer
- * CreatedBy: HHDang (5/7/2021)
+ * Author: HHDang (5/7/2021)
  */
 class CustomerJS extends BaseJS {
     constructor() {
@@ -15,7 +15,7 @@ class CustomerJS extends BaseJS {
 
     /**
      * Load dữ liệu
-     * CreatedBy: HHDang (5/7/2021)
+     * Author: HHDang (5/7/2021)
      */
     loadData() {
         // Lấy dữ liệu 
@@ -32,7 +32,7 @@ class CustomerJS extends BaseJS {
 
     /**
      * Thêm mới dữ liệu
-     * CreatedBy: HHDang (5/7/2021)
+     * Author: HHDang (5/7/2021)
      */
     add() {
 
@@ -40,7 +40,7 @@ class CustomerJS extends BaseJS {
 
     /**
      * Cập nhật dữ liệu
-     * CreatedBy: HHDang (5/7/2021)
+     * Author: HHDang (5/7/2021)
      */
     edit() {
 
@@ -48,7 +48,7 @@ class CustomerJS extends BaseJS {
 
     /**
      * Xóa dữ liệu
-     * CreatedBy: HHDang (5/7/2021)
+     * Author: HHDang (5/7/2021)
      */
     delete() {
 

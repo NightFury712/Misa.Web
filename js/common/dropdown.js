@@ -12,7 +12,6 @@ $(document).ready(function() {
  * 
  */
 function clickSelectBox() {
-    const btnSelectBoxs = $(`.btn-select-box`);
     $(`.btn-select-box`).click(function() {
         const dropdownName = `dropdown-box-${$(this).attr('class').split(/\s+/)[1].split('-')[2]}`
 

@@ -1,16 +1,16 @@
 $(document).ready(function() {
     toggleSitebar();
     $('.btn-add-emp').click(() => {
-        showDialog();
+        toggleDialog();
     })
     $('.btn-close-dialog .btn-close').click(() => {
-        closeDialog();
+        toggleDialog();
     })
     $('.dialog-footer .btn-cancel').click(() => {
-        closeDialog();
+        toggleDialog();
     })
 
-    clickOutsideDialog(document.querySelector('.dialog-background'), closeDialog);
+    clickOutsideDialog(document.querySelector('.dialog-background'), toggleDialog);
     // loadData();
     new EmployeeJS();
 });
@@ -59,6 +59,12 @@ class EmployeeJS extends BaseJS {
                             case "MoneyVND":
                                 value = formatMoney(value);
                                 break;
+                            case "gender":
+                                value = formatGender(value);
+                                break;
+                            case "workstatus":
+                                value = formatWorkstatus(value);
+                                break;
                             default:
                                 break;
                         }
@@ -74,6 +80,39 @@ class EmployeeJS extends BaseJS {
             console.log(err);
         }
 
+    }
+
+    /**
+     * Load dữ liệu phòng ban
+     * Author: HHDang (5/7/2021)
+     */
+    loadDataDepartment() {
+        // $('.select-box-department .dropdown-box').empty();
+
+        // Lấy dữ liệu
+        try {
+            $.ajax({
+                url: "http://cukcuk.manhnv.net/api/Department",
+                method: "GET"
+            }).done(function(res) {
+                // console.log(res)
+                $.each(res, (index, department) => {
+                    const item = `<div class="dropdown-item ${index == (res.length - 1) ? 'dropdown-item-last' : ''}">
+                        <div class="dropdown-item__icon"></div>
+                        <input type="radio" id="radio-department-${index+1}" name="radio-department" value="${department.DepartmentName}"></input>
+                        <label for="radio-department-${index+1}">${department.DepartmentName}</label>
+                    </div>`
+                    $('.select-box-department .dropdown-box').append(item);
+                    // if(index == (res.length-1))
+                    //     $('.select-box-department .dropdown-box').append()
+                    // else 
+                    //     $('.select-box-department .dropdown-box').append()
+                })
+                console.log(res.length);
+            })
+        } catch (err) {
+            console.log(err);
+        }
     }
 
     /**
@@ -101,26 +140,14 @@ class EmployeeJS extends BaseJS {
     }
 }
 
-/**
- * Đóng dialog
- * Author: HHDang (5/7/2021)
- */
-function closeDialog() {
-    $('.dialog').removeClass('show');
-    $('.dialog-background').removeClass('show')
-    $('.dialog-background').addClass('hidden');;
-    $('.dialog').addClass('hidden');
-}
 
 /**
- * Hiện dialog
+ * Ẩn hiện dialog
  * Author: HHDang (5/7/2021)
  */
-function showDialog() {
-    $('.dialog-background').removeClass('hidden');
-    $('.dialog-background').addClass('show');
-    $('.dialog').removeClass('hidden');
-    $('.dialog').addClass('show');
+function toggleDialog() {
+    $('.dialog-background').toggleClass('hidden show');
+    $('.dialog').toggleClass('hidden show');
 }
 
 /**

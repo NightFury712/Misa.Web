@@ -2,7 +2,8 @@ class BaseJS {
     constructor() {
         this.dataUrl = null;
         this.setDataUrl();
-        this.loadData();
+        // this.loadData();
+        this.loadDataDepartment();
         this.initEvents();
     }
 
@@ -25,7 +26,7 @@ class BaseJS {
             let trSiblings = $(this).siblings();
             trSiblings.removeClass('row-selected');
             $(this).addClass('row-selected');
-            showDialog();
+            toggleDialog();
         })
 
         $('#txtEmployeeCode').blur(function() {
@@ -53,13 +54,21 @@ class BaseJS {
 
     setDataUrl() {
 
-        }
-        /**
-         * Load dữ liệu
-         * CreatedBy: HHDang (5/7/2021)
-         */
+    }
+
+    /**
+     * Load dữ liệu
+     * CreatedBy: HHDang (5/7/2021)
+     */
     loadData() {
         // Lấy dữ liệu 
+    }
+
+    /**
+     * Load dữ liệu phòng ban
+     * CreatedBy: HHDang (6/7/2021)
+     */
+    loadDataDepartment() {
 
     }
 

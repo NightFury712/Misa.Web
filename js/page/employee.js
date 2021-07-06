@@ -1,14 +1,16 @@
-$(document).ready(function() {
+$(document).ready(function () {
     toggleSitebar();
-    $('.btn-add-emp').click(() => {
+    $('.btn-add-emp').on('click', function() {
         toggleDialog();
     })
-    $('.btn-close-dialog .btn-close').click(() => {
+    $('.btn-close-dialog .btn-close').click(function() {
         toggleDialog();
     })
     $('.dialog-footer .btn-cancel').click(() => {
+        document.getElementById('txtEmployeeCode').focus();
         toggleDialog();
     })
+    
 
     clickOutsideDialog(document.querySelector('.dialog-background'), toggleDialog);
     // loadData();
@@ -37,17 +39,15 @@ class EmployeeJS extends BaseJS {
             $('table tbody').empty();
             // Lấy thông tin các cột dữ liệu
             var ths = $('table thead th');
-            // console.log(ths);
-            // console.log(fieldNames);
 
             // Lấy dữ liệu 
             $.ajax({
                 url: this.dataUrl,
                 method: "GET"
-            }).done(function(res) {
-                $.each(res, function(index, obj) {
+            }).done(function (res) {
+                $.each(res, function (index, obj) {
                     var tr = `<tr></tr>`
-                    $.each(ths, function(index, th) {
+                    $.each(ths, function (index, th) {
                         var td = `<td><div><span></span></div></td>`
                         var fieldName = $(th).attr('fieldName')
                         var formatType = $(th).attr('formatType')
@@ -73,7 +73,7 @@ class EmployeeJS extends BaseJS {
                     })
                     $('table tbody').append(tr);
                 })
-            }).fail(function(err) {
+            }).fail(function (err) {
                 console.log(err);
             })
         } catch (err) {
@@ -87,28 +87,42 @@ class EmployeeJS extends BaseJS {
      * Author: HHDang (5/7/2021)
      */
     loadDataDepartment() {
-        // $('.select-box-department .dropdown-box').empty();
+        $('.formadd-select-box-department .dropdown-box').empty();
 
         // Lấy dữ liệu
         try {
             $.ajax({
                 url: "http://cukcuk.manhnv.net/api/Department",
                 method: "GET"
-            }).done(function(res) {
+            }).done(function (res) {
                 // console.log(res)
                 $.each(res, (index, department) => {
                     const item = `<div class="dropdown-item ${index == (res.length - 1) ? 'dropdown-item-last' : ''}">
                         <div class="dropdown-item__icon"></div>
-                        <input type="radio" id="radio-department-${index+1}" name="radio-department" value="${department.DepartmentName}"></input>
-                        <label for="radio-department-${index+1}">${department.DepartmentName}</label>
+                        <input type="radio" id="radio-department-${index + 1}" name="radio-department" value="${department.DepartmentName}"></input>
+                        <label for="radio-department-${index + 1}">${department.DepartmentName}</label>
                     </div>`
                     $('.select-box-department .dropdown-box').append(item);
-                    // if(index == (res.length-1))
-                    //     $('.select-box-department .dropdown-box').append()
-                    // else 
-                    //     $('.select-box-department .dropdown-box').append()
+                    let itemAdd = ''
+                    let itemAddContent = `<div class="dropdown-item__icon"></div>
+                        <input type="radio" id="radio-adddepartment-${index + 1}" name="radio-adddepartment" value="${department.DepartmentName}" checked></input>
+                        <label for="radio-adddepartment-${index + 1}">${department.DepartmentName}</label>`
+                    switch (index) {
+                        case 0:
+                            itemAdd = `<div class="dropdown-item dropdown-item-first">${itemAddContent}</div>`
+                            $('.formadd-select-box-department .select-box-text').val(department.DepartmentName);
+                            $('.formadd-select-box-department .dropdown-box').append(itemAdd);
+                            break;
+                        case res.length-1:
+                            itemAdd = `<div class="dropdown-item dropdown-item-last">${itemAddContent}</div>`
+                            $('.formadd-select-box-department .dropdown-box').append(itemAdd);
+                            break;
+                        default: 
+                            itemAdd = `<div class="dropdown-item">${itemAddContent}</div>`
+                            $('.formadd-select-box-department .dropdown-box').append(itemAdd);
+                            break;
+                    }
                 })
-                console.log(res.length);
             })
         } catch (err) {
             console.log(err);
@@ -120,7 +134,8 @@ class EmployeeJS extends BaseJS {
      * Author: HHDang (5/7/2021)
      */
     add() {
-
+        // Post dữ liệu
+        
     }
 
     /**
@@ -148,6 +163,9 @@ class EmployeeJS extends BaseJS {
 function toggleDialog() {
     $('.dialog-background').toggleClass('hidden show');
     $('.dialog').toggleClass('hidden show');
+    setTimeout(() => {
+        $('#txtEmployeeCode').focus();
+    }, 300)
 }
 
 /**
@@ -173,7 +191,7 @@ function toggleSitebar() {
  * Author: HHDang (5/7/2021)
  */
 function clickOutsideDialog(el, handler) {
-    window.addEventListener('click', function(e) {
+    window.addEventListener('click', function (e) {
         if (e.target == el) {
             handler();
         }

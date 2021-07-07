@@ -1,0 +1,51 @@
+.popup-listaddnew-content {
+  padding: 0 24px 24px 24px;
+}
+
+.popup-listaddnew-content .btn-popup-listaddnew {
+  margin-bottom: 8px;
+}
+
+.popup-listaddnew-content .popup-listaddnew-item {
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.popup-listaddnew-item .popup-listaddnew__text {
+  padding-left: 5px;
+}
+
+.popup-listaddnew-item .popup-listaddnew__icon {
+  background-image: url(../../content/icon/setting.png);
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.popup-listaddnew-item .popup-listaddnew__icon-delete {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 24px;
+  width: 30px;
+  height: 30px;
+  font-size: 15px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.popup-listaddnew-item .popup-listaddnew__icon-delete:hover {
+  background-color: #e5e5e5;
+}
+
+.popup-listaddnew-item-last {
+  border: none !important;
+}

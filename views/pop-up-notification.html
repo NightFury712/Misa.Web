@@ -8,32 +8,36 @@
     <link rel="stylesheet" href="../css/common/main.css">
     <link rel="stylesheet" href="../css/common/pop-up.css">
     <link rel="stylesheet" href="../css/common/button.css">
-    <link rel="stylesheet" href="../css/common/pop-up-warning.css">
+    <link rel="stylesheet" href="../css/common/pop-up-notification.css">
     <title>Document</title>
 </head>
 
 <body>
     <div class="dark-background popup-background"></div>
-    <div class="popup popup-warning-size middle">
+    <div class="popup popup-notification-size middle">
         <div class="popup-header">
             <div class="btn-close-popup">
                 <button class="btn-close"></button>
             </div>
             <div class="popup-header-title">
-                <span>Đóng form thông tin chung</span>
+                <span>Lý do bị từ chối</span>
             </div>
-            
         </div>
-        <div class="popup-warning-content">
-            <div class="popup-warning-content__icon"></div>
-            <div class="popup-warning-content__text">
-                <span>
-                    Bạn có chắc muốn đóng form nhập <b>"Thông tin chung của thủ tục 603"</b> hay không?
-                </span>
+        <div class="popup-notification-content">
+            <div class="popup-notification-item">
+                <div class="popup-notify__icon"></div>
+                <div class="popup-notify__text">CE029: "Tờ khai không có nội dung"</div>
+            </div>
+            <div class="popup-notification-item">
+                <div class="popup-notify__icon"></div>
+                <div class="popup-notify__text">CE030: "Cấu trúc XML file tờ khai chưa dùng file XSD"</div>
+            </div>
+            <div class="popup-notification-item">
+                <div class="popup-notify__icon"></div>
+                <div class="popup-notify__text">CE031: "Mã tờ khai không có trong thủ tục gửi hồ sơ."</div>
             </div>
         </div>
         <div class="popup-footer">
-            <button class="m-btn btn-cancel">Tiếp tục nhập</button>
             <button class="m-btn btn-save">
                 <span>Đóng</span>
             </button>

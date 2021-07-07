@@ -48,9 +48,10 @@ class EmployeeJS extends BaseJS {
                 $.each(res, function (index, obj) {
                     var tr = `<tr></tr>`
                     $.each(ths, function (index, th) {
-                        var td = `<td><div><span></span></div></td>`
                         var fieldName = $(th).attr('fieldName')
                         var formatType = $(th).attr('formatType')
+                        var td = `<td class=${fieldName}></td>`
+                        // console.log(fieldName);
                         var value = obj[fieldName];
                         switch (formatType) {
                             case "ddmmyyyy":
@@ -72,6 +73,7 @@ class EmployeeJS extends BaseJS {
                         tr = $(tr).append(td);
                     })
                     $('table tbody').append(tr);
+                    // if(index == 10) return;
                 })
             }).fail(function (err) {
                 console.log(err);
@@ -105,12 +107,12 @@ class EmployeeJS extends BaseJS {
                     $('.select-box-department .dropdown-box').append(item);
                     let itemAdd = ''
                     let itemAddContent = `<div class="dropdown-item__icon"></div>
-                        <input type="radio" id="radio-adddepartment-${index + 1}" name="radio-adddepartment" value="${department.DepartmentName}" checked></input>
+                        <input type="radio" id="radio-adddepartment-${index + 1}" name="radio-adddepartment" value="${department.DepartmentName}"></input>
                         <label for="radio-adddepartment-${index + 1}">${department.DepartmentName}</label>`
                     switch (index) {
                         case 0:
                             itemAdd = `<div class="dropdown-item dropdown-item-first">${itemAddContent}</div>`
-                            $('.formadd-select-box-department .select-box-text').val(department.DepartmentName);
+                            // $('.formadd-select-box-department .select-box-text').val(department.DepartmentName);
                             $('.formadd-select-box-department .dropdown-box').append(itemAdd);
                             break;
                         case res.length-1:

@@ -1,0 +1,29 @@
+.popup-notification {
+  background-color: #fff;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.popup-notification-content {
+  padding: 0 24px 8px 24px;
+}
+
+.popup-notification-item {
+  display: flex;
+  padding-bottom: 16px;
+  align-items: center;
+}
+
+.popup-notification-item .popup-notify__icon {
+  background-image: url(/content/icon/icon-warning.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 15px;
+  height: 15px;
+}
+
+.popup-notification-item .popup-notify__text {
+  font-size: 13px;
+  padding-left: 5px;
+  color: #000;
+}

@@ -58,6 +58,19 @@ class BaseJS {
             trSiblings.removeClass('row-selected');
             $(this).addClass('row-selected');
             toggleDialog();
+
+            // Hiển thị thông tin ngày sinh
+            let day = $(this).find('.DateOfBirth').text().split('/')[0]
+            let month = $(this).find('.DateOfBirth').text().split('/')[1]
+            let year = $(this).find('.DateOfBirth').text().split('/')[2]
+            let dob = year + "-" + month + "-" + day;
+            $('#dtDateOfBirth').val(dob);
+            $('#txtEmployeeCode').val($(this).find('.EmployeeCode').text());
+            $('#txtFullName').val($(this).find('.FullName').text());
+            $('#rdGender').val($(this).find('.Gender').text());
+            $('#txtEmail').val($(this).find('.Email').text());
+            $('#nbSalary').val(parseInt($(this).find('.Salary').text().replaceAll('.', '')));
+            $('#nbPhoneNumber').val($(this).find('.PhoneNumber').text());
         })
 
         /**

@@ -11,6 +11,7 @@
     overflow: auto;
     box-shadow: 0 0 10px gray;
     overflow: auto;
+    box-sizing: border-box;
 }
 
 .dialog .dialog-header {
@@ -22,7 +23,7 @@
 .dialog .dialog-header .dialog-header-title {
     text-transform: uppercase;
     padding: 24px;
-    width: 90%;
+    width: 100%;
     font-size: 20px;
 }
 

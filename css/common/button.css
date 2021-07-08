@@ -43,6 +43,8 @@
 }
 
 .btn-close {
+    position: absolute;
+    right: 0;
     background-image: url(../../content/icon/x.svg);
     width: 30px;
     height: 30px;
@@ -73,4 +75,14 @@
 .btn-save {
     padding: 0 24px;
     margin-right: 24px;
+}
+
+.btn-addnew {
+    color: #2fbe8e !important;
+    background-color: #fff !important;
+    border: 1px solid #bbb !important;
+}
+
+.btn-addnew:hover {
+    border: 1px solid #019160 !important;
 }

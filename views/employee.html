@@ -56,35 +56,35 @@
                             </div>
                             <div class="emp-info-general-item">
                                 <p>Số CMTND/ Căn cước (<span>*</span>)</p>
-                                <input type="number" tabindex="5" id="nbIdentity" required>
+                                <input type="number" tabindex="5" id="nbIdentityNumber" required>
                             </div>
                             <div class="emp-info-general-item">
                                 <p>Nơi cấp</p>
-                                <input type="text" tabindex="7" id="txtIdentityAddr">
+                                <input type="text" tabindex="7" id="txtIdentityPlace">
                             </div>
                             <div class="emp-info-general-item">
                                 <p>Email (<span>*</span>)</p>
-                                <input class="email" type="text" tabindex="8" id="txtEmail" required>
+                                <input class="email" type="email" tabindex="8" id="txtEmail" required>
                             </div>
                         </div>
                         <div class="emp-info-general-right">
                             <div class="emp-info-general-item">
                                 <p>Họ và tên (<span>*</span>)</p>
-                                <input type="text" tabindex="2" id="txtFullName">
+                                <input type="text" tabindex="2" id="txtFullName" required>
                             </div>
                             <div class="emp-info-general-item">
                                 <p>Giới tính </p>
                                 <div class="formadd-select-box">
-                                    <button class="btn-select-box btn-dropdown-gender" tabindex="4">
+                                    <button class="btn-select-box btn-dropdown-gender" >
                                         <div class="select-box-icon">
                                             <i class="fas fa-chevron-down"></i>
                                         </div>
                                     </button>
-                                    <input class="select-box-text" value="Nam" id="rdGender"></input>
+                                    <input class="select-box-text" value="" id="rdGender" tabindex="4"></input>
                                     <div class="dropdown-box dropdown-box-gender hidden">
                                         <div class="dropdown-item dropdown-item-first">
                                             <div class="dropdown-item__icon"></div>
-                                            <input type="radio" id="radio-gender-1" name="radio-gender" value="Nam" checked></input>
+                                            <input type="radio" id="radio-gender-1" name="radio-gender" value="Nam"></input>
                                             <label for="radio-gender-1">Nam</label>
                                         </div>
                                         <div class="dropdown-item">
@@ -102,7 +102,7 @@
                             </div>
                             <div class="emp-info-general-item">
                                 <p>Ngày cấp </p>
-                                <input type="date" tabindex="6" id="txtIdentityDT">
+                                <input type="date" tabindex="6" id="txtIdentityDate">
                             </div>
                             <div class="emp-info-general-item">
                                 <p style="visibility: hidden;">Số điện thoại (<span>*</span>)</p>
@@ -110,7 +110,7 @@
                             </div>
                             <div class="emp-info-general-item">
                                 <p>Số điện thoại (<span>*</span>)</p>
-                                <input type="text" tabindex="9" id="nbTelephone" required>
+                                <input type="text" tabindex="9" id="nbPhoneNumber" required>
                             </div>
                         </div>
                     </div>
@@ -124,12 +124,12 @@
                                 <div class="emp-info-general-item">
                                     <p>Vị trí</p>
                                     <div class="formadd-select-box">
-                                        <button class="btn-select-box btn-dropdown-addposition" tabindex="10">
+                                        <button class="btn-select-box btn-dropdown-addposition" >
                                             <div class="select-box-icon">
                                                 <i class="fas fa-chevron-down"></i>
                                             </div>
                                         </button>
-                                        <input class="select-box-text" value="Tất cả vị trí" id="txtPosition"></input>
+                                        <input class="select-box-text" value="Tất cả vị trí" id="txtPosition" tabindex="10"></input>
 
                                         <div class="dropdown-box dropdown-box-addposition hidden">
                                             <div class="dropdown-item dropdown-item-first">
@@ -157,7 +157,7 @@
                                 </div>
                                 <div class="emp-info-general-item">
                                     <p>Mã số thuế cá nhân</p>
-                                    <input type="number" tabindex="12" id="nbTaxNumber">
+                                    <input type="number" tabindex="12" id="nbTaxCode">
                                 </div>
                                 <div class="emp-info-general-item">
                                     <p>Ngày gia nhập công ty</p>
@@ -167,13 +167,13 @@
                             <div class="emp-info-general-right">
                                 <div class="emp-info-general-item">
                                     <p>Phòng ban</p>
-                                    <div class="formadd-select-box">
-                                        <button class="btn-select-box btn-dropdown-adddepartment" tabindex="11">
+                                    <div class="formadd-select-box formadd-select-box-department">
+                                        <button class="btn-select-box btn-dropdown-adddepartment" >
                                             <div class="select-box-icon">
                                                 <i class="fas fa-chevron-down"></i>
                                             </div>
                                         </button>
-                                        <input class="select-box-text" value="Phòng hành chính" id="txtDepartment"></input>
+                                        <input class="select-box-text" value="" id="txtDepartment" tabindex="11"></input>
 
                                         <div class="dropdown-box dropdown-box-adddepartment hidden">
                                             <div class="dropdown-item dropdown-item-first">
@@ -206,17 +206,17 @@
                                 <div class="emp-info-general-item">
                                     <p>Tình trạng công việc</p>
                                     <div class="formadd-select-box">
-                                        <button class="btn-select-box btn-dropdown-jobstate" tabindex="15">
+                                        <button class="btn-select-box btn-dropdown-jobstate">
                                             <div class="select-box-icon">
                                                 <i class="fas fa-chevron-down"></i>
                                             </div>
                                         </button>
-                                        <input class="select-box-text" value="Đang làm việc" id="txtJobStatus"></input>
+                                        <input class="select-box-text" value="" id="txtWorkStatus" tabindex="15"></input>
 
                                         <div class="dropdown-box dropdown-box-jobstate hidden">
                                             <div class="dropdown-item dropdown-item-first">
                                                 <div class="dropdown-item__icon"></div>
-                                                <input type="radio" id="radio-jobstate-1" name="radio-jobstate" value="Đang làm việc" checked></input>
+                                                <input type="radio" id="radio-jobstate-1" name="radio-jobstate" value="Đang làm việc"></input>
                                                 <label for="radio-jobstate-1">Đang làm việc</label>
                                             </div>
                                             <div class="dropdown-item">

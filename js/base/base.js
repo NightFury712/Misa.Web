@@ -260,13 +260,16 @@ class BaseJS {
 
     /**
      * Xóa dữ liệu
-     * CreatedBy: HHDang (5/7/2021)
+     * Author: HHDang (8/7/2021)
      */
     delete(EmployeeId) {
+        let mine = this;
         $.ajax({
             url: `${this.dataUrl}/${EmployeeId}`,
             method: "DELETE"
         }).done(function(res) {
+            alert("Xóa thành công!!!");
+            mine.loadData();
             console.log(res);
         }).fail(function(err) {
             console.log(err);

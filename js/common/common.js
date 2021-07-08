@@ -4,7 +4,7 @@
  * @param {1991-07-09T00:00:00} date 
  * @returns 09/07/1991
  */
-function formatDate(date) {
+function formatDate(date, option) {
     var date = new Date(date);
     if (Number.isNaN(date.getTime())) {
         return "";
@@ -14,8 +14,13 @@ function formatDate(date) {
         let year = date.getFullYear();
         day = day < 10 ? '0' + day : day;
         month = month < 10 ? '0' + month : month;
-        return `${day}/${month}/${year}`;
+        if(option == 1) {
+            return `${day}/${month}/${year}`;
+        } else {
+            return `${year}-${month}-${day}`
+        }
     }
+
 }
 /**
  * Format dữ liệu tiền tệ dạng xxx.xxx.xxx
@@ -25,7 +30,13 @@ function formatDate(date) {
  */
 function formatMoney(money) {
     if (money !== null) {
-        money = money.toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "1.")
+        const formatter = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'VND',
+            minimumFractionDigits: 0
+        })
+        money = formatter.format(money)
+        // money = money.toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, ".")
         return money;
     } else return 0;
 }
@@ -33,18 +44,30 @@ function formatMoney(money) {
 /**
  * Format dữ liệu giới tính
  * Author: HHDang (6/7/2021)
- * @param {1 || 2 || 3} genderCode 
+ * @param {1 || 2 || 3} gender
  * @returns Nữ || Nam || Giới tính khác
  */
-function formatGender(genderCode) {
-    switch (genderCode) {
-        case 0:
-            return 'Nữ';
-        case 1:
-            return 'Nam';
-        default:
-            return 'Giới tính khác';
+function formatGender(gender, option) {
+    if(option == 1) {
+        switch (gender) {
+            case 0:
+                return 'Nữ';
+            case 1:
+                return 'Nam';
+            default:
+                return 'Giới tính khác';
+        }
+    } else {
+        switch (gender) {
+            case 'Nữ':
+                return 0;
+            case 'Nam':
+                return 1;
+            default:
+                return null;
+        }
     }
+    
 
 }
 
@@ -55,17 +78,32 @@ function formatGender(genderCode) {
  * @returns 'Đã nghỉ việc'
  */
 
-function formatWorkstatus(workstatus) {
-    switch (workstatus) {
-        case 0:
-            return "Đã nghỉ việc";
-        case 1:
-            return "Đang làm việc";
-        case 2:
-            return "Thực tập sinh";
-        case 3:
-            return "Nghỉ thai sản";
-        default:
-            return "Không xác định";
+function formatWorkstatus(workstatus, option) {
+    if(option == 1) {
+        switch (workstatus) {
+            case 0:
+                return "Đã nghỉ việc";
+            case 1:
+                return "Đang làm việc";
+            case 2:
+                return "Thực tập sinh" ;
+            case 3:
+                return "Nghỉ thai sản";
+            default:
+                return "Không xác định";
+        }
+    } else {
+        switch (workstatus) {
+            case "Đã nghỉ việc":
+                return 0;
+            case "Đang làm việc":
+                return 1;
+            case "Thực tập sinh":
+                return 2;
+            case "Nghỉ thai sản":
+                return 3;
+            default:
+                return null;
+        }
     }
 }

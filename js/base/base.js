@@ -7,77 +7,105 @@ class BaseJS {
         this.initEvents();
     }
 
+
+    //#region Method
     initEvents() {
         let mine = this;
+        let EmployeeId;
+
+        toggleSitebar();
+        $('.btn-add-emp').on('click', function () {
+            toggleDialog();
+            $('#btnSave').addClass('add-new-employee');
+            $('#btnSave span').text('Lưu');
+        })
+
+        $('.btn-close-dialog .btn-close').click(function () {
+            toggleDialog();
+        })
+
+        $('.dialog-footer .btn-cancel').click(() => {
+            toggleDialog();
+        })
+
+        clickOutsideDialog(document.querySelector('.dialog-background'), toggleDialog);
+
         // Thực hiện load dữ liệu khi nhấn button nạp
-        $('#btnRefresh').click(function() {
+        $('#btnRefresh').click(function () {
             mine.loadData();
         })
 
         // Thực hiện lưu dữ liệu khi nhấn button [Lưu] trên form chi tiết
-        $('#btnSave').click(function() {
+        $('#btnSave').click(function () {
             // Validate dữ liệu:
             var inputValidates = $('input[required], input[type=email], #nbPhoneNumber');
             $.each(inputValidates, (index, input) => {
                 $(input).trigger('blur');
             })
             let inputNotValids = $('input[validate=false]');
-            if(inputNotValids && inputNotValids.length > 0) {
+            if (inputNotValids && inputNotValids.length > 0) {
                 alert("Dữ liệu không hợp lệ vui lòng kiểm tra lại.")
                 inputNotValids[0].focus();
-                console.log(inputNotValids[0]);
                 return;
             }
+            let workStatus = formatWorkstatus($('#txtWorkStatus').val(), 2)
+            let genderCode = formatGender($('#rdGender').val(), 2);
+            console.log(genderCode)
+            // console.log(workStatus);
 
             // Thu thập thông tin dữ liệu nhập và buil thành obj
             const employee = {
-                "EmployeeCode": $('#txtEmployeeCode').val(),
-                "FullName": $('#txtFullName').val(),
-                "DateOfBirth": $('#dtDateOfBirth').val(),
-                "Email": $('#txtEmail').val(),
-                "IdentityNumber": $('#nbIdentityNumber').val(),
-                "IdentityDate": $('#txtIdentityDate').val(),
-                "IdentityPlace": $('#txtIdentityPlace').val(),
-                "WorkStatus": $('#txtWorkStatus').val(),
-                "PersonalTaxCode": $('#nbTaxCode').val(),
-                "Salary": $('#nbSalary').val(),
-                "GenderName": $('#rdGender').val(),
+                "employeeCode": $('#txtEmployeeCode').val(),
+                "fullName": $('#txtFullName').val(),
+                "dateOfBirth": $('#dtDateOfBirth').val(),
+                "gender": genderCode,
+                "identityNumber": $('#nbIdentityNumber').val(),
+                "identityDate": $('#txtIdentityDate').val(),
+                "identityPlace": $('#txtIdentityPlace').val(),
+                "email": $('#txtEmail').val(),
+                "phoneNumber": $('#nbPhoneNumber').val(),
+                "positionName": $('#txtPosition').val(),
+                "departmentCode": $('#txtDepartment').val(),
+                "personalTaxCode": $('#nbTaxCode').val(),
+                "salary": $('#nbSalary').val(),
+                "joinDate": $('#dtJoinDate').val(),
+                "WorkStatus": workStatus
             }
-            console.log(employee);
-            // Sau khi lưu thành công
-            // + Thông báo thành công
-            // + Ẩn form
-            // + load lại dữ liệu
-            // toggleDialog();
+            // console.log(employee);
+            if ($(this).hasClass('add-new-employee')) {
+                mine.add(employee);
+            } else {
+                // console.log("heello");
+                mine.edit(EmployeeId, employee);
+            }
         })
 
         // Hiển thị thông tin chi tiết khi nhấn đúp chuột chọn 1 bản ghi trên danh sách dữ liệu
-        $('table tbody').on('dblclick', 'tr', function() {
+        $('table tbody').on('dblclick', 'tr', function () {
             // alert(1);
+            $('#btnSave').removeClass('add-new-employee');
+            $('#btnSave span').text('Lưu thay đổi');
             let trSiblings = $(this).siblings();
             trSiblings.removeClass('row-selected');
             $(this).addClass('row-selected');
+            EmployeeId = $(this).attr('EmployeeId');
             toggleDialog();
-
-            // Hiển thị thông tin ngày sinh
-            let day = $(this).find('.DateOfBirth').text().split('/')[0]
-            let month = $(this).find('.DateOfBirth').text().split('/')[1]
-            let year = $(this).find('.DateOfBirth').text().split('/')[2]
-            let dob = year + "-" + month + "-" + day;
-            $('#dtDateOfBirth').val(dob);
-            $('#txtEmployeeCode').val($(this).find('.EmployeeCode').text());
-            $('#txtFullName').val($(this).find('.FullName').text());
-            $('#rdGender').val($(this).find('.Gender').text());
-            $('#txtEmail').val($(this).find('.Email').text());
-            $('#nbSalary').val(parseInt($(this).find('.Salary').text().replaceAll('.', '')));
-            $('#nbPhoneNumber').val($(this).find('.PhoneNumber').text());
+            $.ajax({
+                url: `${mine.dataUrl}/${EmployeeId}`,
+                method: "GET"
+            }).done(function (res) {
+                mine.insertDialogInfo(res)
+                // $('#btnSave span').text('Lưu thay đổi');
+            }).fail(function (err) {
+                console.log(err);
+            })
         })
 
         /**
          * Validate bắt buộc nhập
          * Author: HHDang (6/7/2021)
          */
-        $('[required]').blur(function() {
+        $('[required]').blur(function () {
             // Kiểm tra dữ liệu đã nhập, nếu trống thì cảnh báo
             let value = $(this).val();
             if (!value) {
@@ -95,10 +123,10 @@ class BaseJS {
          * Validate email hợp lệ
          * Author: HHDang (6/7/2021)
          */
-        $('input[type=email]').blur(function() {
+        $('input[type=email]').blur(function () {
             let value = $(this).val();
             const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            if(re.test(String(value).toLowerCase())) {
+            if (re.test(String(value).toLowerCase())) {
                 $(this).removeClass('border-red');
                 $(this).attr('title', '')
                 $(this).attr('validate', true);
@@ -113,10 +141,10 @@ class BaseJS {
          * Validate số điện thoại
          * Author: HHDang (6/7/2021)
          */
-        $('#nbPhoneNumber').blur(function() {
+        $('#nbPhoneNumber').blur(function () {
             let value = $(this).val();
             const regx = new RegExp(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im);
-            if(regx.test(value)) {
+            if (regx.test(value)) {
                 $(this).removeClass('border-red');
                 $(this).attr('title', '')
                 $(this).attr('validate', true);
@@ -126,6 +154,12 @@ class BaseJS {
                 $(this).attr('validate', false);
             }
         })
+    }
+    //#endregion
+
+
+    insertDialogInfo(res) {
+        console.log('parent insertDialogInfo: ' + res)
     }
 
     setDataUrl() {
@@ -152,17 +186,23 @@ class BaseJS {
      * Thêm mới dữ liệu
      * CreatedBy: HHDang (5/7/2021)
      */
-    add() {
+     add() {
+         let mine = this;
+        // Post dữ liệu
         $.ajax({
-            url: this.dataUrl,
+            url: "http://cukcuk.manhnv.net/v1/Employees",
             method: "POST",
             data: JSON.stringify(employee),
             contentType: 'application/json'
-        }).done(function(res) {
+        }).done(function (res) {
+            // Sau khi lưu thành công
+            // + Thông báo thành công
             alert('Lưu thành công');
+            // + Ẩn form
             toggleDialog();
-            console.log(res);
-        }).fail(function(err) {
+            // + load lại dữ liệu
+            mine.loadData();
+        }).fail(function (err) {
             console.log(err);
         })
     }
@@ -171,8 +211,25 @@ class BaseJS {
      * Cập nhật dữ liệu
      * CreatedBy: HHDang (5/7/2021)
      */
-    edit() {
-
+    edit(EmployeeId, employee) {
+        let mine = this;
+        $.ajax({
+            url: `${this.dataUrl}/${EmployeeId}`,
+            method: "PUT",
+            data: JSON.stringify(employee),
+            contentType: 'application/json'
+        }).done(function(res) {
+            // Sau khi lưu thành công
+            // + Thông báo thành công
+            alert('Lưu thay đổi thành công');
+            // + Ẩn form
+            toggleDialog();
+            // + load lại dữ liệu
+            mine.loadData();
+            console.log(res);
+        }).fail(function(err) {
+            console.log((err))
+        })
     }
 
     /**

@@ -69,27 +69,19 @@ class EmployeeJS extends BaseJS {
                         <input type="radio" id="radio-department-${index + 1}" name="radio-department" value="${department.DepartmentName}"></input>
                         <label for="radio-department-${index + 1}">${department.DepartmentName}</label>
                     </div>`
+
                     $('.select-box-department .dropdown-box').append(item);
-                    let itemAdd = ''
-                    let itemAddContent = `<div class="dropdown-item__icon"></div>
-                        <input type="radio" id="radio-adddepartment-${index + 1}" name="radio-adddepartment" value="${department.DepartmentName}"></input>
-                        <label for="radio-adddepartment-${index + 1}">${department.DepartmentName}</label>`
-                    switch (index) {
-                        case 0:
-                            itemAdd = `<div class="dropdown-item dropdown-item-first">${itemAddContent}</div>`
-                            // $('.formadd-select-box-department .select-box-text').val(department.DepartmentName);
-                            $('.formadd-select-box-department .dropdown-box').append(itemAdd);
-                            break;
-                        case res.length - 1:
-                            itemAdd = `<div class="dropdown-item dropdown-item-last">${itemAddContent}</div>`
-                            $('.formadd-select-box-department .dropdown-box').append(itemAdd);
-                            break;
-                        default:
-                            itemAdd = `<div class="dropdown-item">${itemAddContent}</div>`
-                            $('.formadd-select-box-department .dropdown-box').append(itemAdd);
-                            break;
-                    }
+                    $(`#radio-department-${index + 1}`).data("Id", department.DepartmentId);
+
+                    let itemAdd = `<div class="dropdown-item "><div class="dropdown-item__icon"></div>
+                    <input type="radio" id="radio-adddepartment-${index + 1}" name="radio-adddepartment" value="${department.DepartmentName}"></input>
+                    <label for="radio-adddepartment-${index + 1}">${department.DepartmentName}</label></div>`
+
+                    $('.formadd-select-box-department .dropdown-box').append(itemAdd);
+                    $(`#radio-adddepartment-${index + 1}`).data("Id", department.DepartmentId);
                 })
+                $('.dropdown-box-adddepartment .dropdown-item').first().addClass('dropdown-item-first')
+                $('.dropdown-box-adddepartment .dropdown-item').last().addClass('dropdown-item-last')
             })
         } catch (err) {
             console.log(err);
@@ -114,27 +106,19 @@ class EmployeeJS extends BaseJS {
                     <input type="radio" id="radio-position-${index + 1}" name="radio-position" value="${position.PositionName}"></input>
                     <label for="radio-position-${index + 1}">${position.PositionName}</label>
                 </div>`
+
                 $('.select-box-position .dropdown-box').append(item);
-                let itemAdd = ''
-                let itemAddContent = `<div class="dropdown-item__icon"></div>
-                    <input type="radio" id="radio-addposition-${index + 1}" name="radio-addposition" value="${position.PositionName}"></input>
-                    <label for="radio-addposition-${index + 1}">${position.PositionName}</label>`
-                // console.log(itemAddContent)
-                switch (index) {
-                    case 0:
-                        itemAdd = `<div class="dropdown-item dropdown-item-first">${itemAddContent}</div>`
-                        $('.formadd-select-box-position .dropdown-box').append(itemAdd);
-                        break;
-                    case res.length - 1:
-                        itemAdd = `<div class="dropdown-item dropdown-item-last">${itemAddContent}</div>`
-                        $('.formadd-select-box-position .dropdown-box').append(itemAdd);
-                        break;
-                    default:
-                        itemAdd = `<div class="dropdown-item">${itemAddContent}</div>`
-                        $('.formadd-select-box-position .dropdown-box').append(itemAdd);
-                        break;
-                }
+                $(`radio-position-${index + 1}`).data("Id", position.PositionId)
+                
+                let itemAdd = `<div class="dropdown-item dropdown-item-first"><div class="dropdown-item__icon"></div>
+                <input type="radio" id="radio-addposition-${index + 1}" name="radio-addposition" value="${position.PositionName}"></input>
+                <label for="radio-addposition-${index + 1}">${position.PositionName}</label></div>`
+                
+                $('.formadd-select-box-position .dropdown-box').append(itemAdd);
+                $(`#radio-addposition-${index + 1}`).data("Id", position.PositionId)
             })
+            $('.dropdown-box-addposition .dropdown-item').first().addClass('dropdown-item-first')
+            $('.dropdown-box-addposition .dropdown-item').last().addClass('dropdown-item-last')
         }).fail(function (err) {
             console.log(err)
         })
@@ -145,13 +129,12 @@ class EmployeeJS extends BaseJS {
      * Author: HHDang (8/7/2021)
      * @returns obj chứa thông tin nhân viên 
      */
-    async getPersonInfo() {
+    getPersonInfo() {
         // Thu thập thông tin dữ liệu nhập và buil thành obj
         let workStatus = formatWorkstatus($('#txtWorkStatus').val(), 2)
         let genderCode = formatGender($('#rdGender').val(), 2);
-        let departmentId = await formatDepartment($('#txtDepartment').val());
-        let positionId = await formatPosition($('#txtPosition').val());
-
+        let departmentId = $('#txtDepartment').data("Id");
+        let positionId = $('#txtPosition').data("Id");
         const employee = {
             "employeeCode": $('#txtEmployeeCode').val(),
             "fullName": $('#txtFullName').val(),
@@ -169,7 +152,7 @@ class EmployeeJS extends BaseJS {
             "joinDate": $('#dtJoinDate').val(),
             "WorkStatus": workStatus
         }
-        console.log(employee)
+        // console.log(employee)
         return employee;
     }
 

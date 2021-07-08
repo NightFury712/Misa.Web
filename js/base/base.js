@@ -49,7 +49,7 @@ class BaseJS {
         })
 
         // Thực hiện lưu dữ liệu khi nhấn button [Lưu] trên form chi tiết
-        $('#btnSave').click(async function () {
+        $('#btnSave').click(function () {
             // Validate dữ liệu:
             var inputValidates = $('input[required], input[type=email], #nbPhoneNumber');
             $.each(inputValidates, (index, input) => {
@@ -61,9 +61,9 @@ class BaseJS {
                 inputNotValids[0].focus();
                 return;
             }
-            const employee = await mine.getPersonInfo();
+            const employee = mine.getPersonInfo();
 
-            console.log(employee);
+            // console.log(employee);
             if ($(this).hasClass('add-new-employee')) {
                 mine.add(employee);
             } else {
@@ -180,7 +180,7 @@ class BaseJS {
      * Author: HHDang (8/7/2021)
      * @returns obj chứa thông tin nhân viên 
      */
-    async getPersonInfo() {
+    getPersonInfo() {
     }
 
     setDataUrl() {

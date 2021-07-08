@@ -37,6 +37,7 @@ function getSelectedItem(dropdownName) {
         // Lấy giá trị item được chọn
     $(`.dropdown-item input[name=radio-${itemName}]`).change(function() {
         $(`.btn-dropdown-${itemName}~.select-box-text`).val($(this).val());
+        $(`.btn-dropdown-${itemName}~.select-box-text`).data("Id", $(this).data("Id"))
         // console.log(this);
         hideDropdown(dropdownName);
     })

@@ -109,54 +109,6 @@ function formatWorkstatus(workstatus, option) {
 }
 
 /**
- * Format tên phòng ban thành id phòng ban
- * Author: HHDang (8/7/2021)
- * @param {"Phòng Marketting"} departmentName 
- * @returns "PB99"
- */
-async function formatDepartment(departmentName) {
-    return new Promise((resolve, reject) => {
-        $.ajax({
-            url: "http://cukcuk.manhnv.net/api/Department",
-            method: "GET"
-        }).done(function(res) {
-            let index = res.findIndex(item => item.DepartmentName == departmentName);
-            if (index === -1) {
-                resolve(null);
-            } else {
-                resolve(res[index].DepartmentId);
-            }
-        }).fail(function(err) {
-            reject(err);
-        })
-    })
-}
-
-/**
- * Format tên vị trí công việc thành id vị trí công việc
- * Author: HHDang(8/7/2021)
- * @param {"Phòng Đào tạo"} positionName 
- * @returns "P08"
- */
-async function formatPosition(positionName) {
-    return new Promise((resolve, reject) => {
-        $.ajax({
-            url: "http://cukcuk.manhnv.net/v1/Positions",
-            method: "GET"
-        }).done(function(res) {
-            let index = res.findIndex(item => item.PositionName == positionName);
-            if (index === -1) {
-                resolve(null);
-            } else {
-                resolve(res[index].PositionId);
-            }
-        }).fail(function(err) {
-            reject(err);
-        })
-    })
-}
-
-/**
  * Format tình trạng quan hệ thành id
  * Author: HHDang (8/7/2021)
  * @param {Tình trạng quan hệ} martialStatusName 

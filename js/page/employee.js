@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
     new EmployeeJS();
 });
 
@@ -16,8 +16,9 @@ class EmployeeJS extends BaseJS {
     }
 
     /**
-     * Thêm dữ liệu nhân viên vào dialog
-     * Author: HHDang (7/7/2021)
+     * Truyền dữ liệu về thông tin nhân viên vào form thông tin
+     * Author: HHDang (8/7/2021)
+     * @param {Thông tin nhân viên trả về theo id} res 
      */
     insertDialogInfo(res) {
         // Hiển thị thông tin ngày sinh
@@ -26,19 +27,19 @@ class EmployeeJS extends BaseJS {
         let joinDate = formatDate(res.JoinDate, 2);
         let workStatus = formatWorkstatus(res.WorkStatus, 1);
 
-        $('#dtDateOfBirth').val(dob);
         $('#txtEmployeeCode').val(res.EmployeeCode);
         $('#txtFullName').val(res.FullName);
+        $('#dtDateOfBirth').val(dob);
         $('#rdGender').val(res.GenderName);
-        $('#txtEmail').val(res.Email);
-        $('#nbSalary').val(parseInt(res.Salary));
-        $('#nbPhoneNumber').val(res.PhoneNumber);
         $('#nbIdentityNumber').val(res.IdentityNumber);
         $('#txtIdentityDate').val(identityDate);
         $('#txtIdentityPlace').val(res.IdentityPlace);
+        $('#txtEmail').val(res.Email);
+        $('#nbPhoneNumber').val(res.PhoneNumber);
         $('#txtPosition').val(res.PositionName);
         $('#txtDepartment').val(res.DepartmentName);
         $('#nbPersonalTaxCode').val(res.PersonalTaxCode);
+        $('#nbSalary').val(parseInt(res.Salary));
         $('#txtWorkStatus').val(workStatus);
         $('#dtJoinDate').val(joinDate);
     }
@@ -47,55 +48,7 @@ class EmployeeJS extends BaseJS {
      * Load dữ liệu
      * Author: HHDang (5/7/2021)
      */
-    loadData() {
-        try {
-            $('table tbody').empty();
-            // Lấy thông tin các cột dữ liệu
-            var ths = $('table thead th');
 
-            // Lấy dữ liệu 
-            $.ajax({
-                url: this.dataUrl,
-                method: "GET"
-            }).done(function(res) {
-                $.each(res, function(index, obj) {
-                    var tr = `<tr  EmployeeId=${obj.EmployeeId}></tr>`
-                    $.each(ths, function(index, th) {
-                        var fieldName = $(th).attr('fieldName')
-                        var formatType = $(th).attr('formatType')
-                        var td = `<td></td>`
-                            // console.log(fieldName);
-                        var value = obj[fieldName];
-                        switch (formatType) {
-                            case "ddmmyyyy":
-                                value = formatDate(value, 1);
-                                break;
-                            case "MoneyVND":
-                                value = formatMoney(value);
-                                break;
-                            case "gender":
-                                value = formatGender(value, 1);
-                                break;
-                            case "workstatus":
-                                value = formatWorkstatus(value, 1);
-                                break;
-                            default:
-                                break;
-                        }
-                        td = $(td).append(value);
-                        tr = $(tr).append(td);
-                    })
-                    $('table tbody').append(tr);
-                    // if(index == 10) return;
-                })
-            }).fail(function(err) {
-                console.log(err);
-            })
-        } catch (err) {
-            console.log(err);
-        }
-
-    }
 
     /**
      * Load dữ liệu phòng ban
@@ -109,8 +62,7 @@ class EmployeeJS extends BaseJS {
             $.ajax({
                 url: "http://cukcuk.manhnv.net/api/Department",
                 method: "GET"
-            }).done(function(res) {
-                // console.log(res)
+            }).done(function (res) {
                 $.each(res, (index, department) => {
                     const item = `<div class="dropdown-item ${index == (res.length - 1) ? 'dropdown-item-last' : ''}">
                         <div class="dropdown-item__icon"></div>
@@ -125,7 +77,7 @@ class EmployeeJS extends BaseJS {
                     switch (index) {
                         case 0:
                             itemAdd = `<div class="dropdown-item dropdown-item-first">${itemAddContent}</div>`
-                                // $('.formadd-select-box-department .select-box-text').val(department.DepartmentName);
+                            // $('.formadd-select-box-department .select-box-text').val(department.DepartmentName);
                             $('.formadd-select-box-department .dropdown-box').append(itemAdd);
                             break;
                         case res.length - 1:
@@ -155,7 +107,7 @@ class EmployeeJS extends BaseJS {
         $.ajax({
             url: "http://cukcuk.manhnv.net/v1/Positions",
             method: "GET"
-        }).done(function(res) {
+        }).done(function (res) {
             $.each(res, (index, position) => {
                 const item = `<div class="dropdown-item ${index == (res.length - 1) ? 'dropdown-item-last' : ''}">
                     <div class="dropdown-item__icon"></div>
@@ -167,7 +119,7 @@ class EmployeeJS extends BaseJS {
                 let itemAddContent = `<div class="dropdown-item__icon"></div>
                     <input type="radio" id="radio-addposition-${index + 1}" name="radio-addposition" value="${position.PositionName}"></input>
                     <label for="radio-addposition-${index + 1}">${position.PositionName}</label>`
-                    // console.log(itemAddContent)
+                // console.log(itemAddContent)
                 switch (index) {
                     case 0:
                         itemAdd = `<div class="dropdown-item dropdown-item-first">${itemAddContent}</div>`
@@ -183,9 +135,42 @@ class EmployeeJS extends BaseJS {
                         break;
                 }
             })
-        }).fail(function(err) {
+        }).fail(function (err) {
             console.log(err)
         })
+    }
+
+    /**
+     * Tạo đối tượng chứa thông tin nhân viên lấy từ form
+     * Author: HHDang (8/7/2021)
+     * @returns obj chứa thông tin nhân viên 
+     */
+    async getPersonInfo() {
+        // Thu thập thông tin dữ liệu nhập và buil thành obj
+        let workStatus = formatWorkstatus($('#txtWorkStatus').val(), 2)
+        let genderCode = formatGender($('#rdGender').val(), 2);
+        let departmentId = await formatDepartment($('#txtDepartment').val());
+        let positionId = await formatPosition($('#txtPosition').val());
+
+        const employee = {
+            "employeeCode": $('#txtEmployeeCode').val(),
+            "fullName": $('#txtFullName').val(),
+            "dateOfBirth": $('#dtDateOfBirth').val(),
+            "gender": genderCode,
+            "identityNumber": $('#nbIdentityNumber').val(),
+            "identityDate": $('#txtIdentityDate').val(),
+            "identityPlace": $('#txtIdentityPlace').val(),
+            "email": $('#txtEmail').val(),
+            "phoneNumber": $('#nbPhoneNumber').val(),
+            "positionId": positionId,
+            "departmentId": departmentId,
+            "personalTaxCode": $('#nbPersonalTaxCode').val(),
+            "salary": $('#nbSalary').val(),
+            "joinDate": $('#dtJoinDate').val(),
+            "WorkStatus": workStatus
+        }
+        console.log(employee)
+        return employee;
     }
 
     /**
@@ -229,49 +214,3 @@ class EmployeeJS extends BaseJS {
     // }
 }
 
-
-/**
- * Ẩn hiện dialog
- * Author: HHDang (5/7/2021)
- */
-function toggleDialog() {
-    $('.dialog-background').toggleClass('hidden show');
-    $('.dialog').toggleClass('hidden show');
-    if ($('.dialog').hasClass('show')) {
-        $('input').removeClass('border-red');
-        setTimeout(() => {
-            $('#txtEmployeeCode').focus();
-        }, 300)
-    }
-
-}
-
-/**
- * Ẩn hiện sidebar
- * Author: HHDang (5/7/2021)
- */
-function toggleSitebar() {
-    $('.btn-toggle-navbar').click(() => {
-        if ($('.navbar').width() == 220) {
-            $('.navbar').width(52);
-            $('.content').css('left', '68px')
-            $('.nav-item-text').hide();
-        } else {
-            $('.navbar').width(220)
-            $('.content').css('left', '221px')
-            $('.nav-item-text').fadeIn('slow');
-        }
-    })
-}
-
-/**
- * Đóng dialog khi click ra bên ngoài dialog
- * Author: HHDang (5/7/2021)
- */
-function clickOutsideDialog(el, handler) {
-    window.addEventListener('click', function(e) {
-        if (e.target == el) {
-            handler();
-        }
-    })
-}

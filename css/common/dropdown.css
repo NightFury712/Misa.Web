@@ -127,7 +127,9 @@
     overflow: auto;
 }
 
-.dropdown-box-adddepartment {
+.dropdown-box-adddepartment,
+.dropdown-box-martialStatusName,
+.dropdown-box-EducationalBackgroundName {
     height: 170px;
     overflow: auto;
 }

@@ -155,3 +155,53 @@ async function formatPosition(positionName) {
         })
     })
 }
+
+/**
+ * Format tình trạng quan hệ thành id
+ * Author: HHDang (8/7/2021)
+ * @param {Tình trạng quan hệ} martialStatusName 
+ * @returns id của tình trạng quan hệ trong database
+ */
+function formatMartialStatus(martialStatusName) {
+    switch(martialStatusName) {
+        case "Độc thân":
+            return 0;
+        case "Đã có gia đình":
+            return 1;
+        case "Sống chung chưa kết hôn":
+            return 2;
+        case "Đã kết hôn":
+            return 3;
+        case "Góa":
+            return 4;
+        case "Ly thân":
+            return 5;
+        default:
+            return null;
+    }
+}
+
+/**
+ * Format học vấn thành id
+ * Author: HHDang (8/7/2021)
+ * @param {Học vấn} educationalBackgroundName 
+ * @returns id của học vấnt rong database
+ */
+function formatEducationalBackground(educationalBackgroundName) {
+    switch(educationalBackgroundName) {
+        case "Tiểu học":
+            return 0;
+        case "Trung học cơ sở":
+            return 1;
+        case "Trung học phổ thông":
+            return 2;
+        case "Trung cấp":
+            return 3;
+        case "Cao đẳng":
+            return 4;
+        case "đại học":
+            return 5;
+        default:
+            return null;
+    }
+}

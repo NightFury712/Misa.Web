@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
     new EmployeeJS();
 });
 
@@ -57,14 +57,14 @@ class EmployeeJS extends BaseJS {
             $.ajax({
                 url: this.dataUrl,
                 method: "GET"
-            }).done(function (res) {
-                $.each(res, function (index, obj) {
+            }).done(function(res) {
+                $.each(res, function(index, obj) {
                     var tr = `<tr  EmployeeId=${obj.EmployeeId}></tr>`
-                    $.each(ths, function (index, th) {
+                    $.each(ths, function(index, th) {
                         var fieldName = $(th).attr('fieldName')
                         var formatType = $(th).attr('formatType')
                         var td = `<td></td>`
-                        // console.log(fieldName);
+                            // console.log(fieldName);
                         var value = obj[fieldName];
                         switch (formatType) {
                             case "ddmmyyyy":
@@ -88,7 +88,7 @@ class EmployeeJS extends BaseJS {
                     $('table tbody').append(tr);
                     // if(index == 10) return;
                 })
-            }).fail(function (err) {
+            }).fail(function(err) {
                 console.log(err);
             })
         } catch (err) {
@@ -109,7 +109,7 @@ class EmployeeJS extends BaseJS {
             $.ajax({
                 url: "http://cukcuk.manhnv.net/api/Department",
                 method: "GET"
-            }).done(function (res) {
+            }).done(function(res) {
                 // console.log(res)
                 $.each(res, (index, department) => {
                     const item = `<div class="dropdown-item ${index == (res.length - 1) ? 'dropdown-item-last' : ''}">
@@ -125,7 +125,7 @@ class EmployeeJS extends BaseJS {
                     switch (index) {
                         case 0:
                             itemAdd = `<div class="dropdown-item dropdown-item-first">${itemAddContent}</div>`
-                            // $('.formadd-select-box-department .select-box-text').val(department.DepartmentName);
+                                // $('.formadd-select-box-department .select-box-text').val(department.DepartmentName);
                             $('.formadd-select-box-department .dropdown-box').append(itemAdd);
                             break;
                         case res.length - 1:
@@ -142,6 +142,50 @@ class EmployeeJS extends BaseJS {
         } catch (err) {
             console.log(err);
         }
+    }
+
+    /**
+     * Load dữ liệu vị trí công việc
+     * Author: HHDang (8/7/2021)
+     */
+    loadDataPosition() {
+        $('.formadd-select-box-position .dropdown-box').empty();
+
+        // Lấy dữ liệu
+        $.ajax({
+            url: "http://cukcuk.manhnv.net/v1/Positions",
+            method: "GET"
+        }).done(function(res) {
+            $.each(res, (index, position) => {
+                const item = `<div class="dropdown-item ${index == (res.length - 1) ? 'dropdown-item-last' : ''}">
+                    <div class="dropdown-item__icon"></div>
+                    <input type="radio" id="radio-position-${index + 1}" name="radio-position" value="${position.PositionName}"></input>
+                    <label for="radio-position-${index + 1}">${position.PositionName}</label>
+                </div>`
+                $('.select-box-position .dropdown-box').append(item);
+                let itemAdd = ''
+                let itemAddContent = `<div class="dropdown-item__icon"></div>
+                    <input type="radio" id="radio-addposition-${index + 1}" name="radio-addposition" value="${position.PositionName}"></input>
+                    <label for="radio-addposition-${index + 1}">${position.PositionName}</label>`
+                    // console.log(itemAddContent)
+                switch (index) {
+                    case 0:
+                        itemAdd = `<div class="dropdown-item dropdown-item-first">${itemAddContent}</div>`
+                        $('.formadd-select-box-position .dropdown-box').append(itemAdd);
+                        break;
+                    case res.length - 1:
+                        itemAdd = `<div class="dropdown-item dropdown-item-last">${itemAddContent}</div>`
+                        $('.formadd-select-box-position .dropdown-box').append(itemAdd);
+                        break;
+                    default:
+                        itemAdd = `<div class="dropdown-item">${itemAddContent}</div>`
+                        $('.formadd-select-box-position .dropdown-box').append(itemAdd);
+                        break;
+                }
+            })
+        }).fail(function(err) {
+            console.log(err)
+        })
     }
 
     /**
@@ -180,9 +224,9 @@ class EmployeeJS extends BaseJS {
      * Xóa dữ liệu
      * Author: HHDang (5/7/2021)
      */
-    delete() {
+    // delete() {
 
-    }
+    // }
 }
 
 
@@ -193,9 +237,13 @@ class EmployeeJS extends BaseJS {
 function toggleDialog() {
     $('.dialog-background').toggleClass('hidden show');
     $('.dialog').toggleClass('hidden show');
-    setTimeout(() => {
-        $('#txtEmployeeCode').focus();
-    }, 300)
+    if ($('.dialog').hasClass('show')) {
+        $('input').removeClass('border-red');
+        setTimeout(() => {
+            $('#txtEmployeeCode').focus();
+        }, 300)
+    }
+
 }
 
 /**
@@ -221,7 +269,7 @@ function toggleSitebar() {
  * Author: HHDang (5/7/2021)
  */
 function clickOutsideDialog(el, handler) {
-    window.addEventListener('click', function (e) {
+    window.addEventListener('click', function(e) {
         if (e.target == el) {
             handler();
         }

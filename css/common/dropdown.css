@@ -121,3 +121,13 @@
     background-color: #019160;
     color: #fff;
 }
+
+.dropdown-box-jobstate {
+    height: 120px;
+    overflow: auto;
+}
+
+.dropdown-box-adddepartment {
+    height: 170px;
+    overflow: auto;
+}

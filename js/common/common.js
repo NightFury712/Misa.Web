@@ -14,7 +14,7 @@ function formatDate(date, option) {
         let year = date.getFullYear();
         day = day < 10 ? '0' + day : day;
         month = month < 10 ? '0' + month : month;
-        if(option == 1) {
+        if (option == 1) {
             return `${day}/${month}/${year}`;
         } else {
             return `${year}-${month}-${day}`
@@ -36,7 +36,7 @@ function formatMoney(money) {
             minimumFractionDigits: 0
         })
         money = formatter.format(money)
-        // money = money.toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, ".")
+            // money = money.toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, ".")
         return money;
     } else return 0;
 }
@@ -48,7 +48,7 @@ function formatMoney(money) {
  * @returns Nữ || Nam || Giới tính khác
  */
 function formatGender(gender, option) {
-    if(option == 1) {
+    if (option == 1) {
         switch (gender) {
             case 0:
                 return 'Nữ';
@@ -67,7 +67,7 @@ function formatGender(gender, option) {
                 return null;
         }
     }
-    
+
 
 }
 
@@ -79,14 +79,14 @@ function formatGender(gender, option) {
  */
 
 function formatWorkstatus(workstatus, option) {
-    if(option == 1) {
+    if (option == 1) {
         switch (workstatus) {
             case 0:
                 return "Đã nghỉ việc";
             case 1:
                 return "Đang làm việc";
             case 2:
-                return "Thực tập sinh" ;
+                return "Thực tập sinh";
             case 3:
                 return "Nghỉ thai sản";
             default:
@@ -106,4 +106,52 @@ function formatWorkstatus(workstatus, option) {
                 return null;
         }
     }
+}
+
+/**
+ * Format tên phòng ban thành id phòng ban
+ * Author: HHDang (8/7/2021)
+ * @param {"Phòng Marketting"} departmentName 
+ * @returns "PB99"
+ */
+async function formatDepartment(departmentName) {
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            url: "http://cukcuk.manhnv.net/api/Department",
+            method: "GET"
+        }).done(function(res) {
+            let index = res.findIndex(item => item.DepartmentName == departmentName);
+            if (index === -1) {
+                resolve(null);
+            } else {
+                resolve(res[index].DepartmentId);
+            }
+        }).fail(function(err) {
+            reject(err);
+        })
+    })
+}
+
+/**
+ * Format tên vị trí công việc thành id vị trí công việc
+ * Author: HHDang(8/7/2021)
+ * @param {"Phòng Đào tạo"} positionName 
+ * @returns "P08"
+ */
+async function formatPosition(positionName) {
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            url: "http://cukcuk.manhnv.net/v1/Positions",
+            method: "GET"
+        }).done(function(res) {
+            let index = res.findIndex(item => item.PositionName == positionName);
+            if (index === -1) {
+                resolve(null);
+            } else {
+                resolve(res[index].PositionId);
+            }
+        }).fail(function(err) {
+            reject(err);
+        })
+    })
 }

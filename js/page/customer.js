@@ -13,22 +13,26 @@ class CustomerJS extends BaseJS {
         this.loadData();
     }
 
+    setDataUrl() {
+        this.dataUrl = "http://cukcuk.manhnv.net/v1/Employees";
+    }
+
     /**
      * Load dữ liệu
      * Author: HHDang (5/7/2021)
      */
-    loadData() {
-        // Lấy dữ liệu 
-        $.ajax({
-            url: "http://cukcuk.manhnv.net/v1/Employees",
-            method: "GET"
-        }).done(function(res) {
-            var data = res;
-            console.log(data);
-        }).fail(function(err) {
-            console.log(err);
-        })
-    }
+    // loadData() {
+    //     // Lấy dữ liệu 
+    //     $.ajax({
+    //         url: "http://cukcuk.manhnv.net/v1/Employees",
+    //         method: "GET"
+    //     }).done(function(res) {
+    //         var data = res;
+    //         console.log(data);
+    //     }).fail(function(err) {
+    //         console.log(err);
+    //     })
+    // }
 
     /**
      * Thêm mới dữ liệu

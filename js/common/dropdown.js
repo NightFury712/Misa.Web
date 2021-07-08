@@ -53,7 +53,7 @@ function hideDropdown(dropdownName) {
     $(`.${dropdownName}`).removeClass('show');
     $(`.btn-dropdown-${name} .select-box-icon i`).removeClass('fa-chevron-up')
     $(`.btn-dropdown-${name} .select-box-icon i`).addClass('fa-chevron-down')
-    
+
 
 }
 

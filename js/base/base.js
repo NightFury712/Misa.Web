@@ -4,6 +4,7 @@ class BaseJS {
         this.setDataUrl();
         this.loadData();
         this.loadDataDepartment();
+        this.loadDataPosition();
         this.initEvents();
     }
 
@@ -14,29 +15,41 @@ class BaseJS {
         let EmployeeId;
 
         toggleSitebar();
-        $('.btn-add-emp').on('click', function () {
-            toggleDialog();
+        $('.btn-add-emp').on('click', function() {
             $('#btnSave').addClass('add-new-employee');
+            $('.dialog-footer .btn-cancel').removeClass('delete-employee');
+            $('.dialog-footer .btn-cancel').text('Hủy')
             $('#btnSave span').text('Lưu');
+            $.each($('.emp-info-general-item'), (index, formaddItem) => {
+                $(formaddItem).find('input').first().val('')
+            })
+
+            toggleDialog();
         })
 
-        $('.btn-close-dialog .btn-close').click(function () {
+        $('.btn-close-dialog .btn-close').click(function() {
             toggleDialog();
         })
 
         $('.dialog-footer .btn-cancel').click(() => {
+            if ($('.dialog-footer .btn-cancel').hasClass('delete-employee')) {
+                const flag = window.confirm("Bạn có chắc muốn xóa nhân viên này?");
+                if (flag) {
+                    mine.delete(EmployeeId);
+                }
+            }
             toggleDialog();
         })
 
         clickOutsideDialog(document.querySelector('.dialog-background'), toggleDialog);
 
         // Thực hiện load dữ liệu khi nhấn button nạp
-        $('#btnRefresh').click(function () {
+        $('#btnRefresh').click(function() {
             mine.loadData();
         })
 
         // Thực hiện lưu dữ liệu khi nhấn button [Lưu] trên form chi tiết
-        $('#btnSave').click(function () {
+        $('#btnSave').click(async function() {
             // Validate dữ liệu:
             var inputValidates = $('input[required], input[type=email], #nbPhoneNumber');
             $.each(inputValidates, (index, input) => {
@@ -50,8 +63,9 @@ class BaseJS {
             }
             let workStatus = formatWorkstatus($('#txtWorkStatus').val(), 2)
             let genderCode = formatGender($('#rdGender').val(), 2);
-            console.log(genderCode)
-            // console.log(workStatus);
+            let departmentId = await formatDepartment($('#txtDepartment').val());
+            let positionId = await formatPosition($('#txtPosition').val());
+            // console.log(genderCode)
 
             // Thu thập thông tin dữ liệu nhập và buil thành obj
             const employee = {
@@ -64,14 +78,15 @@ class BaseJS {
                 "identityPlace": $('#txtIdentityPlace').val(),
                 "email": $('#txtEmail').val(),
                 "phoneNumber": $('#nbPhoneNumber').val(),
-                "positionName": $('#txtPosition').val(),
-                "departmentCode": $('#txtDepartment').val(),
-                "personalTaxCode": $('#nbTaxCode').val(),
+                "positionId": positionId,
+                "departmentId": departmentId,
+                "personalTaxCode": $('#nbPersonalTaxCode').val(),
                 "salary": $('#nbSalary').val(),
                 "joinDate": $('#dtJoinDate').val(),
                 "WorkStatus": workStatus
             }
-            // console.log(employee);
+
+            console.log(employee);
             if ($(this).hasClass('add-new-employee')) {
                 mine.add(employee);
             } else {
@@ -81,9 +96,11 @@ class BaseJS {
         })
 
         // Hiển thị thông tin chi tiết khi nhấn đúp chuột chọn 1 bản ghi trên danh sách dữ liệu
-        $('table tbody').on('dblclick', 'tr', function () {
+        $('table tbody').on('dblclick', 'tr', function() {
             // alert(1);
             $('#btnSave').removeClass('add-new-employee');
+            $('.dialog-footer .btn-cancel').addClass('delete-employee')
+            $('.dialog-footer .btn-cancel').text('Xóa nhân viên')
             $('#btnSave span').text('Lưu thay đổi');
             let trSiblings = $(this).siblings();
             trSiblings.removeClass('row-selected');
@@ -93,10 +110,10 @@ class BaseJS {
             $.ajax({
                 url: `${mine.dataUrl}/${EmployeeId}`,
                 method: "GET"
-            }).done(function (res) {
+            }).done(function(res) {
                 mine.insertDialogInfo(res)
-                // $('#btnSave span').text('Lưu thay đổi');
-            }).fail(function (err) {
+                    // $('#btnSave span').text('Lưu thay đổi');
+            }).fail(function(err) {
                 console.log(err);
             })
         })
@@ -105,7 +122,7 @@ class BaseJS {
          * Validate bắt buộc nhập
          * Author: HHDang (6/7/2021)
          */
-        $('[required]').blur(function () {
+        $('[required]').blur(function() {
             // Kiểm tra dữ liệu đã nhập, nếu trống thì cảnh báo
             let value = $(this).val();
             if (!value) {
@@ -123,7 +140,7 @@ class BaseJS {
          * Validate email hợp lệ
          * Author: HHDang (6/7/2021)
          */
-        $('input[type=email]').blur(function () {
+        $('input[type=email]').blur(function() {
             let value = $(this).val();
             const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             if (re.test(String(value).toLowerCase())) {
@@ -141,7 +158,7 @@ class BaseJS {
          * Validate số điện thoại
          * Author: HHDang (6/7/2021)
          */
-        $('#nbPhoneNumber').blur(function () {
+        $('#nbPhoneNumber').blur(function() {
             let value = $(this).val();
             const regx = new RegExp(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im);
             if (regx.test(value)) {
@@ -155,6 +172,7 @@ class BaseJS {
             }
         })
     }
+
     //#endregion
 
 
@@ -176,9 +194,17 @@ class BaseJS {
 
     /**
      * Load dữ liệu phòng ban
-     * CreatedBy: HHDang (6/7/2021)
+     * Author: HHDang (6/7/2021)
      */
     loadDataDepartment() {
+
+    }
+
+    /**
+     * Load dữ liệu vị trí công việc
+     * Author: HHDang (8/7/2021)
+     */
+    loadDataPosition() {
 
     }
 
@@ -186,15 +212,15 @@ class BaseJS {
      * Thêm mới dữ liệu
      * CreatedBy: HHDang (5/7/2021)
      */
-     add() {
-         let mine = this;
+    add() {
+        let mine = this;
         // Post dữ liệu
         $.ajax({
             url: "http://cukcuk.manhnv.net/v1/Employees",
             method: "POST",
             data: JSON.stringify(employee),
             contentType: 'application/json'
-        }).done(function (res) {
+        }).done(function(res) {
             // Sau khi lưu thành công
             // + Thông báo thành công
             alert('Lưu thành công');
@@ -202,7 +228,7 @@ class BaseJS {
             toggleDialog();
             // + load lại dữ liệu
             mine.loadData();
-        }).fail(function (err) {
+        }).fail(function(err) {
             console.log(err);
         })
     }
@@ -236,7 +262,15 @@ class BaseJS {
      * Xóa dữ liệu
      * CreatedBy: HHDang (5/7/2021)
      */
-    delete() {
+    delete(EmployeeId) {
+        $.ajax({
+            url: `${this.dataUrl}/${EmployeeId}`,
+            method: "DELETE"
+        }).done(function(res) {
+            console.log(res);
+        }).fail(function(err) {
+            console.log(err);
+        })
 
     }
 }

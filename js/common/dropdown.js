@@ -53,6 +53,7 @@ function hideDropdown(dropdownName) {
     $(`.${dropdownName}`).removeClass('show');
     $(`.btn-dropdown-${name} .select-box-icon i`).removeClass('fa-chevron-up')
     $(`.btn-dropdown-${name} .select-box-icon i`).addClass('fa-chevron-down')
+    
 
 }
 
@@ -66,6 +67,7 @@ function showDropdown(dropdownName) {
     $('.dropdown-box').addClass('hidden');
     $(`.btn-select-box .select-box-icon i`).removeClass('fa-chevron-up')
     $(`.btn-select-box .select-box-icon i`).addClass('fa-chevron-down')
+    $(`input[type=radio]`).prop('checked', false);
 
     const name = dropdownName.split('-')[2];
     getSelectedItem(dropdownName)

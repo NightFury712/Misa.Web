@@ -1,19 +1,4 @@
 $(document).ready(function () {
-    toggleSitebar();
-    $('.btn-add-emp').on('click', function() {
-        toggleDialog();
-    })
-    $('.btn-close-dialog .btn-close').click(function() {
-        toggleDialog();
-    })
-    $('.dialog-footer .btn-cancel').click(() => {
-        document.getElementById('txtEmployeeCode').focus();
-        toggleDialog();
-    })
-    
-
-    clickOutsideDialog(document.querySelector('.dialog-background'), toggleDialog);
-    // loadData();
     new EmployeeJS();
 });
 
@@ -28,6 +13,34 @@ class EmployeeJS extends BaseJS {
 
     setDataUrl() {
         this.dataUrl = "http://cukcuk.manhnv.net/v1/Employees";
+    }
+
+    /**
+     * Thêm dữ liệu nhân viên vào dialog
+     * Author: HHDang (7/7/2021)
+     */
+    insertDialogInfo(res) {
+        // Hiển thị thông tin ngày sinh
+        let dob = formatDate(res.DateOfBirth, 2);
+        let identityDate = formatDate(res.IdentityDate, 2);
+        let joinDate = formatDate(res.JoinDate, 2);
+        let workStatus = formatWorkstatus(res.WorkStatus, 1);
+
+        $('#dtDateOfBirth').val(dob);
+        $('#txtEmployeeCode').val(res.EmployeeCode);
+        $('#txtFullName').val(res.FullName);
+        $('#rdGender').val(res.GenderName);
+        $('#txtEmail').val(res.Email);
+        $('#nbSalary').val(parseInt(res.Salary));
+        $('#nbPhoneNumber').val(res.PhoneNumber);
+        $('#nbIdentityNumber').val(res.IdentityNumber);
+        $('#txtIdentityDate').val(identityDate);
+        $('#txtIdentityPlace').val(res.IdentityPlace);
+        $('#txtPosition').val(res.PositionName);
+        $('#txtDepartment').val(res.DepartmentName);
+        $('#nbPersonalTaxCode').val(res.PersonalTaxCode);
+        $('#txtWorkStatus').val(workStatus);
+        $('#dtJoinDate').val(joinDate);
     }
 
     /**
@@ -46,25 +59,25 @@ class EmployeeJS extends BaseJS {
                 method: "GET"
             }).done(function (res) {
                 $.each(res, function (index, obj) {
-                    var tr = `<tr></tr>`
+                    var tr = `<tr  EmployeeId=${obj.EmployeeId}></tr>`
                     $.each(ths, function (index, th) {
                         var fieldName = $(th).attr('fieldName')
                         var formatType = $(th).attr('formatType')
-                        var td = `<td class=${fieldName}></td>`
+                        var td = `<td></td>`
                         // console.log(fieldName);
                         var value = obj[fieldName];
                         switch (formatType) {
                             case "ddmmyyyy":
-                                value = formatDate(value);
+                                value = formatDate(value, 1);
                                 break;
                             case "MoneyVND":
                                 value = formatMoney(value);
                                 break;
                             case "gender":
-                                value = formatGender(value);
+                                value = formatGender(value, 1);
                                 break;
                             case "workstatus":
-                                value = formatWorkstatus(value);
+                                value = formatWorkstatus(value, 1);
                                 break;
                             default:
                                 break;
@@ -115,11 +128,11 @@ class EmployeeJS extends BaseJS {
                             // $('.formadd-select-box-department .select-box-text').val(department.DepartmentName);
                             $('.formadd-select-box-department .dropdown-box').append(itemAdd);
                             break;
-                        case res.length-1:
+                        case res.length - 1:
                             itemAdd = `<div class="dropdown-item dropdown-item-last">${itemAddContent}</div>`
                             $('.formadd-select-box-department .dropdown-box').append(itemAdd);
                             break;
-                        default: 
+                        default:
                             itemAdd = `<div class="dropdown-item">${itemAddContent}</div>`
                             $('.formadd-select-box-department .dropdown-box').append(itemAdd);
                             break;
@@ -135,18 +148,33 @@ class EmployeeJS extends BaseJS {
      * Thêm mới dữ liệu
      * Author: HHDang (5/7/2021)
      */
-    add() {
-        // Post dữ liệu
-        
-    }
+    // add() {
+    //     // Post dữ liệu
+    //     $.ajax({
+    //         url: "http://cukcuk.manhnv.net/v1/Employees",
+    //         method: "POST",
+    //         data: JSON.stringify(employee),
+    //         contentType: 'application/json'
+    //     }).done(function (res) {
+    //         // Sau khi lưu thành công
+    //         // + Thông báo thành công
+    //         // + Ẩn form
+    //         // + load lại dữ liệu
+    //         alert('Lưu thành công');
+    //         toggleDialog();
+    //         console.log(res);
+    //     }).fail(function (err) {
+    //         console.log(err);
+    //     })
+    // }
 
     /**
      * Cập nhật dữ liệu
      * Author: HHDang (5/7/2021)
      */
-    edit() {
+    // edit() {
 
-    }
+    // }
 
     /**
      * Xóa dữ liệu

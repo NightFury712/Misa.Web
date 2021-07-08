@@ -121,6 +121,16 @@
 .emp-info-general-left .emp-info-general-item input:focus {
     border: 1px solid #019160;
 }
+.emp-info-general-right .emp-info-general-item {
+    position: relative;
+    box-sizing: border-box;
+}
+.emp-info-general-item .salary-currency {
+    position: absolute;
+    right: 16px;
+    top: 32px;
+    font-style: italic;
+}
 
 .emp-info-content .emp-info-general .emp-info-general-right {
     flex: 3;

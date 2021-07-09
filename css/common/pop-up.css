@@ -2,6 +2,11 @@
     background-color: #fff;
     border-radius: 4px;
     box-sizing: border-box;
+    z-index: 400;
+}
+
+.popup-background {
+    z-index: 300;
 }
 
 .popup-header {

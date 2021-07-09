@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/common/toast.css">
+  <link rel="stylesheet" href="/css/common/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="/lib/jquery-3.6.0.min.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div>
+    <button class="createToast">
+      Show success toast
+    </button>
+  </div>
+  <div id="toast">
+    <div class="toast hide toast--success">
+      <div class="toast__icon">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <div class="toast__body">
+        <!-- <h3 class="toast__tile">Success</h3> -->
+        <span class="toast__msg">Nội dung đi kèm tiêu đề</span>
+      </div>
+      <div class="toast__close">
+        <i class="fas fa-times"></i>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  $(document).ready(function () {
+    $('.createToast').click(() => {
+      toast({
+        message: "Hello tu bede cu be",
+        type: 'error',
+        duration: 3000
+      })
+    })
+
+  })
+  function toast({
+    message = '',
+    type = 'info',
+    duration = 3000
+  }) {
+    const main = document.getElementById('toast');
+    const toast = document.createElement('div');
+    const icons = {
+      success: 'fas fa-check-circle',
+      info: 'fas fa-info-circle',
+      warning: 'fas fa-exclamation-circle',
+      error: 'fas fa-exclamation-triangle'
+    }
+    const icon = icons[type];
+
+    toast.classList.add('toast', `toast--${type}`);
+    toast.style.animation = 'show_slide 1s ease forwards'
+    toast.innerHTML = `<div class="toast__icon">
+        <i class="${icon}"></i>
+      </div>
+      <div class="toast__body">
+        <span class="toast__msg">${message}</span>
+      </div>
+      <div class="toast__close">
+        <i class="fas fa-times"></i>
+      </div>`
+    main.appendChild(toast)
+
+    // Auto remove toast
+    const autoRemoveId = setTimeout(() => {
+      main.removeChild(toast);
+    }, duration + 1550)
+
+    setTimeout(() => {
+      toast.classList.add('hide');
+    }, duration + 1000)
+
+    // Remove toast when clicked
+    toast.onclick = function (e) {
+      if (e.target.closest('.toast__close')) { // target vào nó hoặc các con của nó
+        main.removeChild(toast);
+        clearTimeout(autoRemoveId);
+      }
+
+    }
+  }
+
+
+</script>
+
+</html>

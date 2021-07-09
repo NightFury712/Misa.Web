@@ -1,0 +1,5 @@
+class MISAEnum {
+  static formMode() {
+
+  }
+}

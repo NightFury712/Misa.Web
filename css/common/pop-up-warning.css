@@ -20,3 +20,8 @@
     color: #000;
 }
 
+.popup-footer .btn-save {
+    width: 100px;
+    justify-content: center;
+    padding: 0 !important;
+}

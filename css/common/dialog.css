@@ -3,7 +3,7 @@
 }
 
 .dialog {
-    z-index: 500;
+    z-index: 200;
     background-color: #fff;
     border-radius: 4px;
     width: 800px;

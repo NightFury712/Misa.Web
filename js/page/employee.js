@@ -55,7 +55,7 @@ class EmployeeJS extends BaseJS {
      * Author: HHDang (5/7/2021)
      */
     loadDataDepartment() {
-        $('.formadd-select-box-department .dropdown-box').empty();
+        $('.formadd-select-box-department .combobox-box').empty();
 
         // Lấy dữ liệu
         try {
@@ -64,24 +64,24 @@ class EmployeeJS extends BaseJS {
                 method: "GET"
             }).done(function (res) {
                 $.each(res, (index, department) => {
-                    const item = `<div class="dropdown-item ${index == (res.length - 1) ? 'dropdown-item-last' : ''}">
-                        <div class="dropdown-item__icon"></div>
+                    const item = `<div class="combobox-item ${index == (res.length - 1) ? 'combobox-item-last' : ''}">
+                        <div class="combobox-item__icon"></div>
                         <input type="radio" id="radio-department-${index + 1}" name="radio-department" value="${department.DepartmentName}"></input>
                         <label for="radio-department-${index + 1}">${department.DepartmentName}</label>
                     </div>`
 
-                    $('.select-box-department .dropdown-box').append(item);
+                    $('.select-box-department .combobox-box').append(item);
                     $(`#radio-department-${index + 1}`).data("Id", department.DepartmentId);
 
-                    let itemAdd = `<div class="dropdown-item "><div class="dropdown-item__icon"></div>
+                    let itemAdd = `<div class="combobox-item "><div class="combobox-item__icon"></div>
                     <input type="radio" id="radio-adddepartment-${index + 1}" name="radio-adddepartment" value="${department.DepartmentName}"></input>
                     <label for="radio-adddepartment-${index + 1}">${department.DepartmentName}</label></div>`
 
-                    $('.formadd-select-box-department .dropdown-box').append(itemAdd);
+                    $('.formadd-select-box-department .combobox-box').append(itemAdd);
                     $(`#radio-adddepartment-${index + 1}`).data("Id", department.DepartmentId);
                 })
-                $('.dropdown-box-adddepartment .dropdown-item').first().addClass('dropdown-item-first')
-                $('.dropdown-box-adddepartment .dropdown-item').last().addClass('dropdown-item-last')
+                $('.combobox-box-adddepartment .combobox-item').first().addClass('combobox-item-first')
+                $('.combobox-box-adddepartment .combobox-item').last().addClass('combobox-item-last')
             })
         } catch (err) {
             console.log(err);
@@ -93,7 +93,7 @@ class EmployeeJS extends BaseJS {
      * Author: HHDang (8/7/2021)
      */
     loadDataPosition() {
-        $('.formadd-select-box-position .dropdown-box').empty();
+        $('.formadd-select-box-position .combobox-box').empty();
 
         // Lấy dữ liệu
         $.ajax({
@@ -101,24 +101,24 @@ class EmployeeJS extends BaseJS {
             method: "GET"
         }).done(function (res) {
             $.each(res, (index, position) => {
-                const item = `<div class="dropdown-item ${index == (res.length - 1) ? 'dropdown-item-last' : ''}">
-                    <div class="dropdown-item__icon"></div>
+                const item = `<div class="combobox-item ${index == (res.length - 1) ? 'combobox-item-last' : ''}">
+                    <div class="combobox-item__icon"></div>
                     <input type="radio" id="radio-position-${index + 1}" name="radio-position" value="${position.PositionName}"></input>
                     <label for="radio-position-${index + 1}">${position.PositionName}</label>
                 </div>`
 
-                $('.select-box-position .dropdown-box').append(item);
+                $('.select-box-position .combobox-box').append(item);
                 $(`radio-position-${index + 1}`).data("Id", position.PositionId)
                 
-                let itemAdd = `<div class="dropdown-item dropdown-item-first"><div class="dropdown-item__icon"></div>
+                let itemAdd = `<div class="combobox-item combobox-item-first"><div class="combobox-item__icon"></div>
                 <input type="radio" id="radio-addposition-${index + 1}" name="radio-addposition" value="${position.PositionName}"></input>
                 <label for="radio-addposition-${index + 1}">${position.PositionName}</label></div>`
                 
-                $('.formadd-select-box-position .dropdown-box').append(itemAdd);
+                $('.formadd-select-box-position .combobox-box').append(itemAdd);
                 $(`#radio-addposition-${index + 1}`).data("Id", position.PositionId)
             })
-            $('.dropdown-box-addposition .dropdown-item').first().addClass('dropdown-item-first')
-            $('.dropdown-box-addposition .dropdown-item').last().addClass('dropdown-item-last')
+            $('.combobox-box-addposition .combobox-item').first().addClass('combobox-item-first')
+            $('.combobox-box-addposition .combobox-item').last().addClass('combobox-item-last')
         }).fail(function (err) {
             console.log(err)
         })
@@ -135,6 +135,7 @@ class EmployeeJS extends BaseJS {
         let genderCode = formatGender($('#rdGender').val(), 2);
         let departmentId = $('#txtDepartment').data("Id");
         let positionId = $('#txtPosition').data("Id");
+
         const employee = {
             "employeeCode": $('#txtEmployeeCode').val(),
             "fullName": $('#txtFullName').val(),

@@ -109,3 +109,25 @@
     background-color: #019160;
     cursor: pointer;
 }
+
+.btn-dbclick {
+    position: absolute;
+    z-index: 10;
+    display: flex;
+}
+
+.btn-dbclick .btn-modify {
+    border-radius: 4px 0 0 4px;
+    width: 80px;
+    padding: 0;
+    justify-content: center;
+}
+
+.btn-dbclick .btn-delete {
+    border-radius: 0 4px 4px 0;
+    background-color: #ff0505;
+}
+
+.btn-dbclick .btn-delete:hover {
+    background-color: #F65454;
+}

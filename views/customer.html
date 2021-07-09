@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="../css/common/input.css">
     <link rel="stylesheet" href="../css/common/toolbar.css">
     <link rel="stylesheet" href="../css/common/dialog.css">
-    <link rel="stylesheet" href="../css/common/dropdown.css">
+    <link rel="stylesheet" href="../css/common/combobox.css">
     <link rel="stylesheet" href="../css/common/grid.css">
     <link rel="stylesheet" href="../lib/jquery-ui-1.12.1/jquery-ui.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -77,27 +77,27 @@
                             <div class="emp-info-general-item">
                                 <p>Giới tính </p>
                                 <div class="formadd-select-box">
-                                    <button class="btn-select-box btn-dropdown-gender">
+                                    <button class="btn-select-box btn-combobox-gender">
                                         <div class="select-box-icon">
                                             <i class="fas fa-chevron-down"></i>
                                         </div>
                                     </button>
                                     <input class="select-box-text" value="" id="rdGender" tabindex="4"></input>
-                                    <div class="dropdown-box dropdown-box-gender hidden">
-                                        <div class="dropdown-item dropdown-item-first">
-                                            <div class="dropdown-item__icon"></div>
+                                    <div class="combobox-box combobox-box-gender hidden">
+                                        <div class="combobox-item combobox-item-first">
+                                            <div class="combobox-item__icon"></div>
                                             <input type="radio" id="radio-gender-1" name="radio-gender"
                                                 value="Nam"></input>
                                             <label for="radio-gender-1">Nam</label>
                                         </div>
-                                        <div class="dropdown-item">
-                                            <div class="dropdown-item__icon"></div>
+                                        <div class="combobox-item">
+                                            <div class="combobox-item__icon"></div>
                                             <input type="radio" id="radio-gender-2" name="radio-gender"
                                                 value="Nữ"></input>
                                             <label for="radio-gender-2">Nữ</label>
                                         </div>
-                                        <div class="dropdown-item dropdown-item-last">
-                                            <div class="dropdown-item__icon"></div>
+                                        <div class="combobox-item combobox-item-last">
+                                            <div class="combobox-item__icon"></div>
                                             <input type="radio" id="radio-gender-3" name="radio-gender"
                                                 value="Bede"></input>
                                             <label for="radio-gender-3">Bede</label>
@@ -129,45 +129,45 @@
                                 <div class="emp-info-general-item">
                                     <p>Tình trạng quan hệ</p>
                                     <div class="formadd-select-box">
-                                        <button class="btn-select-box btn-dropdown-martialStatusName">
+                                        <button class="btn-select-box btn-combobox-martialStatusName">
                                             <div class="select-box-icon">
                                                 <i class="fas fa-chevron-down"></i>
                                             </div>
                                         </button>
                                         <input class="select-box-text" type="text" tabindex="11" id="txtMartialStatusName">
-                                        <div class="dropdown-box dropdown-box-martialStatusName hidden">
-                                            <div class="dropdown-item dropdown-item-first">
-                                                <div class="dropdown-item__icon"></div>
+                                        <div class="combobox-box combobox-box-martialStatusName hidden">
+                                            <div class="combobox-item combobox-item-first">
+                                                <div class="combobox-item__icon"></div>
                                                 <input type="radio" id="radio-martialStatusName-1" name="radio-martialStatusName"
                                                     value="Độc thân"></input>
                                                 <label for="radio-martialStatusName-1">Độc thân</label>
                                             </div>
-                                            <div class="dropdown-item">
-                                                <div class="dropdown-item__icon"></div>
+                                            <div class="combobox-item">
+                                                <div class="combobox-item__icon"></div>
                                                 <input type="radio" id="radio-martialStatusName-2" name="radio-martialStatusName"
                                                     value="Đã có gia đình"></input>
                                                 <label for="radio-martialStatusName-2">Đã có gia đình</label>
                                             </div>
-                                            <div class="dropdown-item">
-                                                <div class="dropdown-item__icon"></div>
+                                            <div class="combobox-item">
+                                                <div class="combobox-item__icon"></div>
                                                 <input type="radio" id="radio-martialStatusName-3" name="radio-martialStatusName"
                                                     value="Sống chung chưa kết hôn"></input>
                                                 <label for="radio-martialStatusName-3">Sống chung chưa kết hôn</label>
                                             </div>
-                                            <div class="dropdown-item">
-                                                <div class="dropdown-item__icon"></div>
+                                            <div class="combobox-item">
+                                                <div class="combobox-item__icon"></div>
                                                 <input type="radio" id="radio-martialStatusName-4" name="radio-martialStatusName"
                                                     value="Đã kết hôn"></input>
                                                 <label for="radio-martialStatusName-4">Đã kết hôn</label>
                                             </div>
-                                            <div class="dropdown-item">
-                                                <div class="dropdown-item__icon"></div>
+                                            <div class="combobox-item">
+                                                <div class="combobox-item__icon"></div>
                                                 <input type="radio" id="radio-martialStatusName-5" name="radio-martialStatusName"
                                                     value="Góa"></input>
                                                 <label for="radio-martialStatusName-5">Góa</label>
                                             </div>
-                                            <div class="dropdown-item dropdown-item-last">
-                                                <div class="dropdown-item__icon"></div>
+                                            <div class="combobox-item combobox-item-last">
+                                                <div class="combobox-item__icon"></div>
                                                 <input type="radio" id="radio-martialStatusName-6" name="radio-martialStatusName"
                                                     value="Ly thân"></input>
                                                 <label for="radio-martialStatusName-6">Ly thân</label>
@@ -188,45 +188,45 @@
                                 <div class="emp-info-general-item">
                                     <p>Học vấn</p>
                                     <div class="formadd-select-box">
-                                        <button class="btn-select-box btn-dropdown-EducationalBackgroundName">
+                                        <button class="btn-select-box btn-combobox-EducationalBackgroundName">
                                             <div class="select-box-icon">
                                                 <i class="fas fa-chevron-down"></i>
                                             </div>
                                         </button>
                                     <input class="select-box-text" type="text" tabindex="12" id="txtEducationalBackgroundName">
-                                        <div class="dropdown-box dropdown-box-EducationalBackgroundName hidden">
-                                            <div class="dropdown-item dropdown-item-first">
-                                                <div class="dropdown-item__icon"></div>
+                                        <div class="combobox-box combobox-box-EducationalBackgroundName hidden">
+                                            <div class="combobox-item combobox-item-first">
+                                                <div class="combobox-item__icon"></div>
                                                 <input type="radio" id="radio-EducationalBackgroundName-1" name="radio-EducationalBackgroundName"
                                                     value="Tiểu học"></input>
                                                 <label for="radio-EducationalBackgroundName-1">Tiểu học</label>
                                             </div>
-                                            <div class="dropdown-item">
-                                                <div class="dropdown-item__icon"></div>
+                                            <div class="combobox-item">
+                                                <div class="combobox-item__icon"></div>
                                                 <input type="radio" id="radio-EducationalBackgroundName-2" name="radio-EducationalBackgroundName"
                                                     value="Trung học cơ sở"></input>
                                                 <label for="radio-EducationalBackgroundName-2">Trung học cơ sở</label>
                                             </div>
-                                            <div class="dropdown-item">
-                                                <div class="dropdown-item__icon"></div>
+                                            <div class="combobox-item">
+                                                <div class="combobox-item__icon"></div>
                                                 <input type="radio" id="radio-EducationalBackgroundName-3" name="radio-EducationalBackgroundName"
                                                     value="Trung học phổ thông"></input>
                                                 <label for="radio-EducationalBackgroundName-3">Trung học phổ thông</label>
                                             </div>
-                                            <div class="dropdown-item">
-                                                <div class="dropdown-item__icon"></div>
+                                            <div class="combobox-item">
+                                                <div class="combobox-item__icon"></div>
                                                 <input type="radio" id="radio-EducationalBackgroundName-4" name="radio-EducationalBackgroundName"
                                                     value="Trung cấp"></input>
                                                 <label for="radio-EducationalBackgroundName-4">Trung cấp</label>
                                             </div>
-                                            <div class="dropdown-item">
-                                                <div class="dropdown-item__icon"></div>
+                                            <div class="combobox-item">
+                                                <div class="combobox-item__icon"></div>
                                                 <input type="radio" id="radio-EducationalBackgroundName-5" name="radio-EducationalBackgroundName"
                                                     value="Cao đẳng"></input>
                                                 <label for="radio-EducationalBackgroundName-5">Cao đẳng</label>
                                             </div>
-                                            <div class="dropdown-item dropdown-item-last">
-                                                <div class="dropdown-item__icon"></div>
+                                            <div class="combobox-item combobox-item-last">
+                                                <div class="combobox-item__icon"></div>
                                                 <input type="radio" id="radio-EducationalBackgroundName-6" name="radio-EducationalBackgroundName"
                                                     value="đại học"></input>
                                                 <label for="radio-EducationalBackgroundName-6">đại học</label>
@@ -242,28 +242,28 @@
                                 <div class="emp-info-general-item">
                                     <p>Tình trạng công việc</p>
                                     <div class="formadd-select-box">
-                                        <button class="btn-select-box btn-dropdown-jobstate">
+                                        <button class="btn-select-box btn-combobox-jobstate">
                                             <div class="select-box-icon">
                                                 <i class="fas fa-chevron-down"></i>
                                             </div>
                                         </button>
                                         <input class="select-box-text" id="txtWorkStatus" tabindex="16"></input>
 
-                                        <div class="dropdown-box dropdown-box-jobstate hidden">
-                                            <div class="dropdown-item dropdown-item-first">
-                                                <div class="dropdown-item__icon"></div>
+                                        <div class="combobox-box combobox-box-jobstate hidden">
+                                            <div class="combobox-item combobox-item-first">
+                                                <div class="combobox-item__icon"></div>
                                                 <input type="radio" id="radio-jobstate-1" name="radio-jobstate"
                                                     value="Đang làm việc"></input>
                                                 <label for="radio-jobstate-1">Đang làm việc</label>
                                             </div>
-                                            <div class="dropdown-item">
-                                                <div class="dropdown-item__icon"></div>
+                                            <div class="combobox-item">
+                                                <div class="combobox-item__icon"></div>
                                                 <input type="radio" id="radio-jobstate-2" name="radio-jobstate"
                                                     value="Thực tập sinh"></input>
                                                 <label for="radio-jobstate-2">Thực tập sinh</label>
                                             </div>
-                                            <div class="dropdown-item dropdown-item-last">
-                                                <div class="dropdown-item__icon"></div>
+                                            <div class="combobox-item combobox-item-last">
+                                                <div class="combobox-item__icon"></div>
                                                 <input type="radio" id="radio-jobstate-3" name="radio-jobstate"
                                                     value="Đã nghỉ việc"></input>
                                                 <label for="radio-jobstate-3">Đã nghỉ việc</label>
@@ -333,28 +333,28 @@
             </div>
         </div>
         <div class="select-box">
-            <button class="btn-select-box btn-dropdown-restaurant">
+            <button class="btn-select-box btn-combobox-restaurant">
                 <div class="select-box-icon">
                     <i class="fas fa-chevron-down"></i>
                 </div>
             </button>
             <input class="select-box-text" value="Nhà hàng Hải Dương"></input>
 
-            <div class="dropdown-box dropdown-box-restaurant hidden">
-                <div class="dropdown-item dropdown-item-first">
-                    <div class="dropdown-item__icon"></div>
+            <div class="combobox-box combobox-box-restaurant hidden">
+                <div class="combobox-item combobox-item-first">
+                    <div class="combobox-item__icon"></div>
                     <input type="radio" id="radio-restaurant-1" name="radio-restaurant" value="Nhà hàng Hải Dương"
                         checked></input>
                     <label for="radio-restaurant-1">Nhà hàng Hải Dương</label>
                 </div>
-                <div class="dropdown-item">
-                    <div class="dropdown-item__icon"></div>
+                <div class="combobox-item">
+                    <div class="combobox-item__icon"></div>
                     <input type="radio" id="radio-restaurant-2" name="radio-restaurant"
                         value="Nhà hàng Hải Phòng"></input>
                     <label for="radio-restaurant-2">Nhà hàng Hải Phòng</label>
                 </div>
-                <div class="dropdown-item dropdown-item-last">
-                    <div class="dropdown-item__icon"></div>
+                <div class="combobox-item combobox-item-last">
+                    <div class="combobox-item__icon"></div>
                     <input type="radio" id="radio-restaurant-3" name="radio-restaurant"
                         value="Nhà hàng Quảng Ninh"></input>
                     <label for="radio-restaurant-3">Nhà hàng Quảng Ninh</label>
@@ -388,73 +388,73 @@
                         placeholder="Tìm kiếm theo Mã, Tên nhân viên">
                 </div>
                 <div class="select-box select-box-department">
-                    <button class="btn-select-box btn-dropdown-department">
+                    <button class="btn-select-box btn-combobox-department">
                         <div class="select-box-icon">
                             <i class="fas fa-chevron-down"></i>
                         </div>
                     </button>
                     <input class="select-box-text" value="Tất cả nhân viên"></input>
-                    <div class="dropdown-box dropdown-box-department hidden">
-                        <div class="dropdown-item dropdown-item-first">
-                            <div class="dropdown-item__icon"></div>
+                    <div class="combobox-box combobox-box-department hidden">
+                        <div class="combobox-item combobox-item-first">
+                            <div class="combobox-item__icon"></div>
                             <input type="radio" id="radio-department-0" name="radio-department" value="Tất cả nhân viên"
                                 checked></input>
                             <label for="radio-department-0">Tất cả nhân viên</label>
                         </div>
-                        <!-- <div class="dropdown-item">
-                            <div class="dropdown-item__icon"></div>
+                        <!-- <div class="combobox-item">
+                            <div class="combobox-item__icon"></div>
                             <input type="radio" id="radio-department-2" name="radio-department" value="Phòng hành chính"></input>
                             <label for="radio-department-2">Phòng hành chính</label>
                         </div>
-                        <div class="dropdown-item">
-                            <div class="dropdown-item__icon"></div>
+                        <div class="combobox-item">
+                            <div class="combobox-item__icon"></div>
                             <input type="radio" id="radio-department-3" name="radio-department" value="Phòng nhân sự"></input>
                             <label for="radio-department-3">Phòng nhân sự</label>
                         </div>
-                        <div class="dropdown-item">
-                            <div class="dropdown-item__icon"></div>
+                        <div class="combobox-item">
+                            <div class="combobox-item__icon"></div>
                             <input type="radio" id="radio-department-4" name="radio-department" value="Ban quản lý"></input>
                             <label for="radio-department-4">Ban quản lý</label>
                         </div>
-                        <div class="dropdown-item dropdown-item-last">
-                            <div class="dropdown-item__icon"></div>
+                        <div class="combobox-item combobox-item-last">
+                            <div class="combobox-item__icon"></div>
                             <input type="radio" id="radio-department-5" name="radio-department" value="Phòng điều hành"></input>
                             <label for="radio-department-5">Phòng điều hành</label>
                         </div> -->
                     </div>
                 </div>
                 <div class="select-box select-box-position">
-                    <button class="btn-select-box btn-dropdown-position">
+                    <button class="btn-select-box btn-combobox-position">
                         <div class="select-box-icon">
                             <i class="fas fa-chevron-down"></i>
                         </div>
                     </button>
                     <input class="select-box-text" value="Tất cả vị trí"></input>
-                    <div class="dropdown-box dropdown-box-position hidden">
-                        <div class="dropdown-item dropdown-item-first">
-                            <div class="dropdown-item__icon"></div>
+                    <div class="combobox-box combobox-box-position hidden">
+                        <div class="combobox-item combobox-item-first">
+                            <div class="combobox-item__icon"></div>
                             <input type="radio" id="radio-position-1" name="radio-position" value="Tất cả vị trí"
                                 checked></input>
                             <label for="radio-position-1">Tất cả vị trí</label>
                         </div>
 
-                        <!-- <div class="dropdown-item">
-                            <div class="dropdown-item__icon"></div>
+                        <!-- <div class="combobox-item">
+                            <div class="combobox-item__icon"></div>
                             <input type="radio" id="radio-position-2" name="radio-position" value="Giám đốc"></input>
                             <label for="radio-position-2">Giám đốc</label>
                         </div>
-                        <div class="dropdown-item">
-                            <div class="dropdown-item__icon"></div>
+                        <div class="combobox-item">
+                            <div class="combobox-item__icon"></div>
                             <input type="radio" id="radio-position-3" name="radio-position" value="Phó giám đốc"></input>
                             <label for="radio-position-3">Phó giám đốc</label>
                         </div>
-                        <div class="dropdown-item">
-                            <div class="dropdown-item__icon"></div>
+                        <div class="combobox-item">
+                            <div class="combobox-item__icon"></div>
                             <input type="radio" id="radio-position-4" name="radio-position" value="Trưởng phòng"></input>
                             <label for="radio-position-4">Trưởng phòng</label>
                         </div>
-                        <div class="dropdown-item dropdown-item-last">
-                            <div class="dropdown-item__icon"></div>
+                        <div class="combobox-item combobox-item-last">
+                            <div class="combobox-item__icon"></div>
                             <input type="radio" id="radio-position-5" name="radio-position" value="Nhân viên"></input>
                             <label for="radio-position-5">Nhân viên</label>
                         </div> -->
@@ -513,7 +513,7 @@
 <script src="../lib/jquery-ui-1.12.1/jquery-ui.min.js"></script>
 <script src="../js/common/common.js"></script>
 <script src="../js/base/base.js"></script>
-<script src="../js/common/dropdown.js"></script>
+<script src="../js/common/combobox.js"></script>
 <script src="../js/page/customer.js"></script>
 
 </html>

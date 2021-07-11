@@ -119,7 +119,7 @@
                             </div>
                             <div class="emp-info-general-item">
                                 <p>Giới tính </p>
-                                <div class="formadd-select-box">
+                                <div class="formadd-select-box formadd-select-box-gender">
                                     <button class="btn-select-box btn-combobox-gender">
                                         <div class="select-box-icon">
                                             <i class="fas fa-chevron-down"></i>
@@ -127,7 +127,7 @@
                                     </button>
                                     <input class="select-box-text" value="" id="rdGender" tabindex="4"></input>
                                     <div class="combobox-box combobox-box-gender hidden">
-                                        <div class="combobox-item combobox-item-first">
+                                        <!-- <div class="combobox-item combobox-item-first">
                                             <div class="combobox-item__icon"></div>
                                             <input type="radio" id="radio-gender-1" name="radio-gender"
                                                 value="Nam"></input>
@@ -144,7 +144,7 @@
                                             <input type="radio" id="radio-gender-3" name="radio-gender"
                                                 value="Bede"></input>
                                             <label for="radio-gender-3">Bede</label>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -184,7 +184,7 @@
                                         <input class="select-box-text" value="" id="txtPosition" tabindex="10"></input>
 
                                         <div class="combobox-box combobox-box-addposition hidden">
-                                            <div class="combobox-item combobox-item-first">
+                                            <!-- <div class="combobox-item combobox-item-first">
                                                 <div class="combobox-item__icon"></div>
                                                 <input type="radio" id="radio-addposition-1" name="radio-addposition"
                                                     value="Giám đốc"></input>
@@ -207,7 +207,7 @@
                                                 <input type="radio" id="radio-addposition-4" name="radio-addposition"
                                                     value="Nhân viên"></input>
                                                 <label for="radio-addposition-4">Nhân viên</label>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>
@@ -233,7 +233,7 @@
                                             tabindex="11"></input>
 
                                         <div class="combobox-box combobox-box-adddepartment hidden">
-                                            <div class="combobox-item combobox-item-first">
+                                            <!-- <div class="combobox-item combobox-item-first">
                                                 <div class="combobox-item__icon"></div>
                                                 <input type="radio" id="radio-adddepartment-1"
                                                     name="radio-adddepartment" value="Phòng hành chính" checked></input>
@@ -256,7 +256,7 @@
                                                 <input type="radio" id="radio-adddepartment-4"
                                                     name="radio-adddepartment" value="Phòng điều hành"></input>
                                                 <label for="radio-adddepartment-4">Phòng điều hành</label>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>
@@ -267,8 +267,8 @@
                                 </div>
                                 <div class="emp-info-general-item">
                                     <p>Tình trạng công việc</p>
-                                    <div class="formadd-select-box">
-                                        <button class="btn-select-box btn-combobox-jobstate">
+                                    <div class="formadd-select-box formadd-select-box-workstatus">
+                                        <button class="btn-select-box btn-combobox-workstatus">
                                             <div class="select-box-icon">
                                                 <i class="fas fa-chevron-down"></i>
                                             </div>
@@ -276,25 +276,25 @@
                                         <input class="select-box-text" value="" id="txtWorkStatus"
                                             tabindex="15"></input>
 
-                                        <div class="combobox-box combobox-box-jobstate hidden">
-                                            <div class="combobox-item combobox-item-first">
+                                        <div class="combobox-box combobox-box-workstatus hidden">
+                                            <!-- <div class="combobox-item combobox-item-first">
                                                 <div class="combobox-item__icon"></div>
-                                                <input type="radio" id="radio-jobstate-1" name="radio-jobstate"
+                                                <input type="radio" id="radio-workstatus-1" name="radio-workstatus"
                                                     value="Đang làm việc"></input>
-                                                <label for="radio-jobstate-1">Đang làm việc</label>
+                                                <label for="radio-workstatus-1">Đang làm việc</label>
                                             </div>
                                             <div class="combobox-item">
                                                 <div class="combobox-item__icon"></div>
-                                                <input type="radio" id="radio-jobstate-2" name="radio-jobstate"
+                                                <input type="radio" id="radio-workstatus-2" name="radio-workstatus"
                                                     value="Thực tập sinh"></input>
-                                                <label for="radio-jobstate-2">Thực tập sinh</label>
+                                                <label for="radio-workstatus-2">Thực tập sinh</label>
                                             </div>
                                             <div class="combobox-item combobox-item-last">
                                                 <div class="combobox-item__icon"></div>
-                                                <input type="radio" id="radio-jobstate-3" name="radio-jobstate"
+                                                <input type="radio" id="radio-workstatus-3" name="radio-workstatus"
                                                     value="Đã nghỉ việc"></input>
-                                                <label for="radio-jobstate-3">Đã nghỉ việc</label>
-                                            </div>
+                                                <label for="radio-workstatus-3">Đã nghỉ việc</label>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>
@@ -391,7 +391,7 @@
 
         <div class="account-info">
             <div class="account-avatar"></div>
-            <div class="account-name">Hoàng Hải Đăng</div>
+            <div class="account-name" value="112">Hoàng Hải Đăng</div>
             <div class="account-option">
                 <i class="fas fa-ellipsis-h"></i>
             </div>
@@ -420,34 +420,9 @@
                             <i class="fas fa-chevron-down"></i>
                         </div>
                     </button>
-                    <input class="select-box-text" value="Tất cả nhân viên"></input>
+                    <input class="select-box-text" value=""></input>
                     <div class="combobox-box combobox-box-department hidden">
-                        <div class="combobox-item combobox-item-first">
-                            <div class="combobox-item__icon"></div>
-                            <input type="radio" id="radio-department-0" name="radio-department" value="Tất cả nhân viên"
-                                checked></input>
-                            <label for="radio-department-0">Tất cả nhân viên</label>
-                        </div>
-                        <!-- <div class="combobox-item">
-                            <div class="combobox-item__icon"></div>
-                            <input type="radio" id="radio-department-2" name="radio-department" value="Phòng hành chính"></input>
-                            <label for="radio-department-2">Phòng hành chính</label>
-                        </div>
-                        <div class="combobox-item">
-                            <div class="combobox-item__icon"></div>
-                            <input type="radio" id="radio-department-3" name="radio-department" value="Phòng nhân sự"></input>
-                            <label for="radio-department-3">Phòng nhân sự</label>
-                        </div>
-                        <div class="combobox-item">
-                            <div class="combobox-item__icon"></div>
-                            <input type="radio" id="radio-department-4" name="radio-department" value="Ban quản lý"></input>
-                            <label for="radio-department-4">Ban quản lý</label>
-                        </div>
-                        <div class="combobox-item combobox-item-last">
-                            <div class="combobox-item__icon"></div>
-                            <input type="radio" id="radio-department-5" name="radio-department" value="Phòng điều hành"></input>
-                            <label for="radio-department-5">Phòng điều hành</label>
-                        </div> -->
+
                     </div>
                 </div>
                 <div class="select-box select-box-position">
@@ -456,35 +431,9 @@
                             <i class="fas fa-chevron-down"></i>
                         </div>
                     </button>
-                    <input class="select-box-text" value="Tất cả vị trí"></input>
+                    <input class="select-box-text" value=""></input>
                     <div class="combobox-box combobox-box-position hidden">
-                        <div class="combobox-item combobox-item-first">
-                            <div class="combobox-item__icon"></div>
-                            <input type="radio" id="radio-position-1" name="radio-position" value="Tất cả vị trí"
-                                checked></input>
-                            <label for="radio-position-1">Tất cả vị trí</label>
-                        </div>
 
-                        <!-- <div class="combobox-item">
-                            <div class="combobox-item__icon"></div>
-                            <input type="radio" id="radio-position-2" name="radio-position" value="Giám đốc"></input>
-                            <label for="radio-position-2">Giám đốc</label>
-                        </div>
-                        <div class="combobox-item">
-                            <div class="combobox-item__icon"></div>
-                            <input type="radio" id="radio-position-3" name="radio-position" value="Phó giám đốc"></input>
-                            <label for="radio-position-3">Phó giám đốc</label>
-                        </div>
-                        <div class="combobox-item">
-                            <div class="combobox-item__icon"></div>
-                            <input type="radio" id="radio-position-4" name="radio-position" value="Trưởng phòng"></input>
-                            <label for="radio-position-4">Trưởng phòng</label>
-                        </div>
-                        <div class="combobox-item combobox-item-last">
-                            <div class="combobox-item__icon"></div>
-                            <input type="radio" id="radio-position-5" name="radio-position" value="Nhân viên"></input>
-                            <label for="radio-position-5">Nhân viên</label>
-                        </div> -->
                     </div>
                 </div>
                 <div clasv class="filter-right">
@@ -508,7 +457,6 @@
                             <th fieldName="Salary" formatType="MoneyVND">Mức lương hiện tại</th>
                             <th fieldName="Address">Địa chỉ</th>
                             <th fieldName="WorkStatus" formatType="workstatus">Tình trạng công việc</th>
-
                         </tr>
                     </thead>
                     <tbody>

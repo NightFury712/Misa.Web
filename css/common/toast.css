@@ -6,7 +6,7 @@ body {
 #toast {
   position: fixed;
   z-index: 500;
-  top: 52px;
+  top: 10px;
   right: 24px;
 }
 

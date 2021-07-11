@@ -20,12 +20,22 @@ class EmployeeJS extends BaseJS {
      * Author: HHDang (8/7/2021)
      * @param {Thông tin nhân viên trả về theo id} res 
      */
-    insertDialogInfo(res) {
+    async insertDialogInfo(res) {
         // Hiển thị thông tin ngày sinh
         let dob = formatDate(res.DateOfBirth, 2);
         let identityDate = formatDate(res.IdentityDate, 2);
         let joinDate = formatDate(res.JoinDate, 2);
         let workStatus = formatWorkstatus(res.WorkStatus, 1);
+        // let DepartmentName
+        // let PositionName
+        let PositionName = await formatPosition(res.PositionId);
+        let DepartmentName = await formatDepartment(res.DepartmentId);
+
+
+        $('#rdGender').data('id', res.Gender)
+        $('#txtWorkStatus').data('id', res.WorkStatus)
+        $('#txtDepartment').data('id', res.DepartmentId)
+        $('#txtPosition').data('id', res.PositionId)
 
         $('#txtEmployeeCode').val(res.EmployeeCode);
         $('#txtFullName').val(res.FullName);
@@ -36,8 +46,8 @@ class EmployeeJS extends BaseJS {
         $('#txtIdentityPlace').val(res.IdentityPlace);
         $('#txtEmail').val(res.Email);
         $('#nbPhoneNumber').val(res.PhoneNumber);
-        $('#txtPosition').val(res.PositionName);
-        $('#txtDepartment').val(res.DepartmentName);
+        $('#txtPosition').val(PositionName);
+        $('#txtDepartment').val(DepartmentName);
         $('#nbPersonalTaxCode').val(res.PersonalTaxCode);
         $('#nbSalary').val(parseInt(res.Salary));
         $('#txtWorkStatus').val(workStatus);
@@ -45,17 +55,10 @@ class EmployeeJS extends BaseJS {
     }
 
     /**
-     * Load dữ liệu
-     * Author: HHDang (5/7/2021)
-     */
-
-
-    /**
      * Load dữ liệu phòng ban
      * Author: HHDang (5/7/2021)
      */
     loadDataDepartment() {
-        $('.formadd-select-box-department .combobox-box').empty();
 
         // Lấy dữ liệu
         try {
@@ -63,25 +66,14 @@ class EmployeeJS extends BaseJS {
                 url: "http://cukcuk.manhnv.net/api/Department",
                 method: "GET"
             }).done(function (res) {
+                let suggestions = [];
                 $.each(res, (index, department) => {
-                    const item = `<div class="combobox-item ${index == (res.length - 1) ? 'combobox-item-last' : ''}">
-                        <div class="combobox-item__icon"></div>
-                        <input type="radio" id="radio-department-${index + 1}" name="radio-department" value="${department.DepartmentName}"></input>
-                        <label for="radio-department-${index + 1}">${department.DepartmentName}</label>
-                    </div>`
-
-                    $('.select-box-department .combobox-box').append(item);
-                    $(`#radio-department-${index + 1}`).data("Id", department.DepartmentId);
-
-                    let itemAdd = `<div class="combobox-item "><div class="combobox-item__icon"></div>
-                    <input type="radio" id="radio-adddepartment-${index + 1}" name="radio-adddepartment" value="${department.DepartmentName}"></input>
-                    <label for="radio-adddepartment-${index + 1}">${department.DepartmentName}</label></div>`
-
-                    $('.formadd-select-box-department .combobox-box').append(itemAdd);
-                    $(`#radio-adddepartment-${index + 1}`).data("Id", department.DepartmentId);
+                    suggestions.push({ id: department.DepartmentId, name: department.DepartmentName })
                 })
-                $('.combobox-box-adddepartment .combobox-item').first().addClass('combobox-item-first')
-                $('.combobox-box-adddepartment .combobox-item').last().addClass('combobox-item-last')
+                combobox({ inputName: '.select-box-department .select-box-text', cbxName: 'department', dataArr: suggestions })
+                combobox({ inputName: '.formadd-select-box-department .select-box-text', cbxName: 'adddepartment', dataArr: suggestions })
+            }).fail(function (err) {
+                console.log(err)
             })
         } catch (err) {
             console.log(err);
@@ -93,35 +85,41 @@ class EmployeeJS extends BaseJS {
      * Author: HHDang (8/7/2021)
      */
     loadDataPosition() {
-        $('.formadd-select-box-position .combobox-box').empty();
-
+        // console.log($('.select-box-department .select-box-text'));
         // Lấy dữ liệu
         $.ajax({
             url: "http://cukcuk.manhnv.net/v1/Positions",
             method: "GET"
         }).done(function (res) {
+            let suggestions = [];
             $.each(res, (index, position) => {
-                const item = `<div class="combobox-item ${index == (res.length - 1) ? 'combobox-item-last' : ''}">
-                    <div class="combobox-item__icon"></div>
-                    <input type="radio" id="radio-position-${index + 1}" name="radio-position" value="${position.PositionName}"></input>
-                    <label for="radio-position-${index + 1}">${position.PositionName}</label>
-                </div>`
-
-                $('.select-box-position .combobox-box').append(item);
-                $(`radio-position-${index + 1}`).data("Id", position.PositionId)
-                
-                let itemAdd = `<div class="combobox-item combobox-item-first"><div class="combobox-item__icon"></div>
-                <input type="radio" id="radio-addposition-${index + 1}" name="radio-addposition" value="${position.PositionName}"></input>
-                <label for="radio-addposition-${index + 1}">${position.PositionName}</label></div>`
-                
-                $('.formadd-select-box-position .combobox-box').append(itemAdd);
-                $(`#radio-addposition-${index + 1}`).data("Id", position.PositionId)
+                suggestions.push({ id: position.PositionId, name: position.PositionName });
             })
-            $('.combobox-box-addposition .combobox-item').first().addClass('combobox-item-first')
-            $('.combobox-box-addposition .combobox-item').last().addClass('combobox-item-last')
+            combobox({ inputName: '.select-box-position .select-box-text', cbxName: 'position', dataArr: suggestions })
+            combobox({ inputName: '.formadd-select-box-position .select-box-text', cbxName: 'addposition', dataArr: suggestions })
         }).fail(function (err) {
             console.log(err)
         })
+    }
+
+    /**
+     * Load các combobox tĩnh
+     * Author: HHDang (11/7/2021)
+     */
+    loadDataCombobox() {
+        let genderArr = [
+            {id: 0, name: 'Nữ'},
+            {id: 1, name: 'Nam'},
+            {id: null, name: 'Giới tính khác'}
+        ]
+        let workStatusArr = [
+            {id: 0, name: 'Đã nghỉ việc'},
+            {id: 1, name: 'Đang làm việc'},
+            {id: 2, name: 'Thực tập sinh'},
+            {id: 3, name: 'Nghỉ thai sản'},
+        ]
+        combobox({ inputName: '.formadd-select-box-gender .select-box-text', cbxName: 'gender', dataArr: genderArr })
+        combobox({ inputName: '.formadd-select-box-workstatus .select-box-text', cbxName: 'workstatus', dataArr: workStatusArr })
     }
 
     /**
@@ -131,10 +129,12 @@ class EmployeeJS extends BaseJS {
      */
     getPersonInfo() {
         // Thu thập thông tin dữ liệu nhập và buil thành obj
-        let workStatus = formatWorkstatus($('#txtWorkStatus').val(), 2)
-        let genderCode = formatGender($('#rdGender').val(), 2);
-        let departmentId = $('#txtDepartment').data("Id");
-        let positionId = $('#txtPosition').data("Id");
+        let workStatus = $('#txtWorkStatus').getId();
+        // console.log($('#txtWorkStatus').getId());
+        let genderCode = $('#rdGender').getId();
+        // console.log($('#rdGender').getId());
+        let departmentId = $('#txtDepartment').getId();
+        let positionId = $('#txtPosition').getId();
 
         const employee = {
             "employeeCode": $('#txtEmployeeCode').val(),

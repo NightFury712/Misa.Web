@@ -5,6 +5,7 @@ class BaseJS {
         this.loadData();
         this.loadDataDepartment();
         this.loadDataPosition();
+        this.loadDataCombobox();
         this.initEvents();
     }
 
@@ -48,7 +49,7 @@ class BaseJS {
                 toast({
                     message: "Dữ liệu đang nhập sẽ mất khi đóng form!",
                     type: 'warning',
-                    duration: 3000
+                    duration: 2000
                 })
                 togglePopUp()
                 toggleDialog();
@@ -84,8 +85,8 @@ class BaseJS {
             $.ajax({
                 url: `${mine.dataUrl}/${EmployeeId}`,
                 method: "GET"
-            }).done(function (res) {
-                mine.insertDialogInfo(res)
+            }).done(async function (res) {
+                await mine.insertDialogInfo(res)
             }).fail(function (err) {
                 console.log(err);
             })
@@ -115,13 +116,13 @@ class BaseJS {
                 toast({
                     message: "Dữ liệu không hợp lệ!",
                     type: 'error',
-                    duration: 3000
+                    duration: 2000
                 })
-                setTimeout(()=> {
+                setTimeout(() => {
                     toast({
                         message: "Vui lòng kiểm tra lại!",
                         type: 'error',
-                        duration: 3000
+                        duration: 2000
                     })
                 }, 100)
                 inputNotValids[0].focus();
@@ -133,7 +134,6 @@ class BaseJS {
             if ($(this).hasClass('add-new-employee')) {
                 mine.add(employee);
             } else {
-                console.log("heello");
                 mine.edit(EmployeeId, employee);
             }
         })
@@ -219,11 +219,7 @@ class BaseJS {
          */
         $(document).on('keydown', function (e) {
             // keyCode của phím esc là 27
-            if (e.keyCode === 27) {
-                // $('.dialog-background').removeClass('show');
-                // $('.dialog-background').addClass('hidden');
-                // $('.dialog').removeClass('show');
-                // $('.dialog').addClass('hidden');
+            if (e.keyCode === 27 && $('.dialog').hasClass('show')) {
                 togglePopUp();
             }
         })
@@ -251,7 +247,7 @@ class BaseJS {
      * Author: HHDang (8/7/2021)
      * @param {thông tin nhân viên trả về theo id} res 
      */
-    insertDialogInfo(res) {
+    async insertDialogInfo(res) {
         console.log('parent insertDialogInfo: ' + res)
     }
 
@@ -338,6 +334,13 @@ class BaseJS {
     }
 
     /**
+     * Load các combobox tĩnh
+     * Author: HHDang (11/7/2021)
+     */
+    loadDataCombobox() {
+
+    }
+    /**
      * Thêm mới dữ liệu
      * CreatedBy: HHDang (5/7/2021)
      */
@@ -356,7 +359,7 @@ class BaseJS {
             toast({
                 message: "Thêm nhân viên thành công!",
                 type: 'success',
-                duration: 3000
+                duration: 2000
             })
             // + Ẩn form
             toggleDialog();
@@ -385,7 +388,7 @@ class BaseJS {
             toast({
                 message: "Lưu thay đổi thành công!",
                 type: 'success',
-                duration: 3000
+                duration: 2000
             })
             // + Ẩn form
             toggleDialog();
@@ -411,7 +414,7 @@ class BaseJS {
             toast({
                 message: "Xóa nhân viên thành công!",
                 type: 'success',
-                duration: 3000
+                duration: 2000
             })
             mine.loadData();
             console.log(res);

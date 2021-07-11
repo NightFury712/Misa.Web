@@ -122,14 +122,15 @@
     color: #fff;
 }
 
-.combobox-box-jobstate {
-    height: 120px;
+.combobox-box-workstatus {
+    max-height: 120px;
     overflow: auto;
 }
 
 .combobox-box-adddepartment,
+.combobox-box-addposition,
 .combobox-box-martialStatusName,
 .combobox-box-EducationalBackgroundName {
-    height: 170px;
+    max-height: 170px;
     overflow: auto;
 }

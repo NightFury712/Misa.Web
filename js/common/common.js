@@ -157,3 +157,33 @@ function formatEducationalBackground(educationalBackgroundName) {
             return null;
     }
 }
+
+async function formatDepartment(departmentId) {
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            url: "http://cukcuk.manhnv.net/api/Department",
+            method: "GET"
+        }).done(function (res) {
+            $.each(res, (index, department) => {
+                if(departmentId == department.DepartmentId) resolve(department.DepartmentName);
+            })
+        }).fail(function (err) {
+            reject(err)
+        })
+    })
+}
+
+async function formatPosition(positionId) {
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            url: "http://cukcuk.manhnv.net/v1/Positions",
+            method: "GET"
+        }).done(function (res) {
+            $.each(res, (index, department) => {
+                if(positionId == department.PositionId) resolve(department.PositionName);
+            })
+        }).fail(function (err) {
+            reject(err)
+        })
+    })
+}

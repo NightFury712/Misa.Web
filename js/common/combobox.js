@@ -91,7 +91,12 @@ function combobox({inputName, cbxName, dataArr }) {
     
     let index = 0;
     let selectedItem;
-    let filterArray = [];   
+    let filterArray = [];  
+    // console.log(dataArr[0])
+    if(dataArr[0].id === '') {
+        $(`.select-box-${cbxName} .select-box-text`).val(dataArr[0].name);
+        $(`.select-box-${cbxName} .select-box-text`).data('id', dataArr[0].id)
+    }
 
     // Nếu người dùng gõ phím bất kì sẽ thực thi hàm
     input.on('keyup', function (e) {
@@ -110,7 +115,7 @@ function combobox({inputName, cbxName, dataArr }) {
                     <label for="radio-${cbxName}-1">${userData}</label>
                 </div>`
                 comboboxDiv.append(cbxItem);
-                $(`#radio-${cbxName}-1`).data("id", null);
+                $(`#radio-${cbxName}-1`).data("id", '');
             } else {
                 // append các item vào combobox-container
                 $.each(filterArray, (index, item) => {
@@ -152,7 +157,7 @@ function combobox({inputName, cbxName, dataArr }) {
             $(`.btn-combobox-${cbxName}~.select-box-text`).val(selectedItem.val());
             // Lấy ra id của item gán cho thẻ input cha
             $(`.btn-combobox-${cbxName}~.select-box-text`).data("id", $(`#${$(selectedItem).attr('id')}`).data('id'))
-            // console.log(selectedItem.data("id"));
+            // console.log($('.select-box-department .select-box-text'));
             hideCombobox(comboboxName);
         }
         

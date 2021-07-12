@@ -66,11 +66,12 @@ class EmployeeJS extends BaseJS {
                 url: "http://cukcuk.manhnv.net/api/Department",
                 method: "GET"
             }).done(function (res) {
-                let suggestions = [];
+                let suggestions = [{id: '', name: 'Tất cả phòng ban'}];
                 $.each(res, (index, department) => {
                     suggestions.push({ id: department.DepartmentId, name: department.DepartmentName })
                 })
-                combobox({ inputName: '.select-box-department .select-box-text', cbxName: 'department', dataArr: suggestions })
+                combobox({ inputName: '.select-box-department .select-box-text', cbxName: 'department', dataArr: suggestions });
+                suggestions = suggestions.filter(item => item.id != '');
                 combobox({ inputName: '.formadd-select-box-department .select-box-text', cbxName: 'adddepartment', dataArr: suggestions })
             }).fail(function (err) {
                 console.log(err)
@@ -91,11 +92,12 @@ class EmployeeJS extends BaseJS {
             url: "http://cukcuk.manhnv.net/v1/Positions",
             method: "GET"
         }).done(function (res) {
-            let suggestions = [];
+            let suggestions = [{id: '', name: 'Tất cả vị trí'}];
             $.each(res, (index, position) => {
                 suggestions.push({ id: position.PositionId, name: position.PositionName });
             })
             combobox({ inputName: '.select-box-position .select-box-text', cbxName: 'position', dataArr: suggestions })
+            suggestions = suggestions.filter(item => item.id != '');
             combobox({ inputName: '.formadd-select-box-position .select-box-text', cbxName: 'addposition', dataArr: suggestions })
         }).fail(function (err) {
             console.log(err)
@@ -120,6 +122,54 @@ class EmployeeJS extends BaseJS {
         ]
         combobox({ inputName: '.formadd-select-box-gender .select-box-text', cbxName: 'gender', dataArr: genderArr })
         combobox({ inputName: '.formadd-select-box-workstatus .select-box-text', cbxName: 'workstatus', dataArr: workStatusArr })
+    }
+
+    filterData() {
+        $('table tbody').empty();
+        let ths = $('table thead th');
+        let departmentId = $('.select-box-department .select-box-text').data('id');
+        let positionId = $('.select-box-position .select-box-text').data('id');
+        // console.log($('.select-box-department .select-box-text').data('id'))
+        $.ajax({
+            url:`http://cukcuk.manhnv.net/v1/Employees/employeeFilter?pageSize=100&pageNumber=1&employeeFilter=NV&departmentId=${departmentId}&positionId=${positionId}`,
+            method: "GET"
+        }).done(function(res) {
+            res = res.Data;
+            console.log(res);
+            $.each(res, function (index, obj) {
+                var tr = `<tr  EmployeeId=${obj.EmployeeId}></tr>`
+                $.each(ths, function (index, th) {
+                    var fieldName = $(th).attr('fieldName')
+                    var formatType = $(th).attr('formatType')
+                    var td = `<td></td>`
+                    // console.log(fieldName);
+                    var value = obj[fieldName];
+                    switch (formatType) {
+                        case "ddmmyyyy":
+                            value = formatDate(value, 1);
+                            break;
+                        case "MoneyVND":
+                            td = `<td class></td>`
+                            value = formatMoney(value);
+                            break;
+                        case "gender":
+                            value = formatGender(value, 1);
+                            break;
+                        case "workstatus":
+                            value = formatWorkstatus(value, 1);
+                            break;
+                        default:
+                            break;
+                    }
+                    td = $(td).append(value);
+                    tr = $(tr).append(td);
+                })
+                $('table tbody').append(tr);
+                // if(index == 10) return;
+            })
+        }).fail(function(err) {
+            console.log(err)
+        })
     }
 
     /**

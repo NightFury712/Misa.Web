@@ -71,6 +71,16 @@ class BaseJS {
             mine.loadData();
         })
 
+        // Thực hiện lọc dữ liệu khi unfocus trường tìm kiếm theo nhân viên
+        $(`.select-box-department .select-box-text`).blur(function() {
+            mine.filterData();
+        })
+
+        $(`.select-box-position .select-box-text`).blur(function() {
+            mine.filterData();
+        })
+
+
         $('.btn-dbclick .btn-modify').click(function () {
             $('#btnSave span').text('Lưu thay đổi');
             $('#btnSave').removeClass('add-new-employee');
@@ -340,6 +350,11 @@ class BaseJS {
     loadDataCombobox() {
 
     }
+
+    filterData() {
+
+    }
+
     /**
      * Thêm mới dữ liệu
      * CreatedBy: HHDang (5/7/2021)

@@ -2,10 +2,12 @@ class BaseJS {
     constructor() {
         this.dataUrl = null;
         this.setDataUrl();
-        this.loadData();
+        // this.loadData();
+        this.filterData();
         this.loadDataDepartment();
         this.loadDataPosition();
         this.loadDataCombobox();
+        this.loadPagination();
         this.initEvents();
     }
 
@@ -96,6 +98,7 @@ class BaseJS {
                 url: `${mine.dataUrl}/${EmployeeId}`,
                 method: "GET"
             }).done(async function (res) {
+                // console.log(res);
                 await mine.insertDialogInfo(res)
             }).fail(function (err) {
                 console.log(err);
@@ -351,6 +354,14 @@ class BaseJS {
 
     }
 
+    loadPagination() {
+
+    }
+
+    /**
+     * Lọc dữ liệu khi người dùng chọn các trường trên trang chính
+     * Author: HHDang (12/7/2021)
+     */
     filterData() {
 
     }

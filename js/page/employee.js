@@ -66,7 +66,7 @@ class EmployeeJS extends BaseJS {
                 url: "http://cukcuk.manhnv.net/api/Department",
                 method: "GET"
             }).done(function (res) {
-                let suggestions = [{id: '', name: 'Tất cả phòng ban'}];
+                let suggestions = [{ id: '', name: 'Tất cả phòng ban' }];
                 $.each(res, (index, department) => {
                     suggestions.push({ id: department.DepartmentId, name: department.DepartmentName })
                 })
@@ -92,7 +92,7 @@ class EmployeeJS extends BaseJS {
             url: "http://cukcuk.manhnv.net/v1/Positions",
             method: "GET"
         }).done(function (res) {
-            let suggestions = [{id: '', name: 'Tất cả vị trí'}];
+            let suggestions = [{ id: '', name: 'Tất cả vị trí' }];
             $.each(res, (index, position) => {
                 suggestions.push({ id: position.PositionId, name: position.PositionName });
             })
@@ -110,15 +110,15 @@ class EmployeeJS extends BaseJS {
      */
     loadDataCombobox() {
         let genderArr = [
-            {id: 0, name: 'Nữ'},
-            {id: 1, name: 'Nam'},
-            {id: null, name: 'Giới tính khác'}
+            { id: 0, name: 'Nữ' },
+            { id: 1, name: 'Nam' },
+            { id: null, name: 'Giới tính khác' }
         ]
         let workStatusArr = [
-            {id: 0, name: 'Đã nghỉ việc'},
-            {id: 1, name: 'Đang làm việc'},
-            {id: 2, name: 'Thực tập sinh'},
-            {id: 3, name: 'Nghỉ thai sản'},
+            { id: 0, name: 'Đã nghỉ việc' },
+            { id: 1, name: 'Đang làm việc' },
+            { id: 2, name: 'Thực tập sinh' },
+            { id: 3, name: 'Nghỉ thai sản' },
         ]
         combobox({ inputName: '.formadd-select-box-gender .select-box-text', cbxName: 'gender', dataArr: genderArr })
         combobox({ inputName: '.formadd-select-box-workstatus .select-box-text', cbxName: 'workstatus', dataArr: workStatusArr })
@@ -127,15 +127,18 @@ class EmployeeJS extends BaseJS {
     filterData() {
         $('table tbody').empty();
         let ths = $('table thead th');
-        let departmentId = $('.select-box-department .select-box-text').data('id');
-        let positionId = $('.select-box-position .select-box-text').data('id');
+        let departmentId = $('.select-box-department .select-box-text').data('id') === undefined ? '' : $('.select-box-department .select-box-text').data('id');
+        let positionId = $('.select-box-position .select-box-text').data('id') === undefined ? '' : $('.select-box-position .select-box-text').data('id');
+        const pageNum = parseInt($.urlParam('page'));
         // console.log($('.select-box-department .select-box-text').data('id'))
         $.ajax({
-            url:`http://cukcuk.manhnv.net/v1/Employees/employeeFilter?pageSize=100&pageNumber=1&employeeFilter=NV&departmentId=${departmentId}&positionId=${positionId}`,
+            url: `http://cukcuk.manhnv.net/v1/Employees/employeeFilter?pageSize=10&pageNumber=${pageNum}&employeeFilter=NV&departmentId=${departmentId}&positionId=${positionId}`,
             method: "GET"
-        }).done(function(res) {
+        }).done(function (res) {
+
+
+            // Lấy dữ liệu đã lọc thêm vào bảng
             res = res.Data;
-            console.log(res);
             $.each(res, function (index, obj) {
                 var tr = `<tr  EmployeeId=${obj.EmployeeId}></tr>`
                 $.each(ths, function (index, th) {
@@ -167,7 +170,7 @@ class EmployeeJS extends BaseJS {
                 $('table tbody').append(tr);
                 // if(index == 10) return;
             })
-        }).fail(function(err) {
+        }).fail(function (err) {
             console.log(err)
         })
     }
@@ -205,6 +208,41 @@ class EmployeeJS extends BaseJS {
         }
         // console.log(employee)
         return employee;
+    }
+
+    loadPagination() {
+        const pageNum = parseInt($.urlParam('page'));
+        $.ajax({
+            url: `http://cukcuk.manhnv.net/v1/Employees/employeeFilter?pageSize=10&pageNumber=${pageNum}&employeeFilter=NV`,
+            method: "GET"
+        }).done(function (res) {
+            // Đánh số trang cho trang employee
+            let totalPage = res.TotalPage;
+            let start = 0;
+            let end = 4;
+            if (pageNum >= 2) {
+                start = pageNum - 2;
+                if (pageNum + 2 < totalPage) {
+                    end = pageNum + 2;
+                } else {
+                    start = totalPage - 5;
+                    end = totalPage - 1;
+                }
+            }
+            if (totalPage < 5) {
+                end = totalPage;
+            }
+            for (let i = start; i <= end; i++) {
+                let pageItem = `<a class="page-number-item ${pageNum == i ? 'actived' : ''}" href="employee.html?page=${i}">${i}</a>`
+                $('.pagination .page-number').append(pageItem);
+            }
+
+            $('.first-page').attr('href', `employee.html?page=0`);
+            $('.pre-page').attr('href', `employee.html?page=${pageNum > 0 ? pageNum - 1 : 0}`);
+            $('.next-page').attr('href', `employee.html?page=${pageNum < totalPage - 1 ? pageNum + 1 : totalPage - 1}`);
+            $('.last-page').attr('href', `employee.html?page=${totalPage - 1}`);
+        })
+
     }
 
     /**

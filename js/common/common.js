@@ -164,9 +164,12 @@ async function formatDepartment(departmentId) {
             url: "http://cukcuk.manhnv.net/api/Department",
             method: "GET"
         }).done(function (res) {
+            let departmentName = '';
             $.each(res, (index, department) => {
-                if(departmentId == department.DepartmentId) resolve(department.DepartmentName);
+                if(departmentId == department.DepartmentId) 
+                    departmentName = department.DepartmentName;
             })
+            resolve(departmentName);
         }).fail(function (err) {
             reject(err)
         })
@@ -179,9 +182,14 @@ async function formatPosition(positionId) {
             url: "http://cukcuk.manhnv.net/v1/Positions",
             method: "GET"
         }).done(function (res) {
-            $.each(res, (index, department) => {
-                if(positionId == department.PositionId) resolve(department.PositionName);
+            let positionName = '';
+            $.each(res, (index, position) => {
+                if(positionId == position.PositionId) {
+                    console.log(position.PositionName);
+                    positionName = position.PositionName
+                };
             })
+            resolve(positionName);
         }).fail(function (err) {
             reject(err)
         })

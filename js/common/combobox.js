@@ -74,15 +74,6 @@ function getSelectedItem(comboboxName) {
     })
 }
 
-jQuery.fn.extend({
-    getText: function () {
-        return this.text()
-    },
-    getId: function () {
-        return this.data('id');
-    }
-})
-
 // Hàm khởi tạo 1 combobox
 function combobox({inputName, cbxName, dataArr }) {
     const input = $(inputName);

@@ -91,6 +91,9 @@ function combobox({inputName, cbxName, dataArr }) {
 
     // Nếu người dùng gõ phím bất kì sẽ thực thi hàm
     input.on('keyup', function (e) {
+        if(comboboxDiv.hasClass('hidden')) {
+            index = 0;
+        }
         let userData = $(this).val().toLowerCase();
         if (userData) {
             filterArray = dataArr.filter((item) => {
@@ -128,9 +131,23 @@ function combobox({inputName, cbxName, dataArr }) {
             $(`.combobox-box-${cbxName} .combobox-item`).last().addClass('combobox-item-last')
             $(`.select-box-${cbxName} .btn-reset-select-box`).css('display', 'block')
         } else {
+            comboboxDiv.empty();
             // Ẩn combobox nểu không có dữ liệu được nhập vào
             $(`.select-box-${cbxName} .btn-reset-select-box`).css('display', 'none')
-            hideCombobox(comboboxName);
+            $.each(dataArr, (index, item) => {
+                const cbxItem = `<div class="combobox-item">
+                    <div class="combobox-item__icon"><i class="fas fa-check"></i></div>
+                    <input type="radio" id="radio-${cbxName}-${index + 1}" name="radio-${cbxName}" value="${item.name}"></input>
+                    <label for="radio-${cbxName}-${index + 1}">${item.name}</label>
+                </div>`
+                comboboxDiv.append(cbxItem);
+                $(`#radio-${cbxName}-${index + 1}`).data("id", item.id);
+                // console.log(item.id)
+            })
+            
+            $(`.combobox-box-${cbxName} .combobox-item`).first().addClass('combobox-item-first')
+            $(`.combobox-box-${cbxName} .combobox-item`).last().addClass('combobox-item-last')
+            // hideCombobox(comboboxName);
         }
         if (e.keyCode === 40) {
             index++;

@@ -16,6 +16,10 @@ class BaseJS {
         let mine = this;
         let EmployeeId;
 
+        $('.grid-employee').scroll(function() {
+            $('.btn-dbclick').hide();
+        })
+
         toggleSitebar();
         $('.btn-add-emp').on('click', function () {
             $('#btnSave').addClass('add-new-employee');
@@ -67,6 +71,14 @@ class BaseJS {
         })
 
         clickOutsideDialog(document.querySelector('.dialog-background'), togglePopUp);
+
+        $('.btn-reset-select-box').click(function() {
+            const input = $(this).siblings('.select-box-text')
+            input.val('');
+            input.data('id', '')
+            input.focus();
+            $(this).css('display', 'none');
+        })
 
         // Thực hiện load dữ liệu khi nhấn button nạp
         $('#btnRefresh').click(function () {
@@ -390,7 +402,7 @@ class BaseJS {
             // + Ẩn form
             toggleDialog();
             // + load lại dữ liệu
-            mine.loadData();
+            mine.filterData();
         }).fail(function (err) {
             console.log(err);
         })
@@ -419,7 +431,7 @@ class BaseJS {
             // + Ẩn form
             toggleDialog();
             // + load lại dữ liệu
-            mine.loadData();
+            mine.filterData();
             console.log(res);
         }).fail(function (err) {
             console.log((err))
@@ -442,7 +454,7 @@ class BaseJS {
                 type: 'success',
                 duration: 2000
             })
-            mine.loadData();
+            mine.filterData();
             console.log(res);
         }).fail(function (err) {
             console.log(err);

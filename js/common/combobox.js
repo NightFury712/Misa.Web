@@ -126,9 +126,10 @@ function combobox({inputName, cbxName, dataArr }) {
             // Thêm margin top và button cho item đầu và cuối
             $(`.combobox-box-${cbxName} .combobox-item`).first().addClass('combobox-item-first')
             $(`.combobox-box-${cbxName} .combobox-item`).last().addClass('combobox-item-last')
-
+            $(`.select-box-${cbxName} .btn-reset-select-box`).css('display', 'block')
         } else {
             // Ẩn combobox nểu không có dữ liệu được nhập vào
+            $(`.select-box-${cbxName} .btn-reset-select-box`).css('display', 'none')
             hideCombobox(comboboxName);
         }
         if (e.keyCode === 40) {

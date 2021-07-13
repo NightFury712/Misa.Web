@@ -125,7 +125,8 @@
                                             <i class="fas fa-chevron-down"></i>
                                         </div>
                                     </button>
-                                    <input class="select-box-text" value="" id="rdGender" autocomplete="off" tabindex="4"></input>
+                                    <input class="select-box-text" value="" id="rdGender" autocomplete="off"
+                                        tabindex="4"></input>
                                     <div class="combobox-box combobox-box-gender hidden">
                                         <!-- <div class="combobox-item combobox-item-first">
                                             <div class="combobox-item__icon"></div>
@@ -181,7 +182,8 @@
                                                 <i class="fas fa-chevron-down"></i>
                                             </div>
                                         </button>
-                                        <input class="select-box-text" value="" id="txtPosition" autocomplete="off" tabindex="10"></input>
+                                        <input class="select-box-text" value="" id="txtPosition" autocomplete="off"
+                                            tabindex="10"></input>
 
                                         <div class="combobox-box combobox-box-addposition hidden">
                                             <!-- <div class="combobox-item combobox-item-first">
@@ -275,7 +277,6 @@
                                         </button>
                                         <input class="select-box-text" value="" id="txtWorkStatus" autocomplete="off"
                                             tabindex="15"></input>
-
                                         <div class="combobox-box combobox-box-workstatus hidden">
                                             <!-- <div class="combobox-item combobox-item-first">
                                                 <div class="combobox-item__icon"></div>
@@ -388,7 +389,6 @@
                 </div>
             </div>
         </div>
-
         <div class="account-info">
             <div class="account-avatar"></div>
             <div class="account-name" value="112">Hoàng Hải Đăng</div>
@@ -396,89 +396,94 @@
                 <i class="fas fa-ellipsis-h"></i>
             </div>
         </div>
-        <div class="content">
-            <div class="header-content">
-                <div class="title">Danh sách nhân viên</div>
-                <div class="content-feature">
-                    <button class="m-btn m-btn-default btn-add-emp">
-                        <div class="icon-add">
-                            <i class="fas fa-user-plus"></i>
-                        </div>
-                        <div class="btn-text">Thêm nhân viên</div>
-                    </button>
-                </div>
-            </div>
-            <div class="filter-bar">
-                <div class="filter-left">
-                    <i class="fas fa-search"></i>
-                    <input class="input-search" style="width: 250px;" type="text"
-                        placeholder="Tìm kiếm theo Mã, Tên nhân viên">
-                </div>
-                <div class="select-box select-box-department">
-                    <button class="btn-select-box btn-combobox-department">
-                        <div class="select-box-icon">
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                    </button>
-                    <input class="select-box-text" value=""></input>
-                    <div class="combobox-box combobox-box-department hidden">
-
+    </div>
+    <div class="content">
+        <div class="header-content">
+            <div class="title">Danh sách nhân viên</div>
+            <div class="content-feature">
+                <button class="m-btn m-btn-default btn-add-emp">
+                    <div class="icon-add">
+                        <i class="fas fa-user-plus"></i>
                     </div>
-                </div>
-                <div class="select-box select-box-position">
-                    <button class="btn-select-box btn-combobox-position">
-                        <div class="select-box-icon">
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                    </button>
-                    <input class="select-box-text" value=""></input>
-                    <div class="combobox-box combobox-box-position hidden">
-
+                    <div class="btn-text">Thêm nhân viên</div>
+                </button>
+            </div>
+        </div>
+        <div class="filter-bar">
+            <div class="filter-left">
+                <i class="fas fa-search"></i>
+                <input class="input-search" style="width: 250px;" type="text"
+                    placeholder="Tìm kiếm theo Mã, Tên nhân viên">
+            </div>
+            <div class="select-box select-box-department">
+                <button class="btn-select-box btn-combobox-department">
+                    <div class="select-box-icon">
+                        <i class="fas fa-chevron-down"></i>
                     </div>
-                </div>
-                <div clasv class="filter-right">
-                    <button class="m-btn-refresh m-second-button" id="btnRefresh">
-                        <i class="fas fa-sync-alt"></i>
-                    </button>
+                </button>
+                <input class="select-box-text" value=""></input>
+                <button class="btn-reset-select-box">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="combobox-box combobox-box-department hidden">
                 </div>
             </div>
-            <div class="grid grid-employee">
-                <table border="0" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th fieldName="EmployeeCode">Mã nhân viên</th>
-                            <th fieldName="FullName">Họ và tên</th>
-                            <th fieldName="Gender" formatType="gender">Giới tính</th>
-                            <th fieldName="DateOfBirth" formatType="ddmmyyyy">Ngày sinh</th>
-                            <th fieldName="PhoneNumber">Số điện thoại</th>
-                            <th fieldName="Email">Email</th>
-                            <th fieldName="PositionName">Chức vụ</th>
-                            <th fieldName="DepartmentName">Phòng ban</th>
-                            <th fieldName="Salary" formatType="MoneyVND">Mức lương hiện tại</th>
-                            <th fieldName="Address">Địa chỉ</th>
-                            <th fieldName="WorkStatus" formatType="workstatus">Tình trạng công việc</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
+            <div class="select-box select-box-position">
+                <button class="btn-select-box btn-combobox-position">
+                    <div class="select-box-icon">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </button>
+                <input class="select-box-text" value=""></input>
+                <button class="btn-reset-select-box">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="combobox-box combobox-box-position hidden">
+
+                </div>
             </div>
-            <div class="paging-bar">
-                <div class="paging-numtotal">Hiển thị 1/1000 nhân viên</div>
-                <div class="pagination">
-                    <a class="first-page"></a>
-                    <a class="pre-page"></a>
-                    <div class="page-number">
-                        <!-- <div class="page-number-item actived">1</div>
+            <div clasv class="filter-right">
+                <button class="m-btn-refresh m-second-button" id="btnRefresh">
+                    <i class="fas fa-sync-alt"></i>
+                </button>
+            </div>
+        </div>
+        <div class="grid grid-employee">
+            <table border="0" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th fieldName="EmployeeCode">Mã nhân viên</th>
+                        <th fieldName="FullName">Họ và tên</th>
+                        <th fieldName="Gender" formatType="gender">Giới tính</th>
+                        <th fieldName="DateOfBirth" formatType="ddmmyyyy">Ngày sinh</th>
+                        <th fieldName="PhoneNumber">Số điện thoại</th>
+                        <th fieldName="Email">Email</th>
+                        <th fieldName="PositionName">Chức vụ</th>
+                        <th fieldName="DepartmentName">Phòng ban</th>
+                        <th fieldName="Salary" formatType="MoneyVND">Mức lương hiện tại</th>
+                        <th fieldName="Address">Địa chỉ</th>
+                        <th fieldName="WorkStatus" formatType="workstatus">Tình trạng công việc</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="paging-bar">
+            <div class="paging-numtotal">Hiển thị 1/1000 nhân viên</div>
+            <div class="pagination">
+                <a class="first-page"></a>
+                <a class="pre-page"></a>
+                <div class="page-number">
+                    <!-- <div class="page-number-item actived">1</div>
                         <div class="page-number-item">2</div>
                         <div class="page-number-item">3</div>
                         <div class="page-number-item">4</div> -->
-                    </div>
-                    <a class="next-page"></a>
-                    <a class="last-page"> </a>
                 </div>
-                <div class="paging-current-numtotal">Hiển thị 1/10</div>
+                <a class="next-page"></a>
+                <a class="last-page"> </a>
             </div>
+            <div class="paging-current-numtotal">Hiển thị 1/10</div>
         </div>
     </div>
 </body>

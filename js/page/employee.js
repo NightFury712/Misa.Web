@@ -132,7 +132,7 @@ class EmployeeJS extends BaseJS {
         const pageNum = parseInt($.urlParam('page'));
         // console.log($('.select-box-department .select-box-text').data('id'))
         $.ajax({
-            url: `http://cukcuk.manhnv.net/v1/Employees/employeeFilter?pageSize=10&pageNumber=${pageNum}&employeeFilter=NV&departmentId=${departmentId}&positionId=${positionId}`,
+            url: `http://cukcuk.manhnv.net/v1/Employees/employeeFilter?pageSize=20&pageNumber=${pageNum}&employeeFilter=NV&departmentId=${departmentId}&positionId=${positionId}`,
             method: "GET"
         }).done(function (res) {
 
@@ -213,7 +213,7 @@ class EmployeeJS extends BaseJS {
     loadPagination() {
         const pageNum = parseInt($.urlParam('page'));
         $.ajax({
-            url: `http://cukcuk.manhnv.net/v1/Employees/employeeFilter?pageSize=10&pageNumber=${pageNum}&employeeFilter=NV`,
+            url: `http://cukcuk.manhnv.net/v1/Employees/employeeFilter?pageSize=20&pageNumber=${pageNum}&employeeFilter=NV`,
             method: "GET"
         }).done(function (res) {
             // Đánh số trang cho trang employee

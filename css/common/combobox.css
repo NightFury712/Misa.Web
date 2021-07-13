@@ -1,6 +1,6 @@
 .select-box {
     margin-left: 15px;
-    width: 203px;
+    width: 205px;
     box-sizing: border-box;
     position: relative;
     border: 1px solid #bbb;
@@ -37,6 +37,36 @@
     right: 0;
     height: 100%;
     width: 36px;
+}
+
+.btn-reset-select-box {
+    position: absolute;
+    padding: 0;
+    background-color: #fff;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 13px;
+    right: 36px;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    
+    display: none;
+}
+
+.btn-reset-select-box i {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.btn-reset-select-box:hover {
+    background-color: #e5e5e5;
 }
 
 .select-box input,

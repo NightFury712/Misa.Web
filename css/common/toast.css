@@ -21,6 +21,8 @@ body {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2) ;
   height: 48px;
   margin-bottom: 10px;
+  
+  animation: show_slide 1s ease forwards;
 }
 
 .toast.hide {
@@ -29,9 +31,6 @@ body {
   transition: 0.5s;
 }
 
-/* .toast.show {
-  animation: show_slide 1s ease forwards;
-} */
 
 @keyframes show_slide {
   0%{
